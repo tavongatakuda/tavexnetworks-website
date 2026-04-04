@@ -1,44 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Tarvex Networks</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - Tarvex Networks</title>
+
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f8fbff;
+}
+
+.container{
+  width:90%;
+  margin:auto;
+}
+
+h1{
+  color:#0b2a5b;
+  text-align:center;
+}
+
+.nav{
+  background:white;
+  padding:15px;
+  border-bottom:1px solid #ddd;
+}
+
+.nav a{
+  margin-right:15px;
+  text-decoration:none;
+  color:#333;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:30px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigation Bar -->
-  <div class="nav">
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="services.html">Services</a> |
-    <a href="packages.html">Packages</a> |
-    <a href="contact.html">Contact</a>
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="packages.html">Packages</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="container">
+  <h1>Our Services</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Website Creation</h2>
+      <p>We build modern and powerful websites for businesses and individuals.</p>
+    </div>
+
+    <div class="card">
+      <h2>Domain Setup</h2>
+      <p>We help you buy and connect domains to your website easily.</p>
+    </div>
+
+    <div class="card">
+      <h2>AI Integration</h2>
+      <p>We will add smart AI tools to help automate and grow your platform.</p>
+    </div>
+
   </div>
-
-  <!-- Services Section -->
-  <div class="container">
-    <h1>Our Services</h1>
-
-    <ul>
-      <li><strong>Custom Websites:</strong> Build your own professional website with Tarvex.</li>
-      <li><strong>Domain Guidance:</strong> Help to get the perfect domain for your project.</li>
-      <li><strong>AI Tools:</strong> Smart tools including housing assistant (coming soon!).</li>
-      <li><strong>Support & Hosting:</strong> 24/7 help and secure hosting.</li>
-    </ul>
-
-    <p>We are committed to providing services that motivate young creators and businesses to grow. More features will be added soon!</p>
-
-    <!-- Optional Image -->
-    <img src="assets/hero.jpg" alt="Tarvex Services">
-
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p>© 2026 Tarvex Networks. All rights reserved.</p>
-  </div>
+</div>
 
 </body>
 </html>
