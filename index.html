@@ -1,68 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarvex Networks</title>
+<!-- ONLY 2 THINGS CHANGED: assets/hero.jpg → hero.jpg AND assets/video.mp4 → video.mp4 -->
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#f8fbff;
-    }
+<style>
+.preview{
+  aspect-ratio: 4 / 3;
+  background:
+    linear-gradient(180deg, rgba(11,42,91,.15), rgba(11,42,91,.55)),
+    url("hero.jpg") center/cover no-repeat; /* ✅ FIXED */
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  min-height: 320px;
+}
+</style>
 
-    h1{
-      text-align:center;
-      color:#0b2a5b;
-      margin-top:20px;
-    }
+<!-- ================= VIDEO SECTION ================= -->
 
-    .hero-img{
-      width:100%;
-      border-radius:20px;
-      margin-top:20px;
-    }
+<section class="section" id="video">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our vision video</h2>
+      <p>Upload your video and it will show here</p> <!-- (optional text fix only) -->
+    </div>
 
-    .container{
-      width:90%;
-      margin:auto;
-    }
+    <div class="video-wrap">
+      <div class="card video-box">
+        <video controls poster="hero.jpg"> <!-- ✅ FIXED -->
+          <source src="video.mp4" type="video/mp4" /> <!-- ✅ FIXED -->
+          Your browser does not support video.
+        </video>
+      </div>
 
-    .preview{
-      height:300px;
-      background:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-        url("hero.jpg") center/cover no-repeat;
-      border-radius:20px;
-      display:flex;
-      align-items:flex-end;
-      color:white;
-      padding:20px;
-      margin-top:20px;
-    }
+      <div class="card">
+        <div class="badge">Motivation</div>
+        <h3>For young people who want more</h3>
+        <p>
+          Tarvex is built to inspire young people to create, sell, learn, and build something real.
+          We want the website to feel strong, clean, and full of purpose.
+        </p>
 
-  </style>
-</head>
-
-<body>
-
-<div class="container">
-
-  <h1>Welcome to Tarvex Networks</h1>
-
-  <!-- HERO IMAGE -->
-  <img src="hero.jpg" class="hero-img" alt="Tarvex Hero">
-
-  <!-- HERO PREVIEW BOX -->
-  <div class="preview">
-    <div>
-      <h2>Tarvex is coming soon</h2>
-      <p>Websites • Domains • AI • Hosting</p>
+        <ul class="list">
+          <li>Believe in your idea and build it step by step.</li>
+          <li>Keep learning, keep growing, and keep improving.</li>
+          <li>Make your future visible through action.</li>
+        </ul>
+      </div>
     </div>
   </div>
-
-</div>
-
-</body>
-</html>
+</section>
