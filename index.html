@@ -1,49 +1,207 @@
-<!-- ONLY 2 THINGS CHANGED: assets/hero.jpg → hero.jpg AND assets/video.mp4 → video.mp4 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarvex Networks</title>
 
-<style>
-.preview{
-  aspect-ratio: 4 / 3;
-  background:
-    linear-gradient(180deg, rgba(11,42,91,.15), rgba(11,42,91,.55)),
-    url("hero.jpg") center/cover no-repeat; /* ✅ FIXED */
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  min-height: 320px;
-}
-</style>
+  <style>
+    :root{
+      --blue-900:#0b2a5b;
+      --blue-800:#123b7a;
+      --blue-700:#1d4ed8;
+      --blue-600:#2563eb;
+      --blue-100:#eaf2ff;
+      --blue-050:#f7fbff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#d7e3f4;
+    }
 
-<!-- ================= VIDEO SECTION ================= -->
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f8fbff;
+    }
 
-<section class="section" id="video">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our vision video</h2>
-      <p>Upload your video and it will show here</p> <!-- (optional text fix only) -->
+    .container{
+      width:90%;
+      margin:auto;
+    }
+
+    h1,h2{
+      color:var(--blue-900);
+    }
+
+    /* NAV */
+    .topbar{
+      background:white;
+      padding:15px;
+      border-bottom:1px solid #ddd;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* HERO */
+    .hero{
+      padding:30px 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .hero-card{
+      background:white;
+      padding:20px;
+      border-radius:20px;
+    }
+
+    .preview{
+      height:300px;
+      background:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+        url("hero.jpg") center/cover no-repeat;
+      border-radius:20px;
+      display:flex;
+      align-items:flex-end;
+      color:white;
+      padding:20px;
+    }
+
+    /* BUTTONS */
+    .btn{
+      padding:10px 15px;
+      border-radius:10px;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:10px;
+    }
+
+    .btn-primary{
+      background:blue;
+      color:white;
+    }
+
+    .btn-secondary{
+      border:1px solid blue;
+      color:blue;
+    }
+
+    /* CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:20px;
+    }
+
+    /* VIDEO */
+    video{
+      width:100%;
+      border-radius:20px;
+    }
+
+    @media(max-width:800px){
+      .hero-grid,.grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container nav">
+    <h2>Tarvex Networks</h2>
+    <div>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#video">Vision</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div class="hero-card">
+      <h1>Power your future with Tarvex Networks</h1>
+      <p>Websites, Domains, AI and Digital Solutions.</p>
+      <a href="#packages" class="btn btn-primary">See Packages</a>
+      <a href="#video" class="btn btn-secondary">Watch Video</a>
     </div>
 
-    <div class="video-wrap">
-      <div class="card video-box">
-        <video controls poster="hero.jpg"> <!-- ✅ FIXED -->
-          <source src="video.mp4" type="video/mp4" /> <!-- ✅ FIXED -->
-          Your browser does not support video.
-        </video>
+    <div class="hero-card">
+      <div class="preview">
+        <div>
+          <h2>Coming Soon</h2>
+          <p>Websites • Domains • AI</p>
+        </div>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="badge">Motivation</div>
-        <h3>For young people who want more</h3>
-        <p>
-          Tarvex is built to inspire young people to create, sell, learn, and build something real.
-          We want the website to feel strong, clean, and full of purpose.
-        </p>
+  </div>
+</section>
 
-        <ul class="list">
-          <li>Believe in your idea and build it step by step.</li>
-          <li>Keep learning, keep growing, and keep improving.</li>
-          <li>Make your future visible through action.</li>
-        </ul>
-      </div>
+<!-- SERVICES -->
+<section id="services" class="container">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Websites</h3>
+      <p>Professional website creation</p>
+    </div>
+    <div class="card">
+      <h3>Domains</h3>
+      <p>Domain buying help</p>
+    </div>
+    <div class="card">
+      <h3>AI</h3>
+      <p>Smart tools coming soon</p>
     </div>
   </div>
 </section>
+
+<!-- PACKAGES -->
+<section id="packages" class="container">
+  <h2>Packages</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Basic</h3>
+      <p>$5</p>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <p>$15</p>
+    </div>
+    <div class="card">
+      <h3>Premium</h3>
+      <p>$30</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="container">
+  <h2>Our Vision</h2>
+  <video controls poster="hero.jpg">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</section>
+
+</body>
+  </html>
