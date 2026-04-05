@@ -1,222 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tarvex Networks</title>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-<style>
-:root{
---blue-900:#0b2a5b;
---blue-700:#1d4ed8;
---text:#0f172a;
---muted:#475569;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarvex Networks</title><style>
 
 body{
 margin:0;
-font-family:Arial;
-background:#f8fbff;
+font-family: 'Segoe UI', Arial, sans-serif;
+background:linear-gradient(180deg,#f4f7ff,#eef3ff);
+color:#0b2a5b;
 }
 
-.container{
-width:90%;
-margin:auto;
-}
-
-.topbar{
-background:white;
-padding:15px;
-border-bottom:1px solid #ddd;
-}
+/* NAVBAR */
 
 .nav{
+background:white;
+padding:18px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-flex-wrap:wrap;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.nav a{
+.logo{
+font-size:22px;
+font-weight:700;
+}
+
+.nav-links a{
 margin-left:15px;
 text-decoration:none;
 color:#333;
 font-weight:600;
 }
 
-.nav a:hover{
-color:#1d4ed8;
+.btn{
+background:#2563eb;
+color:white;
+padding:10px 16px;
+border-radius:10px;
+text-decoration:none;
+margin-left:10px;
 }
 
-.login-btn{
-background:#1d4ed8;
-color:white;
-padding:8px 14px;
-border-radius:8px;
-}
+/* HERO */
 
 .hero{
-padding:40px 0;
+padding:40px 20px;
 }
 
-.hero-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.hero-card{
+.hero-box{
 background:white;
-padding:25px;
+padding:30px;
 border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
 }
+
+.hero h1{
+font-size:32px;
+margin:0;
+}
+
+.hero p{
+color:#555;
+margin-top:15px;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:20px;
+background:#2563eb;
+color:white;
+padding:12px 18px;
+border-radius:10px;
+text-decoration:none;
+}
+
+/* IMAGE */
 
 .preview{
-height:300px;
-background:
-linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-url("hero.jpg") center/cover no-repeat;
+margin-top:20px;
 border-radius:20px;
-display:flex;
-align-items:flex-end;
-color:white;
-padding:20px;
+overflow:hidden;
+}
+
+.preview img{
+width:100%;
+border-radius:20px;
+}
+
+/* SERVICES */
+
+.section{
+padding:30px 20px;
+}
+
+.section h2{
+margin-bottom:20px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+grid-template-columns:1fr;
+gap:15px;
 }
 
 .card{
 background:white;
 padding:20px;
-border-radius:20px;
+border-radius:16px;
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
 }
 
-video{
-width:100%;
-border-radius:20px;
+.card h3{
+margin:0;
 }
 
-footer{
-text-align:center;
-padding:30px;
+.card p{
+color:#666;
+margin-top:5px;
 }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-font-size:20px;
-}
-
-@media(max-width:800px){
-.hero-grid,.grid{
-grid-template-columns:1fr;
-}
-}
-</style>
-</head>
-
-<body>
-
-<div class="topbar">
-<div class="container nav">
-<h2>Tarvex Networks</h2>
-
-<div>
+</style></head><body><!-- NAV --><div class="nav">
+<div class="logo">Tarvex Networks</div><div class="nav-links">
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="packages.html">Packages</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
-<a href="login.html" class="login-btn">Login</a>
-<a href="dashboard.html" class="login-btn">Dashboard</a>
+<a class="btn" href="login.html">Login</a>
+<a class="btn" href="dashboard.html">Dashboard</a>
 </div>
-
-</div>
-</div>
-
-<section class="hero">
-<div class="container hero-grid">
-
-<div class="hero-card" data-aos="fade-right">
-<h1>Power your future with Tarvex Networks</h1>
-
-<p>
+</div><!-- HERO --><div class="hero">
+<div class="hero-box"><h1>Power your future with Tarvex Networks</h1><p>
 A platform for websites, domains, AI tools, and digital growth.
 Built for young creators who want to build something real.
-</p>
+</p><a class="hero-btn" href="packages.html">See Packages</a>
 
-<a href="packages.html" class="login-btn">See Packages</a>
-
-</div>
-
-<div class="hero-card" data-aos="fade-left">
 <div class="preview">
-<div>
-<h2>Coming Soon</h2>
-<p>Websites • Domains • AI</p>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="container">
-<h2 data-aos="fade-up">What We Offer</h2>
-
-<div class="grid">
-
-<div class="card" data-aos="zoom-in">
+<img src="hero.jpg">
+</div></div>
+</div><!-- SERVICES --><div class="section"><h2>What We Offer</h2><div class="grid"><div class="card">
 <h3>Website Builder</h3>
 <p>Create websites easily</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
+</div><div class="card">
 <h3>Domains & Hosting</h3>
 <p>Buy and manage domains</p>
-</div>
-
-<div class="card" data-aos="zoom-in">
+</div><div class="card">
 <h3>Housing AI</h3>
 <p>Smart assistant system</p>
-</div>
-
-</div>
-</section>
-
-<section class="container" data-aos="fade-up">
-<h2>Our Vision</h2>
-
-<video controls poster="hero.jpg">
-<source src="video.mp4" type="video/mp4">
-</video>
-
-</section>
-
-<footer>
-© 2026 Tarvex Networks
-</footer>
-
-<a href="https://wa.me/263788562551" class="whatsapp">
-💬
-</a>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init();
-</script>
-
-</body>
+</div><div class="card">
+<h3>APIs</h3>
+<p>Integration tools</p>
+</div><div class="card">
+<h3>DNS Manager</h3>
+<p>Manage DNS records</p>
+</div><div class="card">
+<h3>Deployment Engine</h3>
+<p>One-click deployment</p>
+</div></div></div></body>
 </html>
