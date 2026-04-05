@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Domains - Tarvex</title>
+<title>Tarvex</title>
 
 <style>
 
@@ -13,141 +13,127 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+font-family:Arial;
+background:#031914;
 color:white;
-overflow-x:hidden;
 }
 
-.nav{
+.app{
 display:flex;
-justify-content:space-between;
+min-height:100vh;
+}
+
+.sidebar{
+width:220px;
+background:#02110d;
 padding:20px;
 }
 
-.back{
-background:white;
-color:black;
-padding:8px 14px;
-border-radius:20px;
+.logo{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.menu a{
+display:block;
+color:white;
 text-decoration:none;
+padding:12px;
+margin-bottom:5px;
+border-radius:8px;
 }
 
-.container{
-padding:20px;
+.menu a:hover{
+background:#062b22;
+}
+
+.main{
+flex:1;
+padding:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:20px;
 }
 
 .card{
 background:white;
 color:black;
 padding:20px;
-border-radius:16px;
-margin-top:20px;
-}
-
-input{
-width:100%;
-padding:15px;
 border-radius:12px;
-border:1px solid #ddd;
-font-size:16px;
+text-decoration:none;
+display:block;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:10px;
-border:none;
-border-radius:12px;
-background:black;
-color:white;
-font-size:16px;
-cursor:pointer;
+.card:hover{
+transform:scale(1.02);
 }
 
-.result{
+@media(max-width:800px){
+.sidebar{
 display:none;
 }
 
-.domain{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #eee;
+.grid{
+grid-template-columns:1fr;
 }
-
-.buy{
-background:#2563eb;
-color:white;
-padding:5px 10px;
-border-radius:8px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="nav">
-<div>Domains</div>
-<a class="back" href="dashboard.html">Dashboard</a>
-</div>
+<div class="app">
 
-<div class="container">
+<div class="sidebar">
+<div class="logo">Tarvex</div>
 
-<h2>Search your domain</h2>
-<p>Find the perfect name for your website</p>
-
-<div class="card">
-
-<input id="domain" placeholder="example: tarvex">
-
-<button onclick="search()">Search Domain</button>
-
-</div>
-
-<div class="card result" id="result">
-
-<div class="domain">
-<span id="d1"></span>
-<span class="buy">Buy</span>
-</div>
-
-<div class="domain">
-<span id="d2"></span>
-<span class="buy">Buy</span>
-</div>
-
-<div class="domain">
-<span id="d3"></span>
-<span class="buy">Buy</span>
+<div class="menu">
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">AI Builder</a>
+<a href="domains.html">Domains</a>
+<a href="deploy.html">Deploy</a>
+<a href="ai.html">AI Assistant</a>
 </div>
 
 </div>
 
+<div class="main">
+
+<h1>Dashboard</h1>
+<p>Welcome to Tarvex platform</p>
+
+<div class="grid">
+
+<a class="card" href="builder.html">
+<h3>AI Website Builder</h3>
+<p>Create website with AI</p>
+</a>
+
+<a class="card" href="domains.html">
+<h3>Domains</h3>
+<p>Search domains</p>
+</a>
+
+<a class="card" href="deploy.html">
+<h3>Deploy</h3>
+<p>Publish website</p>
+</a>
+
+<a class="card" href="ai.html">
+<h3>AI Assistant</h3>
+<p>Ask AI</p>
+</a>
+
 </div>
 
-<script>
+</div>
 
-function search(){
-
-let name=document.getElementById("domain").value
-
-if(name==""){
-alert("Enter domain name")
-return
-}
-
-document.getElementById("result").style.display="block"
-
-document.getElementById("d1").innerText=name+".com"
-document.getElementById("d2").innerText=name+".net"
-document.getElementById("d3").innerText=name+".live"
-
-}
-
-</script>
+</div>
 
 </body>
 </html>
