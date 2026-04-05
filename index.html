@@ -2,65 +2,28 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Networks</title>
+<title>Tarvex AI Builder</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#f5f7ff;
+font-family:Arial;
+background:linear-gradient(#eef2ff,#f8fbff);
 }
-
-/* NAV */
 
 .nav{
 background:white;
 padding:15px;
 display:flex;
 justify-content:space-between;
-align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
-position:sticky;
-top:0;
 }
 
 .logo{
 font-weight:700;
-font-size:18px;
 color:#0b2a5b;
 }
-
-.menu-btn{
-font-size:22px;
-cursor:pointer;
-}
-
-.menu{
-display:none;
-position:absolute;
-top:60px;
-right:10px;
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-width:200px;
-}
-
-.menu a{
-display:block;
-padding:10px;
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-.menu a:hover{
-background:#f1f4ff;
-}
-
-/* HERO */
 
 .hero{
 padding:40px 20px;
@@ -68,122 +31,99 @@ text-align:center;
 }
 
 .hero h1{
-color:#0b2a5b;
 font-size:26px;
+color:#0b2a5b;
 }
 
-.hero p{
-color:#666;
+.input{
+width:100%;
+max-width:400px;
+margin:auto;
+margin-top:20px;
 }
 
-/* CARDS */
+textarea{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:1px solid #ddd;
+height:100px;
+}
 
-.container{
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:12px;
+font-size:16px;
+}
+
+.result{
 padding:20px;
+display:none;
 }
 
 .card{
 background:white;
-padding:18px;
-margin-bottom:15px;
-border-radius:14px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-text-decoration:none;
-display:block;
-}
-
-.card h3{
-margin:0;
-color:#0b2a5b;
-}
-
-.card p{
-margin:5px 0 0;
-color:#666;
-font-size:14px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 </style>
-
 </head>
+
 <body>
 
 <div class="nav">
-
-<div class="logo">
-Tarvex Networks
-</div>
-
-<div class="menu-btn" onclick="toggleMenu()">
-☰
-</div>
-
-<div class="menu" id="menu">
-
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<div class="logo">Tarvex Networks</div>
 <a href="login.html">Login</a>
-<a href="signup.html">Sign up</a>
-<a href="dashboard.html">Dashboard</a>
-
-</div>
-
 </div>
 
 <div class="hero">
-<h1>Build websites with AI</h1>
-<p>Create websites, buy domains, manage hosting and deploy instantly.</p>
+
+<h1>Build your website with AI</h1>
+
+<p>Describe your idea and Tarvex builds it instantly</p>
+
+<div class="input">
+
+<textarea id="idea" placeholder="example: restaurant website with menu and booking"></textarea>
+
+<button onclick="start()">Start Building</button>
+
 </div>
 
-<div class="container">
+</div>
 
-<a class="card" href="builder.html">
-<h3>Website Builder</h3>
-<p>Create AI websites</p>
-</a>
+<div class="result" id="result">
 
-<a class="card" href="domains.html">
-<h3>Domains & Hosting</h3>
-<p>Buy domains & hosting</p>
-</a>
+<div class="card">
 
-<a class="card" href="ai.html">
-<h3>Housing AI</h3>
-<p>Smart assistant</p>
-</a>
+<h3>Generating your website...</h3>
 
-<a class="card" href="api.html">
-<h3>APIs</h3>
-<p>Platform tools</p>
-</a>
+<p>Login to continue building</p>
 
-<a class="card" href="dns.html">
-<h3>DNS Manager</h3>
-<p>Manage DNS</p>
-</a>
+<button onclick="login()">Continue</button>
 
-<a class="card" href="deploy.html">
-<h3>Deployment</h3>
-<p>Deploy website</p>
-</a>
+</div>
 
 </div>
 
 <script>
 
-function toggleMenu(){
-let menu = document.getElementById("menu");
-
-if(menu.style.display == "block"){
-menu.style.display = "none";
-}else{
-menu.style.display = "block";
+function start(){
+document.getElementById("result").style.display="block"
 }
+
+function login(){
+window.location.href="login.html"
 }
 
 </script>
 
 </body>
-  </html>
+</html>
