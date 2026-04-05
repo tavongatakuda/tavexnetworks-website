@@ -1,36 +1,110 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#050B18,#0A1F3C,#071224);
-  color: #EAF2FF;
+/* GLOBAL RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* Navbar */
-.navbar {
-  background: rgba(10,20,40,0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+/* BODY */
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(180deg,#062b22,#031914);
+color:#111;
+overflow-x:hidden; /* stops left-right movement */
 }
 
-/* Glass Cards */
-.card {
-  background: rgba(18, 34, 64, 0.65);
-  border-radius: 20px;
-  padding: 25px;
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+/* CONTAINER */
+
+.container{
+width:100%;
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
-/* Buttons */
-.btn {
-  background: #2F80ED;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
+/* NAVBAR */
+
+.nav{
+background:transparent;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.btn:hover {
-  background: #1c5ed6;
-    }
+.logo{
+font-weight:700;
+font-size:20px;
+color:white;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+/* WHITE CARD */
+
+.card{
+background:white;
+border-radius:20px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+margin-bottom:15px;
+}
+
+/* BUTTON */
+
+button{
+background:black;
+color:white;
+border:none;
+padding:14px;
+border-radius:12px;
+font-size:16px;
+cursor:pointer;
+}
+
+/* INPUT */
+
+input, textarea{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:2px solid #eee;
+font-size:16px;
+}
+
+/* HERO */
+
+.hero{
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+.hero h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.hero p{
+opacity:0.9;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr;
+}
+  }
