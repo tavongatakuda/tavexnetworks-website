@@ -25,17 +25,9 @@ margin-left:15px;
 padding:25px;
 }
 
-h1{
-font-size:32px;
-}
-
-h2{
-font-size:26px;
-}
-
-h3{
-font-size:22px;
-}
+h1{font-size:32px;}
+h2{font-size:26px;}
+h3{font-size:22px;}
 
 .grid{
 display:grid;
@@ -48,6 +40,14 @@ background:white;
 padding:25px;
 border-radius:20px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
+cursor:pointer;
+text-decoration:none;
+color:black;
+display:block;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 input{
