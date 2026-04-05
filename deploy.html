@@ -20,8 +20,17 @@ overflow-x:hidden;
 }
 
 .nav{
-padding:15px;
-font-weight:700;
+display:flex;
+justify-content:space-between;
+padding:20px;
+}
+
+.back{
+background:white;
+color:black;
+padding:8px 14px;
+border-radius:20px;
+text-decoration:none;
 }
 
 .container{
@@ -33,12 +42,12 @@ background:white;
 color:black;
 padding:20px;
 border-radius:16px;
-margin-top:15px;
+margin-top:20px;
 }
 
 input{
 width:100%;
-padding:14px;
+padding:15px;
 border-radius:12px;
 border:1px solid #ddd;
 font-size:16px;
@@ -46,7 +55,7 @@ font-size:16px;
 
 button{
 width:100%;
-padding:14px;
+padding:15px;
 margin-top:10px;
 border:none;
 border-radius:12px;
@@ -58,7 +67,7 @@ cursor:pointer;
 
 .success{
 display:none;
-margin-top:15px;
+margin-top:20px;
 }
 
 .link{
@@ -66,6 +75,7 @@ background:#f3f3f3;
 padding:10px;
 border-radius:8px;
 margin-top:10px;
+font-family:monospace;
 }
 
 </style>
@@ -75,24 +85,28 @@ margin-top:10px;
 <body>
 
 <div class="nav">
-Deploy Website
+<div>Deploy</div>
+<a class="back" href="dashboard.html">Dashboard</a>
 </div>
 
 <div class="container">
 
-<h2>Publish your website</h2>
+<h2>Deploy your website</h2>
+<p>Publish your AI generated website</p>
 
 <div class="card">
 
-<input id="sitename" placeholder="example: mywebsite">
+<input id="name" placeholder="example: mybusiness">
 
-<button onclick="deploy()">Deploy</button>
+<button onclick="deploy()">Deploy Website</button>
 
 </div>
 
 <div class="card success" id="success">
 
-<h3>Website deployed successfully</h3>
+<h3>Website deployed</h3>
+
+<p>Your website is live at:</p>
 
 <div class="link" id="link"></div>
 
@@ -104,7 +118,7 @@ Deploy Website
 
 function deploy(){
 
-let name=document.getElementById("sitename").value
+let name=document.getElementById("name").value
 
 if(name==""){
 alert("Enter website name")
