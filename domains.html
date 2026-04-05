@@ -20,8 +20,17 @@ overflow-x:hidden;
 }
 
 .nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
 padding:15px;
-font-weight:700;
+background:rgba(255,255,255,0.05);
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:10px;
 }
 
 .container{
@@ -57,21 +66,21 @@ cursor:pointer;
 }
 
 .result{
-margin-top:15px;
 display:none;
+margin-top:15px;
 }
 
 .domain{
-padding:12px;
-border-bottom:1px solid #eee;
 display:flex;
 justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid #eee;
 }
 
 .buy{
 background:#2563eb;
 color:white;
-padding:6px 12px;
+padding:5px 10px;
 border-radius:8px;
 }
 
@@ -82,18 +91,25 @@ border-radius:8px;
 <body>
 
 <div class="nav">
-Domain Search
+<div>Tarvex</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">Builder</a>
+<a href="domains.html">Domains</a>
+<a href="ai.html">AI</a>
+</div>
 </div>
 
 <div class="container">
 
-<h2>Find your domain</h2>
+<h2>Search Domain</h2>
 
 <div class="card">
 
 <input id="domain" placeholder="example: tarvex">
 
-<button onclick="search()">Search Domain</button>
+<button onclick="search()">Search</button>
 
 </div>
 
@@ -140,4 +156,4 @@ document.getElementById("d3").innerText=name+".live"
 </script>
 
 </body>
-  </html>
+</html>
