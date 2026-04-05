@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Access</title>
+<title>Start building - Tarvex</title>
 
 <style>
 
@@ -14,45 +14,44 @@ box-sizing:border-box;
 
 body{
 font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+background:#062b22;
 color:white;
-overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
 }
 
-.container{
+.wrapper{
+width:100%;
 max-width:420px;
-margin:auto;
 padding:20px;
 }
 
-.logo{
-text-align:center;
-font-size:24px;
-font-weight:700;
-margin-top:30px;
+h1{
+font-size:28px;
+margin-bottom:10px;
 }
 
-.subtitle{
-text-align:center;
-margin-top:5px;
+p{
 opacity:.8;
+margin-bottom:20px;
 }
 
 .card{
 background:white;
 color:black;
 padding:20px;
-border-radius:20px;
-margin-top:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+border-radius:18px;
 }
 
 input{
 width:100%;
-padding:14px;
+padding:16px;
 border-radius:12px;
 border:1px solid #ddd;
-margin-top:10px;
+margin-bottom:10px;
 font-size:16px;
 }
 
@@ -61,17 +60,12 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:12px;
-margin-top:10px;
+margin-bottom:10px;
 cursor:pointer;
 font-size:16px;
 }
 
-.primary{
-background:#2563eb;
-color:white;
-}
-
-.dark{
+.email{
 background:black;
 color:white;
 }
@@ -80,169 +74,55 @@ color:white;
 background:#f3f3f3;
 display:flex;
 align-items:center;
-gap:10px;
 justify-content:center;
+gap:10px;
 }
 
 .divider{
 text-align:center;
-margin:15px 0;
+margin:10px 0;
 color:#777;
 }
 
-.step{
-display:none;
-}
-
-.active{
-display:block;
-}
-
-a{
-color:#2563eb;
-text-decoration:none;
-}
-
 </style>
-
 </head>
+
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<div class="logo">Tarvex Networks</div>
-<div class="subtitle">Start building your website</div>
+<h1>Start building your website</h1>
+<p>Use AI to create your site instantly</p>
 
 <div class="card">
 
-<!-- STEP 1 EMAIL -->
-<div id="step1" class="step active">
-
 <input id="email" placeholder="Email address">
 
-<button class="primary" onclick="nextStep()">
-Continue
-</button>
+<button class="email" onclick="go()">Continue</button>
 
 <div class="divider">or</div>
 
-<button class="social" onclick="socialLogin()">
+<button class="social" onclick="go()">
 Continue with Google
 </button>
 
-<button class="social" onclick="socialLogin()">
+<button class="social" onclick="go()">
 Continue with Apple
 </button>
 
-<button class="social" onclick="socialLogin()">
+<button class="social" onclick="go()">
 Continue with Facebook
 </button>
 
-<p style="text-align:center;margin-top:10px">
-Already have account?
-<a href="#" onclick="showLogin()">Login</a>
-</p>
-
 </div>
 
-<!-- STEP 2 PASSWORD -->
-<div id="step2" class="step">
-
-<input id="password" type="password" placeholder="Create password">
-
-<button class="dark" onclick="createAccount()">
-Create account
-</button>
-
-<p style="text-align:center;margin-top:10px">
-<a href="#" onclick="back()">Back</a>
-</p>
-
-</div>
-
-<!-- LOGIN STEP -->
-<div id="login" class="step">
-
-<input id="loginEmail" placeholder="Email">
-<input id="loginPassword" type="password" placeholder="Password">
-
-<button class="primary" onclick="login()">
-Login
-</button>
-
-<p style="text-align:center;margin-top:10px">
-<a href="#" onclick="back()">Back</a>
-</p>
-
-</div>
-
-</div>
 </div>
 
 <script>
-
-function nextStep(){
-let email=document.getElementById("email").value
-
-if(email==""){
-alert("Enter email")
-return
-}
-
-localStorage.setItem("email",email)
-
-show("step2")
-}
-
-function createAccount(){
-
-let email=localStorage.getItem("email")
-let pass=document.getElementById("password").value
-
-localStorage.setItem("user",JSON.stringify({
-email:email,
-password:pass
-}))
-
+function go(){
 window.location.href="dashboard.html"
 }
-
-function showLogin(){
-show("login")
-}
-
-function login(){
-
-let email=document.getElementById("loginEmail").value
-let pass=document.getElementById("loginPassword").value
-
-let user=JSON.parse(localStorage.getItem("user"))
-
-if(user && user.email==email && user.password==pass){
-window.location.href="dashboard.html"
-}else{
-alert("Wrong login")
-}
-
-}
-
-function socialLogin(){
-window.location.href="dashboard.html"
-}
-
-function show(id){
-document.getElementById("step1").classList.remove("active")
-document.getElementById("step2").classList.remove("active")
-document.getElementById("login").classList.remove("active")
-
-document.getElementById(id).classList.add("active")
-}
-
-function back(){
-show("step1")
-}
-
 </script>
 
 </body>
-  </html>
+</html>
