@@ -1,74 +1,72 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
-<title>Login - Tarvex</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Tarvex</title><style>
 
-<style>
 body{
-font-family:Arial;
-background:#f8fbff;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+font-family:Segoe UI;
+background:#f5f7ff;
+margin:0;
 }
 
-.box{
+.container{
+padding:20px;
+}
+
+.card{
 background:white;
-padding:30px;
-border-radius:20px;
-width:300px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
+padding:20px;
+border-radius:12px;
+margin-top:40px;
 }
 
 input{
 width:100%;
 padding:12px;
 margin-top:10px;
-border-radius:10px;
-border:1px solid #ccc;
+border-radius:8px;
+border:1px solid #ddd;
 }
 
 button{
 margin-top:15px;
 padding:12px;
-width:100%;
-background:#1d4ed8;
+background:#2563eb;
 color:white;
 border:none;
-border-radius:10px;
-font-size:16px;
+border-radius:8px;
+width:100%;
 }
-</style>
-</head>
 
-<body>
+</style></head><body><div class="container"><h2>Login</h2><div class="card"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button onclick="login()">Login</button>
 
-<div class="box">
-<h2>Login to Tarvex</h2>
+<p>No account? <a href="signup.html">Create account</a></p></div></div><script>
 
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="login()">Login</button>
-
-</div>
-
-<script>
 function login(){
 
-let user = document.getElementById("username").value;
-let pass = document.getElementById("password").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
 
-if(user === "admin" && pass === "1234"){
-window.location.href = "dashboard.html";
+let user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+alert("Create account first");
+return;
+}
+
+if(user.email === email && user.password === password){
+
+localStorage.setItem("loggedIn", true);
+
+window.location.href="dashboard.html";
+
 }else{
+
 alert("Wrong login details");
+
 }
 
 }
-</script>
 
-</body>
+</script></body>
 </html>
