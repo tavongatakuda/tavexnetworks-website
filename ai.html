@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Housing AI - Tarvex</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarvex AI</title>
 
 <style>
 
-body{
-font-family:'Segoe UI', Arial, sans-serif;
+*{
 margin:0;
-background:linear-gradient(180deg,#eef3ff,#dfe7ff);
-color:#0b2a5b;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#062b22,#031914);
+color:white;
+overflow-x:hidden;
 }
 
 .nav{
-background:#0b2a5b;
-color:white;
-padding:18px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:20px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-
-.nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
-font-size:15px;
+padding:15px;
+font-weight:700;
 }
 
 .container{
@@ -37,44 +30,52 @@ padding:20px;
 
 .card{
 background:white;
-padding:28px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(11,42,91,0.08);
-margin-top:20px;
-border:1px solid #e5ecff;
+color:black;
+padding:20px;
+border-radius:16px;
+margin-top:15px;
 }
 
-.card h2{
-font-size:22px;
+.chat{
+height:250px;
+overflow:auto;
+border:1px solid #eee;
+border-radius:12px;
+padding:10px;
 margin-bottom:10px;
+background:#fafafa;
+}
+
+.msg{
+margin-bottom:8px;
+}
+
+.user{
+font-weight:700;
+}
+
+.ai{
+color:#2563eb;
 }
 
 input{
 width:100%;
 padding:14px;
-border-radius:10px;
-border:1px solid #ccd6ff;
-margin-top:10px;
+border-radius:12px;
+border:1px solid #ddd;
 font-size:16px;
 }
 
 button{
-background:#1d4ed8;
-color:white;
+width:100%;
 padding:14px;
-border:none;
-border-radius:10px;
 margin-top:10px;
+border:none;
+border-radius:12px;
+background:black;
+color:white;
 font-size:16px;
 cursor:pointer;
-}
-
-.response{
-margin-top:20px;
-background:#f1f5ff;
-padding:15px;
-border-radius:10px;
-font-size:16px;
 }
 
 </style>
@@ -84,41 +85,39 @@ font-size:16px;
 <body>
 
 <div class="nav">
-<div>Tarvex Housing AI</div>
-
-<div>
-<a href="dashboard.html">Dashboard</a>
-<a href="index.html">Home</a>
-</div>
+Tarvex AI Assistant
 </div>
 
 <div class="container">
 
 <div class="card">
-<h2>Housing Assistant AI</h2>
 
-<input id="question" placeholder="Ask something about housing...">
+<div class="chat" id="chat"></div>
 
-<button onclick="ask()">Ask AI</button>
+<input id="message" placeholder="Ask Tarvex AI...">
 
-<div id="response" class="response">
-AI response will appear here...
-</div>
+<button onclick="send()">Send</button>
 
 </div>
 
 </div>
 
 <script>
-function ask(){
 
-let q = document.getElementById("question").value;
+function send(){
 
-document.getElementById("response").innerHTML =
-"Tarvex AI suggestion: For '"+q+"' we recommend modern smart housing solutions, energy saving systems, and scalable design.";
+let msg=document.getElementById("message").value
 
-}
-</script>
+if(msg=="") return
 
-</body>
-  </html>
+let chat=document.getElementById("chat")
+
+chat.innerHTML+=
+"<div class='msg user'>You: "+msg+"</div>"
+
+chat.innerHTML+=
+"<div class='msg ai'>Tarvex AI: I will help you build that.</div>"
+
+document.getElementById("message").value=""
+
+chat.scrollTop=chat.scroll
