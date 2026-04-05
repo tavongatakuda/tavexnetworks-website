@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Builder - Tarvex</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f7ff;
+}
+
+.nav{
+background:#0b2a5b;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+.container{
+padding:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+background:#1d4ed8;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.preview{
+border:2px dashed #ccc;
+padding:20px;
+min-height:200px;
+border-radius:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<div>Tarvex Builder</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Home</a>
+</div>
+</div>
+
+<div class="container">
+
+<h2>Create Your Website</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Website Details</h3>
+
+<input id="title" placeholder="Website Title">
+<textarea id="desc" placeholder="Website Description"></textarea>
+
+<button onclick="build()">Generate Website</button>
+</div>
+
+<div class="card">
+<h3>Preview</h3>
+
+<div class="preview" id="preview">
+Your website preview will appear here
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function build(){
+
+let title = document.getElementById("title").value;
+let desc = document.getElementById("desc").value;
+
+document.getElementById("preview").innerHTML = `
+<h2>${title}</h2>
+<p>${desc}</p>
+<button>Contact</button>
+`;
+
+}
+</script>
+
+</body>
+</html>
