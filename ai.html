@@ -13,27 +13,48 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+font-family:Arial;
+background:#031914;
 color:white;
-overflow-x:hidden;
 }
 
-.nav{
+/* LAYOUT */
+
+.app{
 display:flex;
-justify-content:space-between;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+background:#02110d;
 padding:20px;
 }
 
-.back{
-background:white;
-color:black;
-padding:8px 14px;
-border-radius:20px;
-text-decoration:none;
+.logo{
+font-size:20px;
+margin-bottom:30px;
 }
 
-.container{
+.menu a{
+display:block;
+color:white;
+text-decoration:none;
+padding:10px;
+margin-bottom:5px;
+border-radius:8px;
+}
+
+.menu a:hover{
+background:#062b22;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
 padding:20px;
 }
 
@@ -41,7 +62,7 @@ padding:20px;
 background:white;
 color:black;
 padding:20px;
-border-radius:16px;
+border-radius:12px;
 margin-top:20px;
 }
 
@@ -50,7 +71,7 @@ height:250px;
 overflow:auto;
 background:#f3f3f3;
 padding:10px;
-border-radius:12px;
+border-radius:10px;
 margin-bottom:10px;
 }
 
@@ -68,22 +89,26 @@ color:#2563eb;
 
 input{
 width:100%;
-padding:15px;
-border-radius:12px;
+padding:14px;
+border-radius:10px;
 border:1px solid #ddd;
-font-size:16px;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:14px;
 margin-top:10px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:black;
 color:white;
-font-size:16px;
 cursor:pointer;
+}
+
+@media(max-width:800px){
+.sidebar{
+display:none;
+}
 }
 
 </style>
@@ -92,12 +117,22 @@ cursor:pointer;
 
 <body>
 
-<div class="nav">
-<div>Tarvex AI</div>
-<a class="back" href="dashboard.html">Dashboard</a>
+<div class="app">
+
+<div class="sidebar">
+<div class="logo">Tarvex</div>
+
+<div class="menu">
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">AI Builder</a>
+<a href="domains.html">Domains</a>
+<a href="deploy.html">Deploy</a>
+<a href="ai.html">AI Assistant</a>
 </div>
 
-<div class="container">
+</div>
+
+<div class="main">
 
 <h2>Tarvex AI Assistant</h2>
 <p>Ask anything about your website</p>
@@ -109,6 +144,8 @@ cursor:pointer;
 <input id="message" placeholder="Ask Tarvex AI...">
 
 <button onclick="send()">Send</button>
+
+</div>
 
 </div>
 
@@ -126,7 +163,7 @@ let chat=document.getElementById("chat")
 
 chat.innerHTML += "<div class='msg user'>You: "+msg+"</div>"
 
-chat.innerHTML += "<div class='msg ai'>Tarvex AI: I will help you build that.</div>"
+chat.innerHTML += "<div class='msg ai'>Tarvex AI: I will help you with that.</div>"
 
 document.getElementById("message").value=""
 
