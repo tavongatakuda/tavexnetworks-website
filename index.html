@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarvex Networks</title>
 
-  <!-- ✅ AOS ANIMATION CSS -->
+  <!-- AOS ANIMATION -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <style>
@@ -129,6 +129,20 @@
       color:var(--muted);
     }
 
+    /* WhatsApp button */
+    .whatsapp{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:white;
+      padding:15px;
+      border-radius:50%;
+      text-decoration:none;
+      font-size:22px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
     @media(max-width:800px){
       .hero-grid,.grid{
         grid-template-columns:1fr;
@@ -212,7 +226,11 @@
   © 2026 Tarvex Networks — Built for the future
 </footer>
 
-<!-- ✅ AOS SCRIPT -->
+<!-- WhatsApp Button -->
+<a href="https://wa.me/263788562551" class="whatsapp" target="_blank">
+💬
+</a>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
