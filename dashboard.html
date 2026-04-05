@@ -7,90 +7,107 @@
 <style>
 
 body{
-font-family: 'Segoe UI', Arial, sans-serif;
 margin:0;
-background: linear-gradient(180deg,#eef3ff,#dfe7ff);
-color:#0b2a5b;
+font-family:'Segoe UI', Arial, sans-serif;
+background:#f4f7ff;
 }
 
-/* NAVBAR */
+/* LAYOUT */
 
-.nav{
+.layout{
+display:flex;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:230px;
 background:#0b2a5b;
 color:white;
-padding:18px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:20px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
+padding:20px 0;
 }
 
-.nav a{
+.logo{
+font-size:20px;
+font-weight:bold;
+padding:0 20px 20px 20px;
+}
+
+.menu a{
+display:block;
 color:white;
 text-decoration:none;
-margin-left:15px;
+padding:14px 20px;
 font-size:15px;
 opacity:0.9;
 }
 
-/* CONTAINER */
+.menu a:hover{
+background:#123b7a;
+}
 
-.container{
+/* MAIN */
+
+.main{
+flex:1;
+}
+
+/* TOPBAR */
+
+.topbar{
+background:white;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* CONTENT */
+
+.content{
 padding:20px;
 }
 
-/* GRID */
+/* CARDS */
 
 .grid{
 display:grid;
-grid-template-columns:1fr;
-gap:18px;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
-
-/* CARD */
 
 .card{
 background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(11,42,91,0.08);
+padding:25px;
+border-radius:16px;
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
 text-decoration:none;
 color:#0b2a5b;
-display:block;
-transition:0.25s ease;
-border:1px solid #e5ecff;
-}
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 35px rgba(11,42,91,0.12);
 }
 
 .card h3{
-font-size:22px;
 margin:0 0 8px 0;
-color:#123b7a;
+font-size:18px;
 }
 
 .card p{
-font-size:16px;
 margin:0;
-color:#4b5b7a;
+color:#666;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(min-width:600px){
+@media(max-width:900px){
+
+.sidebar{
+display:none;
+}
+
 .grid{
-grid-template-columns:1fr 1fr;
-}
+grid-template-columns:1fr;
 }
 
-@media(min-width:1000px){
-.grid{
-grid-template-columns:1fr 1fr 1fr;
-}
 }
 
 </style>
@@ -99,37 +116,68 @@ grid-template-columns:1fr 1fr 1fr;
 
 <body>
 
-<div class="nav">
-<div>Tarvex Dashboard</div>
+<div class="layout">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+Tarvex
+</div>
+
+<div class="menu">
+
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">Website Builder</a>
+<a href="domains.html">Domains</a>
+<a href="ai.html">Housing AI</a>
+<a href="api.html">APIs</a>
+<a href="dns.html">DNS Manager</a>
+<a href="deploy.html">Deployment</a>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="topbar">
+
+<div>
+Dashboard
+</div>
 
 <div>
 <a href="index.html">Home</a>
-<a href="login.html">Logout</a>
-</div>
 </div>
 
-<div class="container">
+</div>
+
+<div class="content">
 
 <div class="grid">
 
 <a href="builder.html" class="card">
 <h3>Website Builder</h3>
-<p>Create and manage websites</p>
+<p>Create websites for clients</p>
 </a>
 
 <a href="domains.html" class="card">
 <h3>Domains & Hosting</h3>
-<p>Search and buy domains</p>
+<p>Search and manage domains</p>
 </a>
 
 <a href="ai.html" class="card">
 <h3>Housing AI</h3>
-<p>Smart home assistant</p>
+<p>Smart AI assistant</p>
 </a>
 
 <a href="api.html" class="card">
 <h3>APIs</h3>
-<p>Integration services</p>
+<p>Platform integrations</p>
 </a>
 
 <a href="dns.html" class="card">
@@ -138,13 +186,17 @@ grid-template-columns:1fr 1fr 1fr;
 </a>
 
 <a href="deploy.html" class="card">
-<h3>Deployment Engine</h3>
-<p>One-click deployment</p>
+<h3>Deployment</h3>
+<p>Deploy websites instantly</p>
 </a>
 
 </div>
 
 </div>
 
+</div>
+
+</div>
+
 </body>
-</html>
+                              </html>
