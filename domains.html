@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Domains - Tarvex</title>
 
 <style>
-body{
-font-family:Arial;
+
+*{
 margin:0;
-background:#f4f7ff;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#062b22,#031914);
+color:white;
+overflow-x:hidden;
 }
 
 .nav{
-background:#0b2a5b;
-color:white;
 padding:15px;
+font-weight:700;
 }
 
 .container{
@@ -22,27 +30,114 @@ padding:20px;
 
 .card{
 background:white;
+color:black;
 padding:20px;
-border-radius:20px;
-margin-top:20px;
+border-radius:16px;
+margin-top:15px;
 }
+
+input{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:12px;
+background:black;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.result{
+margin-top:15px;
+display:none;
+}
+
+.domain{
+padding:12px;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
+}
+
+.buy{
+background:#2563eb;
+color:white;
+padding:6px 12px;
+border-radius:8px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="nav">
-Tarvex Domain System
+Domain Search
 </div>
 
 <div class="container">
 
+<h2>Find your domain</h2>
+
 <div class="card">
-<h2>Domain Search</h2>
-<p>Search and register domains here.</p>
+
+<input id="domain" placeholder="example: tarvex">
+
+<button onclick="search()">Search Domain</button>
+
+</div>
+
+<div class="card result" id="result">
+
+<div class="domain">
+<span id="d1"></span>
+<span class="buy">Buy</span>
+</div>
+
+<div class="domain">
+<span id="d2"></span>
+<span class="buy">Buy</span>
+</div>
+
+<div class="domain">
+<span id="d3"></span>
+<span class="buy">Buy</span>
 </div>
 
 </div>
+
+</div>
+
+<script>
+
+function search(){
+
+let name=document.getElementById("domain").value
+
+if(name==""){
+alert("Enter domain name")
+return
+}
+
+document.getElementById("result").style.display="block"
+
+document.getElementById("d1").innerText=name+".com"
+document.getElementById("d2").innerText=name+".net"
+document.getElementById("d3").innerText=name+".live"
+
+}
+
+</script>
 
 </body>
-</html>
+  </html>
