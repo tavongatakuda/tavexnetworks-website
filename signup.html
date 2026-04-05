@@ -1,0 +1,68 @@
+<!DOCTYPE html><html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - Tarvex</title><style>
+
+body{
+font-family:Segoe UI;
+background:#f5f7ff;
+margin:0;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-top:40px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+button{
+margin-top:15px;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+width:100%;
+}
+
+</style></head><body><div class="container"><h2>Create Account</h2><div class="card"><input id="name" placeholder="Full name"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button onclick="signup()">Create Account</button>
+
+<p>Already have account? <a href="login.html">Login</a></p></div></div><script>
+
+function signup(){
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+if(name=="" || email=="" || password==""){
+alert("Fill all fields");
+return;
+}
+
+localStorage.setItem("user", JSON.stringify({
+name:name,
+email:email,
+password:password,
+credits:5
+}));
+
+window.location.href="dashboard.html";
+
+}
+
+</script></body>
+                         </html>
