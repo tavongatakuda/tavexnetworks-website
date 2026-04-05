@@ -20,8 +20,17 @@ overflow-x:hidden;
 }
 
 .nav{
-padding:15px;
-font-weight:700;
+display:flex;
+justify-content:space-between;
+padding:20px;
+}
+
+.back{
+background:white;
+color:black;
+padding:8px 14px;
+border-radius:20px;
+text-decoration:none;
 }
 
 .container{
@@ -33,17 +42,16 @@ background:white;
 color:black;
 padding:20px;
 border-radius:16px;
-margin-top:15px;
+margin-top:20px;
 }
 
 .chat{
 height:250px;
 overflow:auto;
-border:1px solid #eee;
-border-radius:12px;
+background:#f3f3f3;
 padding:10px;
+border-radius:12px;
 margin-bottom:10px;
-background:#fafafa;
 }
 
 .msg{
@@ -51,7 +59,7 @@ margin-bottom:8px;
 }
 
 .user{
-font-weight:700;
+font-weight:bold;
 }
 
 .ai{
@@ -60,7 +68,7 @@ color:#2563eb;
 
 input{
 width:100%;
-padding:14px;
+padding:15px;
 border-radius:12px;
 border:1px solid #ddd;
 font-size:16px;
@@ -68,7 +76,7 @@ font-size:16px;
 
 button{
 width:100%;
-padding:14px;
+padding:15px;
 margin-top:10px;
 border:none;
 border-radius:12px;
@@ -85,10 +93,14 @@ cursor:pointer;
 <body>
 
 <div class="nav">
-Tarvex AI Assistant
+<div>Tarvex AI</div>
+<a class="back" href="dashboard.html">Dashboard</a>
 </div>
 
 <div class="container">
+
+<h2>Tarvex AI Assistant</h2>
+<p>Ask anything about your website</p>
 
 <div class="card">
 
@@ -112,12 +124,17 @@ if(msg=="") return
 
 let chat=document.getElementById("chat")
 
-chat.innerHTML+=
-"<div class='msg user'>You: "+msg+"</div>"
+chat.innerHTML += "<div class='msg user'>You: "+msg+"</div>"
 
-chat.innerHTML+=
-"<div class='msg ai'>Tarvex AI: I will help you build that.</div>"
+chat.innerHTML += "<div class='msg ai'>Tarvex AI: I will help you build that.</div>"
 
 document.getElementById("message").value=""
 
-chat.scrollTop=chat.scroll
+chat.scrollTop=chat.scrollHeight
+
+}
+
+</script>
+
+</body>
+</html>
