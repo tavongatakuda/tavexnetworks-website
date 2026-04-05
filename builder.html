@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Builder - Tarvex</title>
+<title>Tarvex Builder</title>
 
 <style>
 
@@ -19,10 +19,23 @@ color:white;
 overflow-x:hidden;
 }
 
+/* NAV */
+
 .nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
 padding:15px;
-font-weight:700;
+background:rgba(255,255,255,0.05);
 }
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:10px;
+}
+
+/* CONTENT */
 
 .container{
 padding:20px;
@@ -58,8 +71,8 @@ cursor:pointer;
 }
 
 .result{
-margin-top:20px;
 display:none;
+margin-top:15px;
 }
 
 </style>
@@ -69,32 +82,34 @@ display:none;
 <body>
 
 <div class="nav">
-Tarvex AI Builder
+<div>Tarvex</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">Builder</a>
+<a href="domains.html">Domains</a>
+<a href="ai.html">AI</a>
+</div>
 </div>
 
 <div class="container">
 
-<h2>Describe your website</h2>
+<h2>Build with AI</h2>
 
 <div class="card">
 
-<textarea id="prompt" placeholder="example: restaurant website with menu and contact page"></textarea>
+<textarea id="prompt" placeholder="example: restaurant website with menu"></textarea>
 
 <button onclick="generate()">Start Building</button>
 
 </div>
 
-<div class="result" id="result">
+<div class="card result" id="result">
 
-<div class="card">
+<h3>Website generated</h3>
+<p>Your AI website is ready</p>
 
-<h3>Website Generated</h3>
-
-<p>Your AI website structure is ready.</p>
-
-<button onclick="deploy()">Deploy Website</button>
-
-</div>
+<button onclick="deploy()">Deploy</button>
 
 </div>
 
@@ -107,7 +122,7 @@ function generate(){
 let text=document.getElementById("prompt").value
 
 if(text==""){
-alert("Describe your website first")
+alert("Describe website first")
 return
 }
 
