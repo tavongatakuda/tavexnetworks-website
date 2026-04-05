@@ -2,79 +2,93 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start - Tarvex</title>
+<title>Tarvex Login</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0b1f1a;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial;
+background:linear-gradient(180deg,#062b22,#031914);
 color:white;
+overflow-x:hidden;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+padding:15px;
+}
+
+.menu-btn{
+font-size:24px;
+cursor:pointer;
+}
+
+.menu{
+display:none;
+position:absolute;
+right:10px;
+top:60px;
+background:white;
+color:black;
+padding:15px;
+border-radius:10px;
+}
+
+.menu a{
+display:block;
+padding:8px;
+text-decoration:none;
+color:black;
 }
 
 .container{
-padding:20px;
 max-width:400px;
 margin:auto;
-}
-
-.logo{
-text-align:center;
-margin-top:40px;
-font-size:22px;
-font-weight:700;
-}
-
-h1{
-text-align:center;
-font-size:24px;
-margin-top:20px;
+padding:20px;
 }
 
 .card{
 background:white;
 color:black;
 padding:20px;
-border-radius:18px;
+border-radius:20px;
 margin-top:20px;
 }
 
 input{
 width:100%;
-padding:16px;
-border-radius:12px;
-border:2px solid #eee;
-margin-bottom:12px;
-font-size:16px;
+padding:14px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-bottom:10px;
 }
 
 button{
 width:100%;
 padding:14px;
-border-radius:12px;
 border:none;
-font-size:16px;
+border-radius:10px;
 margin-bottom:10px;
 cursor:pointer;
 }
 
-.email{
+.black{
 background:black;
 color:white;
 }
 
 .social{
-background:#f3f3f3;
+background:#eee;
 display:flex;
 align-items:center;
 gap:10px;
-}
-
-.divider{
-text-align:center;
-margin:15px 0;
-color:#777;
 }
 
 </style>
@@ -82,35 +96,41 @@ color:#777;
 
 <body>
 
-<div class="container">
+<div class="nav">
+<div>Tarvex</div>
 
-<div class="logo">
-Tarvex Networks
+<div class="menu-btn" onclick="toggle()">☰</div>
+
+<div class="menu" id="menu">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
 </div>
 
-<h1>Start building your website</h1>
+</div>
+
+<div class="container">
+
+<h2>Start building your website</h2>
 
 <div class="card">
 
 <input id="email" placeholder="Email address">
 
-<button class="email" onclick="continueEmail()">
+<button class="black" onclick="login()">
 Continue with email
 </button>
 
-<div class="divider">or</div>
-
-<button class="social" onclick="googleLogin()">
+<button class="social" onclick="social()">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="20">
 Continue with Google
 </button>
 
-<button class="social" onclick="appleLogin()">
+<button class="social" onclick="social()">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="20">
 Continue with Apple
 </button>
 
-<button class="social" onclick="facebookLogin()">
+<button class="social" onclick="social()">
 <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" width="20">
 Continue with Facebook
 </button>
@@ -121,30 +141,26 @@ Continue with Facebook
 
 <script>
 
-function continueEmail(){
-let email = document.getElementById("email").value;
-
-if(email == ""){
-alert("Enter your email")
-return;
+function toggle(){
+let m=document.getElementById("menu")
+m.style.display = m.style.display=="block"?"none":"block"
 }
 
-localStorage.setItem("user", email)
+function login(){
+let email=document.getElementById("email").value
+
+if(email==""){
+alert("Enter email")
+return
+}
+
+localStorage.setItem("user",email)
+
 window.location.href="dashboard.html"
 }
 
-function googleLogin(){
-localStorage.setItem("user", "google_user")
-window.location.href="dashboard.html"
-}
-
-function appleLogin(){
-localStorage.setItem("user", "apple_user")
-window.location.href="dashboard.html"
-}
-
-function facebookLogin(){
-localStorage.setItem("user", "facebook_user")
+function social(){
+localStorage.setItem("user","social_user")
 window.location.href="dashboard.html"
 }
 
