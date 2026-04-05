@@ -5,16 +5,11 @@
 <title>Start building - Tarvex</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial, Helvetica, sans-serif;
-background:#062b22;
+background:linear-gradient(180deg,#062b22,#031914);
 color:white;
 display:flex;
 justify-content:center;
@@ -72,19 +67,15 @@ color:white;
 
 .social{
 background:#f3f3f3;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
 }
 
-.divider{
+.small{
 text-align:center;
-margin:10px 0;
-color:#777;
+font-size:14px;
+margin-top:5px;
 }
-
 </style>
+
 </head>
 
 <body>
@@ -92,36 +83,59 @@ color:#777;
 <div class="wrapper">
 
 <h1>Start building your website</h1>
-<p>Use AI to create your site instantly</p>
+<p>Create your account or login</p>
 
 <div class="card">
 
 <input id="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password">
 
-<button class="email" onclick="go()">Continue</button>
+<button class="email" onclick="auth()">Continue</button>
 
-<div class="divider">or</div>
+<button class="social" onclick="social()">Continue with Google</button>
+<button class="social" onclick="social()">Continue with Apple</button>
+<button class="social" onclick="social()">Continue with Facebook</button>
 
-<button class="social" onclick="go()">
-Continue with Google
-</button>
-
-<button class="social" onclick="go()">
-Continue with Apple
-</button>
-
-<button class="social" onclick="go()">
-Continue with Facebook
-</button>
+<div class="small">
+Enter email + password to sign up or login
+</div>
 
 </div>
 
 </div>
 
 <script>
-function go(){
+
+function auth(){
+
+let email=document.getElementById("email").value
+let pass=document.getElementById("password").value
+
+if(email=="" || pass==""){
+alert("Enter email and password")
+return
+}
+
+let user=JSON.parse(localStorage.getItem("user"))
+
+if(!user){
+localStorage.setItem("user",JSON.stringify({email:email,password:pass}))
+window.location.href="dashboard.html"
+return
+}
+
+if(user.email==email && user.password==pass){
+window.location.href="dashboard.html"
+}else{
+alert("Wrong login")
+}
+
+}
+
+function social(){
 window.location.href="dashboard.html"
 }
+
 </script>
 
 </body>
