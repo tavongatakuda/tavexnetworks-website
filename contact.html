@@ -69,7 +69,6 @@ button{
   margin-top:20px;
   text-align:center;
 }
-
 </style>
 </head>
 
@@ -91,12 +90,19 @@ button{
   <div class="card">
     <h2>Send us a message</h2>
 
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message"></textarea>
+    <!-- ✅ WORKING FORM -->
+    <form action="https://formspree.io/f/mreooodv" method="POST">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+
       <button type="submit">Send Message</button>
+
     </form>
+
   </div>
 
   <div class="contact-info">
@@ -105,6 +111,20 @@ button{
   </div>
 
 </div>
+
+<!-- ✅ WHATSAPP BUTTON -->
+<a href="https://wa.me/263788562551" target="_blank" style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;">
+💬
+</a>
 
 </body>
 </html>
