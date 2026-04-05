@@ -24,15 +24,15 @@ overflow-x:hidden;
 .nav{
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:15px;
-background:rgba(255,255,255,0.05);
+padding:20px;
 }
 
-.nav a{
-color:white;
+.logout{
+background:white;
+color:black;
+padding:8px 14px;
+border-radius:20px;
 text-decoration:none;
-margin-left:10px;
 }
 
 /* CONTENT */
@@ -45,6 +45,7 @@ padding:20px;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
+margin-top:20px;
 }
 
 .card{
@@ -53,6 +54,10 @@ color:black;
 padding:20px;
 border-radius:16px;
 text-decoration:none;
+}
+
+.card h3{
+margin-bottom:5px;
 }
 
 @media(max-width:700px){
@@ -68,40 +73,35 @@ grid-template-columns:1fr;
 <body>
 
 <div class="nav">
-<div>Tarvex</div>
-
-<div>
-<a href="dashboard.html">Dashboard</a>
-<a href="builder.html">Builder</a>
-<a href="domains.html">Domains</a>
-<a href="ai.html">AI</a>
-</div>
+<div>Dashboard</div>
+<a class="logout" href="index.html">Home</a>
 </div>
 
 <div class="container">
 
-<h2>Tarvex Platform</h2>
+<h2>Welcome to Tarvex</h2>
+<p>Choose what you want to build</p>
 
 <div class="grid">
 
 <a class="card" href="builder.html">
-<h3>Website Builder</h3>
-<p>Create AI websites</p>
+<h3>AI Website Builder</h3>
+<p>Create full websites instantly</p>
 </a>
 
 <a class="card" href="domains.html">
 <h3>Domains & Hosting</h3>
-<p>Buy domains</p>
+<p>Search and buy domains</p>
 </a>
 
 <a class="card" href="ai.html">
 <h3>Tarvex AI</h3>
-<p>Smart assistant</p>
+<p>Ask AI anything</p>
 </a>
 
 <a class="card" href="deploy.html">
-<h3>Deployment</h3>
-<p>Publish website</p>
+<h3>Deploy Website</h3>
+<p>Publish your project</p>
 </a>
 
 </div>
