@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deployment Engine - Tarvex</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f7ff;
+}
+
+.nav{
+background:#0b2a5b;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+background:#1d4ed8;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.status{
+margin-top:20px;
+background:#f1f5ff;
+padding:15px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<div>Tarvex Deployment Engine</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Home</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Deploy Website</h2>
+
+<input id="site" placeholder="Website Name">
+<input id="domain" placeholder="Domain (example: mysite.com)">
+
+<button onclick="deploy()">Deploy Website</button>
+
+<div id="status" class="status">
+Deployment status will appear here...
+</div>
+
+</div>
+
+</div>
+
+<script>
+function deploy(){
+
+let site=document.getElementById("site").value
+let domain=document.getElementById("domain").value
+
+document.getElementById("status").innerHTML=
+"Deploying <strong>"+site+"</strong> to domain <strong>"+domain+"</strong>... <br><br> Deployment successful. Your site is live.";
+
+}
+</script>
+
+</body>
+</html>
