@@ -15,6 +15,14 @@ background:#0b2a5b;
 color:white;
 padding:15px;
 font-size:18px;
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
 }
 
 .container{
@@ -32,6 +40,15 @@ background:white;
 padding:20px;
 border-radius:20px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+cursor:pointer;
+display:block;
+text-decoration:none;
+color:black;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 @media(max-width:800px){
@@ -45,46 +62,51 @@ grid-template-columns:1fr;
 <body>
 
 <div class="nav">
-Tarvex Dashboard
+<div>Tarvex Dashboard</div>
+
+<div>
+<a href="index.html">Home</a>
+<a href="login.html">Logout</a>
+</div>
 </div>
 
 <div class="container">
 
 <div class="grid">
 
-<div class="card">
+<a href="builder.html" class="card">
 <h3>Website Builder</h3>
 <p>Create and manage websites</p>
-</div>
+</a>
 
-<div class="card">
-<h3>Domains</h3>
+<a href="domains.html" class="card">
+<h3>Domains & Hosting</h3>
 <p>Search and buy domains</p>
-</div>
+</a>
 
-<div class="card">
-<h3>AI Tools</h3>
-<p>Smart features coming soon</p>
-</div>
+<a href="#" class="card">
+<h3>Housing AI</h3>
+<p>Smart home assistant</p>
+</a>
 
-<div class="card">
-<h3>Hosting</h3>
-<p>Manage hosting plans</p>
-</div>
+<a href="#" class="card">
+<h3>APIs</h3>
+<p>Integration services</p>
+</a>
 
-<div class="card">
+<a href="#" class="card">
 <h3>DNS Manager</h3>
-<p>Control DNS records</p>
-</div>
+<p>Manage DNS records</p>
+</a>
 
-<div class="card">
-<h3>Deployment</h3>
-<p>Launch websites instantly</p>
-</div>
+<a href="#" class="card">
+<h3>Deployment Engine</h3>
+<p>One-click deployment</p>
+</a>
 
 </div>
 
 </div>
 
 </body>
-  </html>
+</html>
