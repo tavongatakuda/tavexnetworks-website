@@ -24,14 +24,18 @@ overflow-x:hidden;
 .nav{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:15px;
+background:rgba(255,255,255,0.05);
 }
 
-.logo{
-font-weight:700;
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:10px;
 }
 
-/* GRID */
+/* CONTENT */
 
 .container{
 padding:20px;
@@ -51,10 +55,6 @@ border-radius:16px;
 text-decoration:none;
 }
 
-.card h3{
-margin-bottom:5px;
-}
-
 @media(max-width:700px){
 .grid{
 grid-template-columns:1fr;
@@ -68,12 +68,19 @@ grid-template-columns:1fr;
 <body>
 
 <div class="nav">
-<div class="logo">Tarvex Dashboard</div>
+<div>Tarvex</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">Builder</a>
+<a href="domains.html">Domains</a>
+<a href="ai.html">AI</a>
+</div>
 </div>
 
 <div class="container">
 
-<h2>Build with Tarvex</h2>
+<h2>Tarvex Platform</h2>
 
 <div class="grid">
 
@@ -88,23 +95,13 @@ grid-template-columns:1fr;
 </a>
 
 <a class="card" href="ai.html">
-<h3>Housing AI</h3>
+<h3>Tarvex AI</h3>
 <p>Smart assistant</p>
-</a>
-
-<a class="card" href="api.html">
-<h3>APIs</h3>
-<p>Developer tools</p>
-</a>
-
-<a class="card" href="dns.html">
-<h3>DNS Manager</h3>
-<p>Manage DNS</p>
 </a>
 
 <a class="card" href="deploy.html">
 <h3>Deployment</h3>
-<p>Deploy websites</p>
+<p>Publish website</p>
 </a>
 
 </div>
