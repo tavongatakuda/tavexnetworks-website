@@ -1,23 +1,30 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Networks</title><style>
+
+<title>Tarvex Networks</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
 
 body{
 margin:0;
-font-family:Segoe UI;
-background:#f5f7ff;
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f7ff;
 }
 
 /* NAVBAR */
 
 .nav{
+background:white;
+padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
-background:white;
-border-bottom:1px solid #eee;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
@@ -26,19 +33,20 @@ font-size:20px;
 color:#0b2a5b;
 }
 
-.right{
+.menu{
 display:flex;
+gap:15px;
 align-items:center;
-gap:10px;
 }
 
-.login{
-color:#0b2a5b;
+.menu a{
 text-decoration:none;
+color:#333;
 font-weight:600;
+font-size:14px;
 }
 
-.signup{
+.btn{
 background:#2563eb;
 color:white;
 padding:8px 14px;
@@ -46,132 +54,136 @@ border-radius:8px;
 text-decoration:none;
 }
 
-.menu-btn{
-font-size:24px;
-cursor:pointer;
-padding:5px 10px;
-}
-
-/* MENU */
-
-.menu{
-display:none;
-flex-direction:column;
-background:white;
-border-bottom:1px solid #eee;
-}
-
-.menu a{
-padding:14px;
-text-decoration:none;
-color:#0b2a5b;
-border-top:1px solid #eee;
-font-weight:600;
-}
-
 /* HERO */
 
 .hero{
-padding:30px 20px;
+padding:40px 20px;
+text-align:center;
+background:linear-gradient(180deg,#eef2ff,#f8fbff);
 }
 
 .hero h1{
-color:#0b2a5b;
 font-size:28px;
+color:#0b2a5b;
+margin-bottom:10px;
 }
 
 .hero p{
 color:#555;
+font-size:15px;
 }
 
-.input{
-display:flex;
-margin-top:15px;
-gap:10px;
-}
-
-.input input{
-flex:1;
-padding:12px;
-border-radius:25px;
-border:2px solid black;
-}
-
-.input button{
-padding:12px 20px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:25px;
-}
-
-/* PLATFORM */
+/* CARDS */
 
 .section{
 padding:20px;
 }
 
-.section h2{
-color:#0b2a5b;
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 }
 
 .card{
 background:white;
 padding:20px;
-border-radius:15px;
-margin-top:15px;
+border-radius:14px;
+box-shadow:0 4px 15px rgba(0,0,0,0.05);
+text-decoration:none;
+color:black;
 }
 
 .card h3{
-color:#0b2a5b;
 margin:0;
+color:#0b2a5b;
+font-size:16px;
 }
 
 .card p{
+font-size:13px;
 color:#666;
 margin-top:5px;
 }
 
-</style></head><body><!-- NAVBAR --><div class="nav"><div class="logo">Tarvex Networks</div><div class="right"><a href="login.html" class="login">Login</a>
-<a href="signup.html" class="signup">Sign up</a>
+/* MOBILE */
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div></div></div><!-- MENU --><div id="menu" class="menu"><a href="dashboard.html">Dashboard</a>
+@media(max-width:600px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<div class="nav">
+
+<div class="logo">
+Tarvex Networks
+</div>
+
+<div class="menu">
+<a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
-<a href="builder.html">Website Builder</a>
-<a href="domains.html">Domains & Hosting</a>
-<a href="ai.html">Housing AI</a>
-<a href="api.html">APIs</a>
 
-</div><!-- HERO --><div class="hero"><h1>Build websites with AI</h1><p>Create websites, buy domains, manage hosting and deploy instantly.</p><div class="input">
-<input placeholder="Describe your website idea">
-<button>Start</button>
-</div></div><!-- PLATFORM --><div class="section"><h2>Platform</h2><div class="card">
+<a href="login.html" class="btn">Login</a>
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+<h1>Build websites with AI</h1>
+<p>Create websites, buy domains, manage hosting and deploy instantly.</p>
+</div>
+
+<!-- PLATFORM -->
+
+<div class="section">
+
+<div class="grid">
+
+<a class="card" href="builder.html">
 <h3>Website Builder</h3>
-<p>Create websites easily</p>
-</div><div class="card">
+<p>Create AI websites</p>
+</a>
+
+<a class="card" href="domains.html">
 <h3>Domains & Hosting</h3>
 <p>Buy domains & hosting</p>
-</div><div class="card">
+</a>
+
+<a class="card" href="ai.html">
 <h3>Housing AI</h3>
 <p>Smart assistant</p>
-</div><div class="card">
+</a>
+
+<a class="card" href="api.html">
 <h3>APIs</h3>
-<p>Integration tools</p>
-</div></div><script>
+<p>Platform tools</p>
+</a>
 
-function toggleMenu(){
+<a class="card" href="dns.html">
+<h3>DNS Manager</h3>
+<p>Manage DNS</p>
+</a>
 
-let menu = document.getElementById("menu");
+<a class="card" href="deploy.html">
+<h3>Deployment</h3>
+<p>Deploy website</p>
+</a>
 
-if(menu.style.display === "flex"){
-menu.style.display = "none";
-}else{
-menu.style.display = "flex";
-}
+</div>
 
-}
+</div>
 
-</script></body>
+</body>
 </html>
