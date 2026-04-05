@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarvex Access</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#062b22,#031914);
+  color:white;
+  overflow-x:hidden;
+}
+.auth-wrap{
+  max-width:460px;
+  margin:0 auto;
+  padding:28px 18px 40px;
+}
+.brand{
+  font-size:24px;
+  font-weight:700;
+  text-align:center;
+  margin:18px 0 10px;
+  letter-spacing:.2px;
+}
+.subtitle{
+  text-align:center;
+  color:rgba(255,255,255,.85);
+  margin:0 0 22px;
+  font-size:15px;
+}
+.panel{
+  background:white;
+  color:#0b2a5b;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+.step{
+  display:none;
+}
+.step.active{
+  display:block;
+}
+input{
+  width:100%;
+  padding:15px 16px;
+  border-radius:14px;
+  border:1px solid #d8e2ff;
+  font-size:16px;
+  margin-top:10px;
+  outline:none;
+}
+button{
+  width:100%;
+  padding:14px 16px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:12px;
+}
+.primary{
+  background:#2563eb;
+  color:white;
+}
+.dark{
+  background:#111;
+  color:white;
+}
+.social{
+  background:#f4f6fb;
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.divider{
+  text-align:center;
+  margin:14px 0;
+  color:#6b7280;
+  font-size:14px;
+}
+.small-link{
+  text-align:center;
+  margin-top:14px;
+  color:#6b7280;
+  font-size:14px;
+}
+.small-link a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:700;
+}
+.back{
+  display:inline-block;
+  margin:0 0 14px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<div class="auth-wrap">
+  <a class="back" href="index.html">← Home</a>
+
+  <div class="brand">Tarvex Networks</div>
+  <p class="subtitle">Start building your website with a real platform flow.</p>
+
+  <div class="panel">
+
+    <div id="step1" class="step active">
+      <h2 style="margin:0 0 8px;">Create your account</h2>
+      <p style="margin:0 0 10px;color:#4b5563;">Enter your email to continue.</p>
+
+      <input id="email" type="email" placeholder="Email address" />
+      <button class="primary" onclick="goStep2()">Continue</button>
+
+      <div class="divider">or</div>
+
+      <button class="social" onclick="socialLogin('Google')">
+        Continue with Google
+      </button>
+      <button class="social" onclick="socialLogin('Apple')">
+        Continue with Apple
+      </button>
+      <button class="social" onclick="socialLogin('Facebook')">
+        Continue with Facebook
+      </button>
+
+      <div class="small-link">
+        Already have an account? <a href="#" onclick="showLogin();return false;">Log in</a>
+      </div>
+    </div>
+
+    <div id="step2" class="step">
+      <h2 style="margin:0 0 8px;">Set your password</h2>
+      <p style="margin:0 0 10px;color:#4b5563;">Create a password for your account.</p>
+
+      <input id="password" type="password" placeholder="Password" />
+      <button class="dark" onclick="createAccount()">Create account</button>
+
+      <div class="small-link">
+        <a href="#" onclick="backToEmail();return false;">← Back</a>
+      </div>
+    </div>
+
+    <div id="loginStep" class="step">
+      <h2 style="margin:0 0 8px;">Log in</h2>
+      <p style="margin:0 0 10px;color:#4b5563;">Use your saved email and password.</p>
+
+      <input id="loginEmail" type="email" placeholder="Email address" />
+      <input id="loginPassword" type="password" placeholder="Password" />
+      <button class="primary" onclick="login()">Log in</button>
+
+      <div class="small-link">
+        <a href="#" onclick="backToEmail();return false;">← Back</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showOnly(id){
+  document.getElementById("step1").classList.remove("active");
+  document.getElementById("step2").classList.remove("active");
+  document.getElementById("loginStep").classList.remove("active");
+  document.getElementById(id).classList.add("active");
+}
+
+function goStep2(){
+  const email = document.getElementById("email").value.trim();
+  if(!email){
+    alert("Enter your email first");
+    return;
+  }
+  localStorage.setItem("tarvex_email", email);
+  showOnly("step2");
+}
+
+function backToEmail(){
+  showOnly("step1");
+}
+
+function createAccount(){
+  const email = localStorage.getItem("tarvex_email") || "";
+  const password = document.getElementById("password").value.trim();
+
+  if(!password){
+    alert("Create a password first");
+    return;
+  }
+
+  localStorage.setItem("tarvex_user", JSON.stringify({
+    email: email,
+    password: password,
+    name: email.split("@")[0],
+    credits: 5
+  }));
+
+  localStorage.setItem("tarvex_logged_in", "true");
+  window.location.href = "dashboard.html";
+}
+
+function showLogin(){
+  showOnly("loginStep");
+}
+
+function login(){
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+  const user = JSON.parse(localStorage.getItem("tarvex_user") || "null");
+
+  if(!user){
+    alert("No account found. Create one first.");
+    return;
+  }
+
+  if(user.email === email && user.password === password){
+    localStorage.setItem("tarvex_logged_in", "true");
+    window.location.href = "dashboard.html";
+  }else{
+    alert("Wrong email or password");
+  }
+}
+
+function socialLogin(provider){
+  localStorage.setItem("tarvex_user", JSON.stringify({
+    email: provider.toLowerCase() + "@tarvex.local",
+    password: provider.toLowerCase(),
+    name: provider + " User",
+    credits: 5
+  }));
+  localStorage.setItem("tarvex_logged_in", "true");
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
