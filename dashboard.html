@@ -1,106 +1,115 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Dashboard</title><style>
+<title>Tarvex Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:Segoe UI;
-background:#f4f7ff;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#062b22,#031914);
+color:white;
+overflow-x:hidden;
 }
 
 /* NAV */
 
 .nav{
-background:#0b2a5b;
-color:white;
-padding:15px 20px;
 display:flex;
 justify-content:space-between;
+padding:15px;
 }
 
-.logout{
-background:white;
-color:#0b2a5b;
-padding:6px 12px;
-border-radius:6px;
-cursor:pointer;
+.logo{
+font-weight:700;
 }
 
-/* CONTENT */
+/* GRID */
 
 .container{
 padding:20px;
 }
 
-.welcome{
-background:white;
-padding:20px;
-border-radius:12px;
-}
-
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:20px;
+gap:15px;
 }
 
 .card{
 background:white;
-padding:18px;
-border-radius:12px;
+color:black;
+padding:20px;
+border-radius:16px;
 text-decoration:none;
-color:#0b2a5b;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.card:hover{
-transform:translateY(-3px);
+.card h3{
+margin-bottom:5px;
 }
 
-</style></head><body><script>
-
-let loggedIn = localStorage.getItem("loggedIn");
-
-if(!loggedIn){
-window.location.href = "login.html";
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr;
+}
 }
 
-let user = JSON.parse(localStorage.getItem("user"));
+</style>
 
-</script><div class="nav"><div>Tarvex Dashboard</div><div onclick="logout()" class="logout">
-Logout
-</div></div><div class="container"><div class="welcome"><h2>Welcome, <span id="username"></span></h2><p>Credits left: <strong id="credits"></strong></p></div><div class="grid"><a href="builder.html" class="card">
+</head>
+
+<body>
+
+<div class="nav">
+<div class="logo">Tarvex Dashboard</div>
+</div>
+
+<div class="container">
+
+<h2>Build with Tarvex</h2>
+
+<div class="grid">
+
+<a class="card" href="builder.html">
 <h3>Website Builder</h3>
 <p>Create AI websites</p>
-</a><a href="domains.html" class="card">
+</a>
+
+<a class="card" href="domains.html">
 <h3>Domains & Hosting</h3>
 <p>Buy domains</p>
-</a><a href="ai.html" class="card">
+</a>
+
+<a class="card" href="ai.html">
 <h3>Housing AI</h3>
 <p>Smart assistant</p>
-</a><a href="api.html" class="card">
+</a>
+
+<a class="card" href="api.html">
 <h3>APIs</h3>
-<p>Platform tools</p>
-</a><a href="dns.html" class="card">
+<p>Developer tools</p>
+</a>
+
+<a class="card" href="dns.html">
 <h3>DNS Manager</h3>
 <p>Manage DNS</p>
-</a><a href="deploy.html" class="card">
+</a>
+
+<a class="card" href="deploy.html">
 <h3>Deployment</h3>
-<p>Deploy website</p>
-</a></div></div><script>
+<p>Deploy websites</p>
+</a>
 
-document.getElementById("username").innerText = user.name;
-document.getElementById("credits").innerText = user.credits;
+</div>
 
-function logout(){
+</div>
 
-localStorage.removeItem("loggedIn");
-
-window.location.href = "login.html";
-
-}
-
-</script></body>
+</body>
 </html>
