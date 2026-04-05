@@ -13,27 +13,48 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+font-family:Arial;
+background:#031914;
 color:white;
-overflow-x:hidden;
 }
 
-.nav{
+/* LAYOUT */
+
+.app{
 display:flex;
-justify-content:space-between;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+background:#02110d;
 padding:20px;
 }
 
-.back{
-background:white;
-color:black;
-padding:8px 14px;
-border-radius:20px;
-text-decoration:none;
+.logo{
+font-size:20px;
+margin-bottom:30px;
 }
 
-.container{
+.menu a{
+display:block;
+color:white;
+text-decoration:none;
+padding:10px;
+margin-bottom:5px;
+border-radius:8px;
+}
+
+.menu a:hover{
+background:#062b22;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
 padding:20px;
 }
 
@@ -41,27 +62,25 @@ padding:20px;
 background:white;
 color:black;
 padding:20px;
-border-radius:16px;
+border-radius:12px;
 margin-top:20px;
 }
 
 input{
 width:100%;
-padding:15px;
-border-radius:12px;
+padding:14px;
+border-radius:10px;
 border:1px solid #ddd;
-font-size:16px;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:14px;
 margin-top:10px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:black;
 color:white;
-font-size:16px;
 cursor:pointer;
 }
 
@@ -78,25 +97,42 @@ margin-top:10px;
 font-family:monospace;
 }
 
+@media(max-width:800px){
+.sidebar{
+display:none;
+}
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="nav">
-<div>Deploy</div>
-<a class="back" href="dashboard.html">Dashboard</a>
+<div class="app">
+
+<div class="sidebar">
+
+<div class="logo">Tarvex</div>
+
+<div class="menu">
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">AI Builder</a>
+<a href="domains.html">Domains</a>
+<a href="deploy.html">Deploy</a>
+<a href="ai.html">AI Assistant</a>
 </div>
 
-<div class="container">
+</div>
 
-<h2>Deploy your website</h2>
-<p>Publish your AI generated website</p>
+<div class="main">
+
+<h2>Deploy Website</h2>
+<p>Publish your generated site</p>
 
 <div class="card">
 
-<input id="name" placeholder="example: mybusiness">
+<input id="name" placeholder="example: mywebsite">
 
 <button onclick="deploy()">Deploy Website</button>
 
@@ -106,9 +142,11 @@ font-family:monospace;
 
 <h3>Website deployed</h3>
 
-<p>Your website is live at:</p>
+<p>Your site is live:</p>
 
 <div class="link" id="link"></div>
+
+</div>
 
 </div>
 
@@ -127,7 +165,7 @@ return
 
 document.getElementById("success").style.display="block"
 
-document.getElementById("link").innerText=
+document.getElementById("link").innerText =
 "https://tarvex.site/"+name
 
 }
