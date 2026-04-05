@@ -1,72 +1,131 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - Tarvex</title><style>
+<title>Start - Tarvex</title>
+
+<style>
 
 body{
-font-family:Segoe UI;
-background:#f5f7ff;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b1f1a;
+color:white;
 }
 
 .container{
 padding:20px;
+max-width:400px;
+margin:auto;
+}
+
+.logo{
+text-align:center;
+margin-top:40px;
+font-size:22px;
+font-weight:700;
+}
+
+h1{
+text-align:center;
+font-size:24px;
+margin-top:20px;
 }
 
 .card{
 background:white;
+color:black;
 padding:20px;
-border-radius:12px;
-margin-top:40px;
+border-radius:18px;
+margin-top:20px;
 }
 
 input{
 width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:8px;
-border:1px solid #ddd;
+padding:16px;
+border-radius:12px;
+border:2px solid #eee;
+margin-bottom:12px;
+font-size:16px;
 }
 
 button{
-margin-top:15px;
-padding:12px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
 width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+font-size:16px;
+margin-bottom:10px;
+cursor:pointer;
 }
 
-</style></head><body><div class="container"><h2>Login</h2><div class="card"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button onclick="login()">Login</button>
-
-<p>No account? <a href="signup.html">Create account</a></p></div></div><script>
-
-function login(){
-
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-
-let user = JSON.parse(localStorage.getItem("user"));
-
-if(!user){
-alert("Create account first");
-return;
+.email{
+background:black;
+color:white;
 }
 
-if(user.email === email && user.password === password){
-
-localStorage.setItem("loggedIn", true);
-
-window.location.href="dashboard.html";
-
-}else{
-
-alert("Wrong login details");
-
+.social{
+background:#f3f3f3;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
+.divider{
+text-align:center;
+margin:15px 0;
+color:#777;
 }
 
-</script></body>
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+Tarvex Networks
+</div>
+
+<h1>Start building your website</h1>
+
+<div class="card">
+
+<input placeholder="Email address">
+
+<button class="email" onclick="go()">Continue with email</button>
+
+<div class="divider">or</div>
+
+<button class="social">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="20">
+Continue with Google
+</button>
+
+<button class="social">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="20">
+Continue with Apple
+</button>
+
+<button class="social">
+<img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" width="20">
+Continue with Facebook
+</button>
+
+<p style="text-align:center">
+Already have account? <a href="#">Log in</a>
+</p>
+
+</div>
+
+</div>
+
+<script>
+function go(){
+window.location.href="dashboard.html"
+}
+</script>
+
+</body>
 </html>
