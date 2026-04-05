@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex AI Builder</title>
+<title>AI Builder - Tarvex</title>
 
 <style>
 
@@ -13,35 +13,58 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+font-family:Arial;
+background:#031914;
 color:white;
-overflow-x:hidden;
 }
 
-.nav{
+/* LAYOUT */
+
+.app{
 display:flex;
-justify-content:space-between;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+background:#02110d;
 padding:20px;
 }
 
-.back{
-background:white;
-color:black;
-padding:8px 14px;
-border-radius:20px;
+.logo{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.menu a{
+display:block;
+color:white;
 text-decoration:none;
+padding:10px;
+margin-bottom:5px;
+border-radius:8px;
 }
 
-.container{
+.menu a:hover{
+background:#062b22;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
 padding:20px;
 }
+
+/* CARD */
 
 .card{
 background:white;
 color:black;
 padding:20px;
-border-radius:16px;
+border-radius:12px;
 margin-top:20px;
 }
 
@@ -49,20 +72,18 @@ textarea{
 width:100%;
 height:140px;
 padding:15px;
-border-radius:12px;
+border-radius:10px;
 border:1px solid #ddd;
-font-size:16px;
 }
 
 button{
 width:100%;
-padding:15px;
+padding:14px;
 margin-top:10px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:black;
 color:white;
-font-size:16px;
 cursor:pointer;
 }
 
@@ -71,11 +92,10 @@ display:none;
 margin-top:20px;
 }
 
-.preview{
-background:#f3f3f3;
-padding:15px;
-border-radius:12px;
-margin-top:10px;
+@media(max-width:800px){
+.sidebar{
+display:none;
+}
 }
 
 </style>
@@ -84,19 +104,30 @@ margin-top:10px;
 
 <body>
 
-<div class="nav">
-<div>AI Builder</div>
-<a class="back" href="dashboard.html">Dashboard</a>
+<div class="app">
+
+<div class="sidebar">
+
+<div class="logo">Tarvex</div>
+
+<div class="menu">
+<a href="dashboard.html">Dashboard</a>
+<a href="builder.html">AI Builder</a>
+<a href="domains.html">Domains</a>
+<a href="deploy.html">Deploy</a>
+<a href="ai.html">AI Assistant</a>
 </div>
 
-<div class="container">
+</div>
 
-<h2>Describe your website</h2>
-<p>Tarvex AI will generate it</p>
+<div class="main">
+
+<h2>AI Website Builder</h2>
+<p>Describe your website idea</p>
 
 <div class="card">
 
-<textarea id="prompt" placeholder="example: business website with home, about, services and contact"></textarea>
+<textarea id="prompt" placeholder="example: restaurant website with booking and menu"></textarea>
 
 <button onclick="generate()">Generate Website</button>
 
@@ -104,16 +135,12 @@ margin-top:10px;
 
 <div class="card result" id="result">
 
-<h3>Website Structure</h3>
+<h3>Website Generated</h3>
+<p>Your AI website structure is ready</p>
 
-<div class="preview">
-Home Page<br>
-About Page<br>
-Services Page<br>
-Contact Page
+<button onclick="deploy()">Deploy</button>
+
 </div>
-
-<button onclick="deploy()">Deploy Website</button>
 
 </div>
 
