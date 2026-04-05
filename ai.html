@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Housing AI - Tarvex</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f7ff;
+}
+
+.nav{
+background:#0b2a5b;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+margin-top:10px;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+background:#1d4ed8;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.response{
+margin-top:20px;
+background:#f1f5ff;
+padding:15px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<div>Tarvex Housing AI</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Home</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Housing Assistant AI</h2>
+
+<input id="question" placeholder="Ask something about housing...">
+
+<button onclick="ask()">Ask AI</button>
+
+<div id="response" class="response">
+AI response will appear here...
+</div>
+
+</div>
+
+</div>
+
+<script>
+function ask(){
+
+let q = document.getElementById("question").value;
+
+document.getElementById("response").innerHTML =
+"Tarvex AI suggestion: For '"+q+"' we recommend modern smart housing solutions, energy saving systems, and scalable design.";
+
+}
+</script>
+
+</body>
+</html>
