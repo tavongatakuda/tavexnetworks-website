@@ -1,233 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarvex Networks</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tarvex Networks</title>
 
-  <!-- AOS ANIMATION -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-  <style>
-    :root{
-      --blue-900:#0b2a5b;
-      --blue-700:#1d4ed8;
-      --blue-100:#eaf2ff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#d7e3f4;
-    }
+<style>
+:root{
+--blue-900:#0b2a5b;
+--blue-700:#1d4ed8;
+--text:#0f172a;
+--muted:#475569;
+}
 
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#f8fbff;
-      color:var(--text);
-    }
+body{
+margin:0;
+font-family:Arial;
+background:#f8fbff;
+}
 
-    .container{
-      width:90%;
-      margin:auto;
-    }
+.container{
+width:90%;
+margin:auto;
+}
 
-    .topbar{
-      background:white;
-      padding:15px;
-      border-bottom:1px solid #ddd;
-    }
+.topbar{
+background:white;
+padding:15px;
+border-bottom:1px solid #ddd;
+}
 
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-    .nav a{
-      margin-left:15px;
-      text-decoration:none;
-      color:var(--muted);
-      font-weight:600;
-    }
+.nav a{
+margin-left:15px;
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
 
-    .nav a:hover{
-      color:var(--blue-700);
-    }
+.login-btn{
+background:#1d4ed8;
+color:white;
+padding:8px 14px;
+border-radius:8px;
+}
 
-    .hero{
-      padding:40px 0;
-    }
+.hero{
+padding:40px 0;
+}
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
 
-    .hero-card{
-      background:white;
-      padding:25px;
-      border-radius:20px;
-    }
+.hero-card{
+background:white;
+padding:25px;
+border-radius:20px;
+}
 
-    .preview{
-      height:300px;
-      background:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-        url("hero.jpg") center/cover no-repeat;
-      border-radius:20px;
-      display:flex;
-      align-items:flex-end;
-      color:white;
-      padding:20px;
-    }
+.preview{
+height:300px;
+background:
+linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+url("hero.jpg") center/cover no-repeat;
+border-radius:20px;
+display:flex;
+align-items:flex-end;
+color:white;
+padding:20px;
+}
 
-    h1{
-      color:var(--blue-900);
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
 
-    .btn{
-      padding:10px 15px;
-      border-radius:10px;
-      text-decoration:none;
-      display:inline-block;
-      margin-top:10px;
-    }
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+}
 
-    .btn-primary{
-      background:var(--blue-700);
-      color:white;
-    }
+video{
+width:100%;
+border-radius:20px;
+}
 
-    .btn-secondary{
-      border:1px solid var(--blue-700);
-      color:var(--blue-700);
-    }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
+footer{
+text-align:center;
+padding:30px;
+}
 
-    .card{
-      background:white;
-      padding:20px;
-      border-radius:20px;
-    }
-
-    video{
-      width:100%;
-      border-radius:20px;
-      margin-top:20px;
-    }
-
-    footer{
-      margin-top:40px;
-      padding:20px;
-      text-align:center;
-      color:var(--muted);
-    }
-
-    /* WhatsApp button */
-    .whatsapp{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25D366;
-      color:white;
-      padding:15px;
-      border-radius:50%;
-      text-decoration:none;
-      font-size:22px;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    @media(max-width:800px){
-      .hero-grid,.grid{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+@media(max-width:800px){
+.hero-grid,.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
 </head>
 
 <body>
 
 <div class="topbar">
-  <div class="container nav">
-    <h2>Tarvex Networks</h2>
+<div class="container nav">
+<h2>Tarvex Networks</h2>
 
-    <div>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="packages.html">Packages</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
+<div>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="packages.html">Packages</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="login.html" class="login-btn">Login</a>
+</div>
+
+</div>
 </div>
 
 <section class="hero">
-  <div class="container hero-grid">
+<div class="container hero-grid">
 
-    <div class="hero-card" data-aos="fade-right">
-      <h1>Power your future with Tarvex Networks</h1>
-      <p>
-        A platform for websites, domains, AI tools, and digital growth.
-        Built for young creators who want to build something real.
-      </p>
+<div class="hero-card" data-aos="fade-right">
+<h1>Power your future with Tarvex Networks</h1>
 
-      <a href="packages.html" class="btn btn-primary">See Packages</a>
-      <a href="#video" class="btn btn-secondary">Watch Video</a>
-    </div>
+<p>
+A platform for websites, domains, AI tools, and digital growth.
+Built for young creators who want to build something real.
+</p>
 
-    <div class="hero-card" data-aos="fade-left">
-      <div class="preview">
-        <div>
-          <h2>Coming Soon</h2>
-          <p>Websites • Domains • AI • Hosting</p>
-        </div>
-      </div>
-    </div>
+<a href="packages.html" class="login-btn">See Packages</a>
 
-  </div>
+</div>
+
+<div class="hero-card" data-aos="fade-left">
+<div class="preview">
+<div>
+<h2>Coming Soon</h2>
+<p>Websites • Domains • AI</p>
+</div>
+</div>
+</div>
+
+</div>
 </section>
 
 <section class="container">
-  <h2 data-aos="fade-up">What We Offer</h2>
+<h2>What We Offer</h2>
 
-  <div class="grid">
-    <div class="card" data-aos="zoom-in">
-      <h3>Website Building</h3>
-      <p>Professional modern websites for businesses and creators.</p>
-    </div>
+<div class="grid">
 
-    <div class="card" data-aos="zoom-in">
-      <h3>Domain Help</h3>
-      <p>We help you get the right domain and connect it.</p>
-    </div>
+<div class="card" data-aos="zoom-in">
+<h3>Website Builder</h3>
+<p>Create websites easily</p>
+</div>
 
-    <div class="card" data-aos="zoom-in">
-      <h3>AI Tools</h3>
-      <p>Smart features coming soon to power your platform.</p>
-    </div>
-  </div>
+<div class="card" data-aos="zoom-in">
+<h3>Domains</h3>
+<p>Buy and manage domains</p>
+</div>
+
+<div class="card" data-aos="zoom-in">
+<h3>AI Tools</h3>
+<p>Smart platform features</p>
+</div>
+
+</div>
 </section>
 
-<section id="video" class="container" data-aos="fade-up">
-  <h2>Our Vision</h2>
+<section class="container">
+<h2>Our Vision</h2>
 
-  <video controls poster="hero.jpg">
-    <source src="video.mp4" type="video/mp4">
-  </video>
+<video controls poster="hero.jpg">
+<source src="video.mp4" type="video/mp4">
+</video>
+
 </section>
 
 <footer>
-  © 2026 Tarvex Networks — Built for the future
+© 2026 Tarvex Networks
 </footer>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/263788562551" class="whatsapp" target="_blank">
+<a href="https://wa.me/263788562551" class="whatsapp">
 💬
 </a>
 
