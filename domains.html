@@ -1,57 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard - Tarvex</title>
+<title>Domains - Tarvex</title>
 
 <style>
 body{
 font-family:Arial;
 margin:0;
-background:#f1f5ff;
+background:#f4f7ff;
 }
 
 .nav{
 background:#0b2a5b;
 color:white;
 padding:15px;
-font-size:18px;
-display:flex;
-justify-content:space-between;
-}
-
-.nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
 }
 
 .container{
 padding:20px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
 .card{
 background:white;
 padding:20px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-cursor:pointer;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-@media(max-width:800px){
-.grid{
-grid-template-columns:1fr;
-}
+margin-top:20px;
 }
 </style>
 </head>
@@ -59,48 +32,14 @@ grid-template-columns:1fr;
 <body>
 
 <div class="nav">
-<div>Tarvex Dashboard</div>
-
-<div>
-<a href="index.html">Home</a>
-<a href="login.html">Logout</a>
-</div>
+Tarvex Domain System
 </div>
 
 <div class="container">
 
-<div class="grid">
-
-<div class="card" onclick="location.href='builder.html'">
-<h3>Website Builder</h3>
-<p>Create and manage websites</p>
-</div>
-
-<div class="card" onclick="location.href='domains.html'">
-<h3>Domains & Hosting</h3>
-<p>Search and buy domains</p>
-</div>
-
 <div class="card">
-<h3>Housing AI</h3>
-<p>Smart home assistant</p>
-</div>
-
-<div class="card">
-<h3>APIs</h3>
-<p>Integration services</p>
-</div>
-
-<div class="card">
-<h3>DNS Manager</h3>
-<p>Manage DNS records</p>
-</div>
-
-<div class="card">
-<h3>Deployment Engine</h3>
-<p>One-click deployment</p>
-</div>
-
+<h2>Domain Search</h2>
+<p>Search and register domains here.</p>
 </div>
 
 </div>
