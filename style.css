@@ -1,77 +1,36 @@
-body{
-font-family:Arial, sans-serif;
-margin:0;
-background:#f4f7ff;
-font-size:18px;
-line-height:1.6;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#050B18,#0A1F3C,#071224);
+  color: #EAF2FF;
 }
 
-.nav{
-background:#0b2a5b;
-color:white;
-padding:18px;
-font-size:20px;
-display:flex;
-justify-content:space-between;
+/* Navbar */
+.navbar {
+  background: rgba(10,20,40,0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
+/* Glass Cards */
+.card {
+  background: rgba(18, 34, 64, 0.65);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.container{
-padding:25px;
+/* Buttons */
+.btn {
+  background: #2F80ED;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
 }
 
-h1{font-size:32px;}
-h2{font-size:26px;}
-h3{font-size:22px;}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-cursor:pointer;
-text-decoration:none;
-color:black;
-display:block;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-input{
-width:100%;
-padding:14px;
-margin-top:10px;
-border-radius:10px;
-border:1px solid #ccc;
-font-size:16px;
-}
-
-button{
-margin-top:10px;
-padding:14px;
-background:#1d4ed8;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-}
-
-@media(max-width:800px){
-.grid{
-grid-template-columns:1fr;
-}
-}
+.btn:hover {
+  background: #1c5ed6;
+    }
