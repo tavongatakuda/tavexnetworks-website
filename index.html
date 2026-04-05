@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarvex Networks</title>
 
+  <!-- ✅ AOS ANIMATION CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
   <style>
     :root{
       --blue-900:#0b2a5b;
@@ -27,7 +30,6 @@
       margin:auto;
     }
 
-    /* NAV */
     .topbar{
       background:white;
       padding:15px;
@@ -52,7 +54,6 @@
       color:var(--blue-700);
     }
 
-    /* HERO */
     .hero{
       padding:40px 0;
     }
@@ -103,7 +104,6 @@
       color:var(--blue-700);
     }
 
-    /* SERVICES */
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -116,14 +116,12 @@
       border-radius:20px;
     }
 
-    /* VIDEO */
     video{
       width:100%;
       border-radius:20px;
       margin-top:20px;
     }
 
-    /* FOOTER */
     footer{
       margin-top:40px;
       padding:20px;
@@ -141,7 +139,6 @@
 
 <body>
 
-<!-- NAVBAR -->
 <div class="topbar">
   <div class="container nav">
     <h2>Tarvex Networks</h2>
@@ -156,11 +153,10 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
 
-    <div class="hero-card">
+    <div class="hero-card" data-aos="fade-right">
       <h1>Power your future with Tarvex Networks</h1>
       <p>
         A platform for websites, domains, AI tools, and digital growth.
@@ -171,7 +167,7 @@
       <a href="#video" class="btn btn-secondary">Watch Video</a>
     </div>
 
-    <div class="hero-card">
+    <div class="hero-card" data-aos="fade-left">
       <div class="preview">
         <div>
           <h2>Coming Soon</h2>
@@ -183,30 +179,28 @@
   </div>
 </section>
 
-<!-- SERVICES PREVIEW -->
 <section class="container">
-  <h2>What We Offer</h2>
+  <h2 data-aos="fade-up">What We Offer</h2>
 
   <div class="grid">
-    <div class="card">
+    <div class="card" data-aos="zoom-in">
       <h3>Website Building</h3>
       <p>Professional modern websites for businesses and creators.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-aos="zoom-in">
       <h3>Domain Help</h3>
       <p>We help you get the right domain and connect it.</p>
     </div>
 
-    <div class="card">
+    <div class="card" data-aos="zoom-in">
       <h3>AI Tools</h3>
       <p>Smart features coming soon to power your platform.</p>
     </div>
   </div>
 </section>
 
-<!-- VIDEO -->
-<section id="video" class="container">
+<section id="video" class="container" data-aos="fade-up">
   <h2>Our Vision</h2>
 
   <video controls poster="hero.jpg">
@@ -214,10 +208,15 @@
   </video>
 </section>
 
-<!-- FOOTER -->
 <footer>
   © 2026 Tarvex Networks — Built for the future
 </footer>
+
+<!-- ✅ AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
 
 </body>
 </html>
