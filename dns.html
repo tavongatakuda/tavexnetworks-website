@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DNS Manager - Tarvex</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f7ff;
+}
+
+.nav{
+background:#0b2a5b;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+background:#1d4ed8;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.record{
+background:#f1f5ff;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<div>Tarvex DNS Manager</div>
+
+<div>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Home</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Add DNS Record</h2>
+
+<input id="type" placeholder="Record Type (A, CNAME)">
+<input id="name" placeholder="Name (example: www)">
+<input id="value" placeholder="Value (IP or domain)">
+
+<button onclick="add()">Add Record</button>
+
+<div id="records"></div>
+
+</div>
+
+</div>
+
+<script>
+function add(){
+
+let type=document.getElementById("type").value
+let name=document.getElementById("name").value
+let value=document.getElementById("value").value
+
+document.getElementById("records").innerHTML+=`
+<div class="record">
+<strong>${type}</strong> — ${name} → ${value}
+</div>
+`
+
+}
+</script>
+
+</body>
+</html>
