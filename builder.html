@@ -1,48 +1,119 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
-<title>Website Builder - Tarvex</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Builder - Tarvex</title><style>
 
-<style>
-body{
-font-family:Arial;
+*{
 margin:0;
-background:#f4f7ff;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, Arial;
 }
+
+body{
+background:#f5f7ff;
+}
+
+/* NAV */
 
 .nav{
 background:#0b2a5b;
 color:white;
-padding:15px;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
 }
+
+.nav a{
+color:white;
+text-decoration:none;
+}
+
+/* CONTENT */
 
 .container{
 padding:20px;
 }
 
-.card{
+h1{
+color:#0b2a5b;
+margin-bottom:10px;
+}
+
+.box{
 background:white;
 padding:20px;
-border-radius:20px;
-margin-top:20px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
-</style>
-</head>
 
-<body>
+input, textarea, select{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
 
-<div class="nav">
-Tarvex Website Builder
+button{
+margin-top:15px;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+width:100%;
+font-size:16px;
+}
+
+.preview{
+margin-top:20px;
+background:white;
+padding:20px;
+border-radius:12px;
+}
+
+</style></head><body><div class="nav">
+<div>Tarvex Builder</div>
+<a href="dashboard.html">Dashboard</a>
+</div><div class="container"><h1>AI Website Builder</h1>
+<p>Describe your website and Tarvex will generate it.</p><div class="box"><label>Website Name</label>
+<input placeholder="Example: Shumi Beauty">
+
+<label>Website Type</label>
+<select>
+
+<option>Business</option>
+<option>Portfolio</option>
+<option>Blog</option>
+<option>Ecommerce</option>
+</select><label>Description</label>
+
+<textarea placeholder="Describe your website..."></textarea><button onclick="generate()">Generate Website</button>
+
+</div><div class="preview" id="preview">
+<h3>Preview will appear here</h3>
+</div></div><script>
+
+function generate(){
+document.getElementById("preview").innerHTML = `
+<h2>Your Website</h2>
+<p>This is your AI generated website layout</p>
+
+<div style="background:#2563eb;color:white;padding:20px;border-radius:10px;margin-top:10px">
+Hero Section
 </div>
 
-<div class="container">
-
-<div class="card">
-<h2>Website Builder</h2>
-<p>This is where users will build websites.</p>
+<div style="background:#eee;padding:20px;border-radius:10px;margin-top:10px">
+About Section
 </div>
 
+<div style="background:#ddd;padding:20px;border-radius:10px;margin-top:10px">
+Contact Section
 </div>
+`;
+}
 
-</body>
-</html>
+</script></body>
+  </html>
