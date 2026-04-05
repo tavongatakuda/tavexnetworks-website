@@ -36,6 +36,7 @@ border-bottom:1px solid #ddd;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
 }
 
 .nav a{
@@ -43,6 +44,10 @@ margin-left:15px;
 text-decoration:none;
 color:#333;
 font-weight:600;
+}
+
+.nav a:hover{
+color:#1d4ed8;
 }
 
 .login-btn{
@@ -97,6 +102,11 @@ width:100%;
 border-radius:20px;
 }
 
+footer{
+text-align:center;
+padding:30px;
+}
+
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -107,11 +117,6 @@ padding:15px;
 border-radius:50%;
 text-decoration:none;
 font-size:20px;
-}
-
-footer{
-text-align:center;
-padding:30px;
 }
 
 @media(max-width:800px){
@@ -135,6 +140,7 @@ grid-template-columns:1fr;
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 <a href="login.html" class="login-btn">Login</a>
+<a href="dashboard.html" class="login-btn">Dashboard</a>
 </div>
 
 </div>
@@ -168,7 +174,7 @@ Built for young creators who want to build something real.
 </section>
 
 <section class="container">
-<h2>What We Offer</h2>
+<h2 data-aos="fade-up">What We Offer</h2>
 
 <div class="grid">
 
@@ -178,19 +184,19 @@ Built for young creators who want to build something real.
 </div>
 
 <div class="card" data-aos="zoom-in">
-<h3>Domains</h3>
+<h3>Domains & Hosting</h3>
 <p>Buy and manage domains</p>
 </div>
 
 <div class="card" data-aos="zoom-in">
-<h3>AI Tools</h3>
-<p>Smart platform features</p>
+<h3>Housing AI</h3>
+<p>Smart assistant system</p>
 </div>
 
 </div>
 </section>
 
-<section class="container">
+<section class="container" data-aos="fade-up">
 <h2>Our Vision</h2>
 
 <video controls poster="hero.jpg">
