@@ -92,40 +92,63 @@ Tarvex Networks
 
 <div class="card">
 
-<input placeholder="Email address">
+<input id="email" placeholder="Email address">
 
-<button class="email" onclick="go()">Continue with email</button>
+<button class="email" onclick="continueEmail()">
+Continue with email
+</button>
 
 <div class="divider">or</div>
 
-<button class="social">
+<button class="social" onclick="googleLogin()">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="20">
 Continue with Google
 </button>
 
-<button class="social">
+<button class="social" onclick="appleLogin()">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="20">
 Continue with Apple
 </button>
 
-<button class="social">
+<button class="social" onclick="facebookLogin()">
 <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" width="20">
 Continue with Facebook
 </button>
-
-<p style="text-align:center">
-Already have account? <a href="#">Log in</a>
-</p>
 
 </div>
 
 </div>
 
 <script>
-function go(){
+
+function continueEmail(){
+let email = document.getElementById("email").value;
+
+if(email == ""){
+alert("Enter your email")
+return;
+}
+
+localStorage.setItem("user", email)
 window.location.href="dashboard.html"
 }
+
+function googleLogin(){
+localStorage.setItem("user", "google_user")
+window.location.href="dashboard.html"
+}
+
+function appleLogin(){
+localStorage.setItem("user", "apple_user")
+window.location.href="dashboard.html"
+}
+
+function facebookLogin(){
+localStorage.setItem("user", "facebook_user")
+window.location.href="dashboard.html"
+}
+
 </script>
 
 </body>
-</html>
+  </html>
