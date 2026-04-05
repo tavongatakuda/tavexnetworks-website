@@ -13,27 +13,48 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+font-family:Arial;
+background:#031914;
 color:white;
-overflow-x:hidden;
 }
 
-.nav{
+/* LAYOUT */
+
+.app{
 display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background:rgba(255,255,255,0.05);
+height:100vh;
 }
 
-.nav a{
+/* SIDEBAR */
+
+.sidebar{
+width:220px;
+background:#02110d;
+padding:20px;
+}
+
+.logo{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.menu a{
+display:block;
 color:white;
 text-decoration:none;
-margin-left:10px;
+padding:10px;
+margin-bottom:5px;
+border-radius:8px;
 }
 
-.container{
+.menu a:hover{
+background:#062b22;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
 padding:20px;
 }
 
@@ -41,16 +62,15 @@ padding:20px;
 background:white;
 color:black;
 padding:20px;
-border-radius:16px;
-margin-top:15px;
+border-radius:12px;
+margin-top:20px;
 }
 
 input{
 width:100%;
-padding:15px;
-border-radius:12px;
+padding:14px;
+border-radius:10px;
 border:1px solid #ddd;
-font-size:16px;
 }
 
 button{
@@ -58,16 +78,14 @@ width:100%;
 padding:14px;
 margin-top:10px;
 border:none;
-border-radius:12px;
+border-radius:10px;
 background:black;
 color:white;
-font-size:16px;
 cursor:pointer;
 }
 
 .result{
 display:none;
-margin-top:15px;
 }
 
 .domain{
@@ -81,7 +99,13 @@ border-bottom:1px solid #eee;
 background:#2563eb;
 color:white;
 padding:5px 10px;
-border-radius:8px;
+border-radius:6px;
+}
+
+@media(max-width:800px){
+.sidebar{
+display:none;
+}
 }
 
 </style>
@@ -90,20 +114,25 @@ border-radius:8px;
 
 <body>
 
-<div class="nav">
-<div>Tarvex</div>
+<div class="app">
 
-<div>
+<div class="sidebar">
+<div class="logo">Tarvex</div>
+
+<div class="menu">
 <a href="dashboard.html">Dashboard</a>
-<a href="builder.html">Builder</a>
+<a href="builder.html">AI Builder</a>
 <a href="domains.html">Domains</a>
-<a href="ai.html">AI</a>
-</div>
+<a href="deploy.html">Deploy</a>
+<a href="ai.html">AI Assistant</a>
 </div>
 
-<div class="container">
+</div>
 
-<h2>Search Domain</h2>
+<div class="main">
+
+<h2>Domain Search</h2>
+<p>Find your perfect domain</p>
 
 <div class="card">
 
@@ -128,6 +157,8 @@ border-radius:8px;
 <div class="domain">
 <span id="d3"></span>
 <span class="buy">Buy</span>
+</div>
+
 </div>
 
 </div>
