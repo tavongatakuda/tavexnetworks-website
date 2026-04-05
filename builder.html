@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Website Builder</title>
+<title>Website Builder - Tarvex</title>
 
 <style>
 body{
@@ -16,81 +14,17 @@ background:#f4f7ff;
 background:#0b2a5b;
 color:white;
 padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.nav a{
-color:white;
-text-decoration:none;
-margin-left:15px;
-font-weight:600;
 }
 
 .container{
 padding:20px;
 }
 
-.title{
-font-size:24px;
-margin-bottom:20px;
-color:#0b2a5b;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
 .card{
 background:white;
 padding:20px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-input, textarea{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-border:1px solid #ccc;
-font-size:15px;
-}
-
-button{
-margin-top:10px;
-padding:12px;
-background:#1d4ed8;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-}
-
-.preview{
-border:2px dashed #ccc;
-padding:20px;
-min-height:250px;
-border-radius:20px;
-background:#fafafa;
-}
-
-.preview h2{
-color:#0b2a5b;
-}
-
-.preview button{
-background:#0b2a5b;
-}
-
-@media(max-width:800px){
-.grid{
-grid-template-columns:1fr;
-}
+margin-top:20px;
 }
 </style>
 </head>
@@ -98,63 +32,17 @@ grid-template-columns:1fr;
 <body>
 
 <div class="nav">
-<div>Tarvex Website Builder</div>
-
-<div>
-<a href="dashboard.html">Dashboard</a>
-<a href="index.html">Home</a>
-</div>
+Tarvex Website Builder
 </div>
 
 <div class="container">
 
-<div class="title">
-Create Your Website
-</div>
-
-<div class="grid">
-
 <div class="card">
-<h3>Website Details</h3>
-
-<input id="title" placeholder="Website Title">
-
-<textarea id="desc" placeholder="Website Description"></textarea>
-
-<input id="button" placeholder="Button Text (example: Contact Us)">
-
-<button onclick="build()">Generate Website</button>
-
-</div>
-
-<div class="card">
-<h3>Live Preview</h3>
-
-<div class="preview" id="preview">
-Your website preview will appear here...
+<h2>Website Builder</h2>
+<p>This is where users will build websites.</p>
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-<script>
-function build(){
-
-let title = document.getElementById("title").value;
-let desc = document.getElementById("desc").value;
-let btn = document.getElementById("button").value;
-
-document.getElementById("preview").innerHTML = `
-<h2>${title}</h2>
-<p>${desc}</p>
-<button>${btn}</button>
-`;
-
-}
-</script>
 
 </body>
 </html>
