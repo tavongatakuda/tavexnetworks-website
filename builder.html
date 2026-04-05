@@ -150,7 +150,7 @@ display:none;
 
 function generate(){
 
-let text=document.getElementById("prompt").value
+let text = document.getElementById("prompt").value
 
 if(text==""){
 alert("Describe website first")
@@ -158,6 +158,32 @@ return
 }
 
 document.getElementById("result").style.display="block"
+
+document.getElementById("result").innerHTML = `
+<h3>Generating website...</h3>
+<p>Please wait...</p>
+`
+
+setTimeout(()=>{
+
+document.getElementById("result").innerHTML = `
+
+<h3>Website Generated</h3>
+
+<div style="background:#f3f3f3;padding:15px;border-radius:10px;margin-top:10px">
+
+Home Page<br>
+About Page<br>
+Services Page<br>
+Contact Page
+
+</div>
+
+<button onclick="deploy()">Deploy Website</button>
+
+`
+
+},1500)
 
 }
 
