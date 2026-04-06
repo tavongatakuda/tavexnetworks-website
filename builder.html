@@ -18,11 +18,20 @@ background:#031914;
 color:white;
 }
 
+/* TOP BAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+background:#02110d;
+}
+
 /* LAYOUT */
 
 .app{
 display:flex;
-height:100vh;
+min-height:100vh;
 }
 
 /* SIDEBAR */
@@ -93,9 +102,15 @@ margin-top:20px;
 }
 
 @media(max-width:800px){
-.sidebar{
-display:none;
+
+.app{
+flex-direction:column;
 }
+
+.sidebar{
+width:100%;
+}
+
 }
 
 </style>
@@ -103,6 +118,11 @@ display:none;
 </head>
 
 <body>
+
+<div class="topbar">
+<div>AI Builder</div>
+<a href="dashboard.html">Dashboard</a>
+</div>
 
 <div class="app">
 
@@ -133,14 +153,7 @@ display:none;
 
 </div>
 
-<div class="card result" id="result">
-
-<h3>Website Generated</h3>
-<p>Your AI website structure is ready</p>
-
-<button onclick="deploy()">Deploy</button>
-
-</div>
+<div class="card result" id="result"></div>
 
 </div>
 
@@ -170,23 +183,9 @@ document.getElementById("result").innerHTML = `
 
 <h3>Website Generated</h3>
 
-<div style="
-background:white;
-border-radius:10px;
-padding:20px;
-margin-top:15px;
-color:black;
-">
+<div style="background:#f3f3f3;padding:20px;border-radius:10px">
 
-<h2 style="margin-bottom:10px">Your Website Preview</h2>
-
-<div style="
-background:#f3f3f3;
-padding:20px;
-border-radius:10px;
-">
-
-<h1>${text}</h1>
+<h2>${text}</h2>
 
 <p>This is your AI generated homepage</p>
 
@@ -200,8 +199,6 @@ margin-top:10px;
 ">
 Get Started
 </button>
-
-</div>
 
 </div>
 
