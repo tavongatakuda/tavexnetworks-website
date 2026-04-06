@@ -25,6 +25,12 @@ overflow-x:hidden;
 display:flex;
 justify-content:space-between;
 padding:20px;
+align-items:center;
+}
+
+.right{
+display:flex;
+gap:10px;
 }
 
 .login{
@@ -35,15 +41,23 @@ border-radius:20px;
 text-decoration:none;
 }
 
+.signup{
+border:1px solid white;
+color:white;
+padding:8px 16px;
+border-radius:20px;
+text-decoration:none;
+}
+
 /* HERO */
 
 .hero{
-padding:40px 20px;
+padding:60px 20px;
 text-align:center;
 }
 
 .hero h1{
-font-size:30px;
+font-size:34px;
 margin-bottom:10px;
 }
 
@@ -88,7 +102,12 @@ cursor:pointer;
 
 <div class="nav">
 <div>Tarvex</div>
-<a class="login" href="auth.html">Login</a>
+
+<div class="right">
+<a class="signup" href="dashboard.html">Dashboard</a>
+<a class="login" href="builder.html">Login</a>
+</div>
+
 </div>
 
 <div class="hero">
