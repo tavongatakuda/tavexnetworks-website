@@ -18,6 +18,21 @@ background:#031914;
 color:white;
 }
 
+/* TOP BAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+background:#02110d;
+}
+
+.menu-btn{
+display:none;
+}
+
+/* LAYOUT */
+
 .app{
 display:flex;
 min-height:100vh;
@@ -72,20 +87,38 @@ display:block;
 transform:scale(1.02);
 }
 
+/* MOBILE */
+
 @media(max-width:800px){
+
+.menu-btn{
+display:block;
+}
+
 .sidebar{
-display:none;
+display:block;
+width:100%;
+}
+
+.app{
+flex-direction:column;
 }
 
 .grid{
 grid-template-columns:1fr;
 }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="topbar">
+<div>Tarvex Dashboard</div>
+<a href="index.html">Home</a>
+</div>
 
 <div class="app">
 
@@ -136,4 +169,4 @@ grid-template-columns:1fr;
 </div>
 
 </body>
-</html>
+  </html>
