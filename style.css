@@ -17,8 +17,13 @@ overflow-x:hidden;
 .nav{
 display:flex;
 justify-content:space-between;
-padding:20px;
+padding:20px 30px;
 align-items:center;
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
@@ -44,6 +49,9 @@ animation:fadeIn 1s ease;
 .hero h1{
 font-size:36px;
 margin-bottom:10px;
+background: linear-gradient(90deg, #00ffae, #ffffff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 .hero p{
@@ -58,15 +66,23 @@ margin:auto;
 margin-top:25px;
 }
 
+/* GLASS TEXTAREA */
+
 textarea{
 width:100%;
 height:120px;
 padding:15px;
 border-radius:16px;
-border:none;
+border:1px solid rgba(0,255,174,0.2);
 font-size:16px;
-background:white;
-color:black;
+background:rgba(255,255,255,0.05);
+color:white;
+backdrop-filter:blur(10px);
+outline:none;
+}
+
+textarea::placeholder{
+color:rgba(255,255,255,0.4);
 }
 
 /* BUTTON */
@@ -101,15 +117,18 @@ margin-top:20px;
 }
 
 .tag{
-background:#062b22;
-padding:8px 14px;
+background:rgba(0,255,174,0.08);
+border:1px solid rgba(0,255,174,0.2);
+padding:8px 16px;
 border-radius:20px;
 cursor:pointer;
 transition:.2s;
+font-size:14px;
 }
 
 .tag:hover{
-background:#0a3d2f;
+background:rgba(0,255,174,0.15);
+box-shadow:0 0 10px rgba(0,255,174,0.2);
 }
 
 /* FADE */
