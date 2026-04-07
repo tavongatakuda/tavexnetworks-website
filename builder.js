@@ -23,6 +23,14 @@ document.getElementById("result").innerHTML = `
 </div>
 `
 
+generateAI(text)
+
+}
+
+/* AI ENGINE */
+
+function generateAI(text){
+
 setTimeout(()=>{
 
 let words = text.split(" ")
@@ -155,15 +163,25 @@ ${siteData.index}
 
 `
 
-},1500)
+},1200)
 
 }
+
+/* PAGE SWITCH */
 
 function loadPage(page){
 document.getElementById("preview").innerHTML = siteData[page]
 }
 
+/* DEPLOY */
+
 function deploy(){
 localStorage.setItem("tarvex_site", JSON.stringify(siteData))
 window.location.href="deploy.html"
+}
+
+/* TAG FILL */
+
+function fill(text){
+document.getElementById("prompt").value = text
 }
