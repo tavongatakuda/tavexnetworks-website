@@ -6,101 +6,31 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
 font-family:Arial;
 background:#031914;
 color:white;
-}
-
-/* LAYOUT */
-
-.app{
-display:flex;
-height:100vh;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-width:220px;
-background:#02110d;
-padding:20px;
-}
-
-.logo{
-font-size:20px;
-margin-bottom:30px;
-}
-
-.menu a{
-display:block;
-color:white;
-text-decoration:none;
-padding:10px;
-margin-bottom:5px;
-border-radius:8px;
-}
-
-.menu a:hover{
-background:#062b22;
-}
-
-/* MAIN */
-
-.main{
-flex:1;
-padding:20px;
+text-align:center;
+padding:40px;
 }
 
 .card{
 background:white;
 color:black;
-padding:20px;
+padding:30px;
 border-radius:12px;
-margin-top:20px;
-}
-
-input{
-width:100%;
-padding:14px;
-border-radius:10px;
-border:1px solid #ddd;
+max-width:500px;
+margin:auto;
 }
 
 button{
-width:100%;
-padding:14px;
-margin-top:10px;
+padding:15px;
 border:none;
-border-radius:10px;
 background:black;
 color:white;
-cursor:pointer;
-}
-
-.success{
-display:none;
-margin-top:20px;
-}
-
-.link{
-background:#f3f3f3;
-padding:10px;
-border-radius:8px;
-margin-top:10px;
-font-family:monospace;
-}
-
-@media(max-width:800px){
-.sidebar{
-display:none;
-}
+border-radius:10px;
+margin-top:15px;
+width:100%;
 }
 
 </style>
@@ -109,64 +39,33 @@ display:none;
 
 <body>
 
-<div class="app">
-
-<div class="sidebar">
-
-<div class="logo">Tarvex</div>
-
-<div class="menu">
-<a href="dashboard.html">Dashboard</a>
-<a href="builder.html">AI Builder</a>
-<a href="domains.html">Domains</a>
-<a href="deploy.html">Deploy</a>
-<a href="ai.html">AI Assistant</a>
-</div>
-
-</div>
-
-<div class="main">
-
-<h2>Deploy Website</h2>
-<p>Publish your generated site</p>
+<h1>Deploy Website</h1>
 
 <div class="card">
 
-<input id="name" placeholder="example: mywebsite">
+<p>Your website is ready to deploy</p>
 
-<button onclick="deploy()">Deploy Website</button>
+<button onclick="publish()">Publish Website</button>
 
-</div>
-
-<div class="card success" id="success">
-
-<h3>Website deployed</h3>
-
-<p>Your site is live:</p>
-
-<div class="link" id="link"></div>
-
-</div>
-
-</div>
+<div id="status"></div>
 
 </div>
 
 <script>
 
-function deploy(){
+function publish(){
 
-let name=document.getElementById("name").value
+document.getElementById("status").innerHTML="Deploying..."
 
-if(name==""){
-alert("Enter website name")
-return
-}
+setTimeout(()=>{
 
-document.getElementById("success").style.display="block"
+document.getElementById("status").innerHTML=`
+<h3>Website Published</h3>
+<p>Your site is live</p>
+<p>tarvex.site/your-site</p>
+`
 
-document.getElementById("link").innerText =
-"https://tarvex.site/"+name
+},1500)
 
 }
 
