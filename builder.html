@@ -13,7 +13,7 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 background:#031914;
 color:white;
 overflow-x:hidden;
@@ -120,6 +120,7 @@ margin-top:20px;
 
 iframe{
 width:100%;
+height:500px;
 border-radius:10px;
 border:none;
 }
@@ -170,7 +171,10 @@ width:100%;
 
 <div class="card">
 
-<textarea id="prompt" placeholder="example: restaurant website with booking and menu"></textarea>
+<textarea 
+id="prompt" 
+placeholder="example: restaurant website with booking and menu">
+</textarea>
 
 <button onclick="generate()">Generate Website</button>
 
