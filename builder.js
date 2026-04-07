@@ -21,6 +21,44 @@ alert("Describe website first")
 return
 }
 
+function buildWebsite(text){
+
+document.getElementById("result").innerHTML = `
+
+<h3>Website Generated</h3>
+
+<p>Your AI website is ready</p>
+
+<button onclick="deploy()">
+Deploy Website
+</button>
+
+`
+
+}
+  
+document.getElementById("result").style.display = "block"
+
+document.getElementById("result").innerHTML = `
+<div style="text-align:center;padding:40px">
+
+<h2>Tarvex AI is building your website</h2>
+
+<p>Please wait while we generate your pages...</p>
+
+<div class="loader"></div>
+
+</div>
+`
+
+setTimeout(()=>{
+
+buildWebsite(text)
+
+},1500)
+
+}
+
 /* BRAND */
 
 let words = text.split(" ")
