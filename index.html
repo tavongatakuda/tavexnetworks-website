@@ -240,6 +240,7 @@ menu.style.display="block"
 
 }
 
+/* PASTE HERE */
 function generate(){
 
 let text=document.getElementById("prompt").value
@@ -249,18 +250,35 @@ alert("Describe your idea")
 return
 }
 
-document.getElementById("result").innerHTML=`
+let brand=text.split(" ")[0]
+brand=brand.charAt(0).toUpperCase()+brand.slice(1)
 
-<h3>Website Preview</h3>
+let site=`
 
-<div class="preview">
+<div style="font-family:Arial">
 
-<h2>${text}</h2>
+<div style="
+background:#0b2a5b;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between">
 
-<p>Your AI generated website</p>
+<div>${brand}</div>
+
+<div>
+Home | About | Services | Contact
+</div>
+
+</div>
+
+<div style="padding:40px;text-align:center">
+
+<h1>${brand}</h1>
+<p>${text}</p>
 
 <button style="
-padding:10px;
+padding:10px 20px;
 background:black;
 color:white;
 border:none;
@@ -268,6 +286,47 @@ border-radius:6px">
 Get Started
 </button>
 
+</div>
+
+<div style="padding:30px">
+<h2>About</h2>
+<p>Welcome to ${brand}. We provide the best services powered by Tarvex AI.</p>
+</div>
+
+<div style="padding:30px">
+<h2>Services</h2>
+<ul>
+<li>Website Design</li>
+<li>Hosting</li>
+<li>Domains</li>
+<li>AI Tools</li>
+</ul>
+</div>
+
+<div style="padding:30px">
+<h2>Contact</h2>
+<p>Email: tarvexnetworks@gmail.com</p>
+</div>
+
+<div style="
+background:#0b2a5b;
+color:white;
+padding:20px;
+text-align:center">
+
+${brand} © Tarvex AI
+
+</div>
+
+</div>
+`
+
+document.getElementById("result").innerHTML=`
+
+<h3>Website Preview</h3>
+
+<div class="preview">
+${site}
 </div>
 
 `
