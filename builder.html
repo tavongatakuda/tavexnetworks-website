@@ -172,9 +172,7 @@ return
 
 document.getElementById("result").style.display="block"
 
-document.getElementById("result").innerHTML = `
-<h3>Generating website...</h3>
-`
+document.getElementById("result").innerHTML = "Generating..."
 
 setTimeout(()=>{
 
@@ -184,7 +182,7 @@ document.getElementById("result").innerHTML = `
 
 <iframe style="
 width:100%;
-height:400px;
+height:450px;
 border:none;
 border-radius:10px;
 background:white;
@@ -194,13 +192,23 @@ srcdoc="
 <html>
 <body style='font-family:Arial;margin:0'>
 
-<div style='background:#0b2a5b;color:white;padding:20px'>
-<h2>${text}</h2>
+<div style='background:#0b2a5b;color:white;padding:15px'>
+<b>${text}</b>
+<span style='float:right'>
+Home | About | Contact
+</span>
 </div>
 
 <div style='padding:20px'>
-<h3>Welcome</h3>
-<p>This is your AI generated website</p>
+
+<h2>Home</h2>
+<p>Welcome to your AI generated website.</p>
+
+<h3>About</h3>
+<p>This section describes your business.</p>
+
+<h3>Contact</h3>
+<p>Email: info@website.com</p>
 
 <button style='
 padding:10px;
@@ -208,8 +216,9 @@ background:#0b2a5b;
 color:white;
 border:none;
 border-radius:6px;
+margin-top:10px;
 '>
-Get Started
+Contact Us
 </button>
 
 </div>
@@ -225,7 +234,7 @@ Deploy Website
 
 `
 
-},1200)
+},1000)
 
 }
 
@@ -233,7 +242,7 @@ function deploy(){
 window.location.href="deploy.html"
 }
 
-  </script>
+</script>
 
 </body>
 </html>
