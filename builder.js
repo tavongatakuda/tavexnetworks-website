@@ -1,3 +1,13 @@
+window.onload = function(){
+
+let saved = localStorage.getItem("tarvex_prompt")
+
+if(saved){
+document.getElementById("prompt").value = saved
+}
+
+};
+
 const TARVEX_EMAIL = "tarvexnetworks@gmail.com";
 
 let siteData = {}
