@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex</title>
+<title>Tarvex Dashboard</title>
 
 <style>
 
@@ -18,20 +18,12 @@ background:#031914;
 color:white;
 }
 
-/* TOP BAR */
-
 .topbar{
 display:flex;
 justify-content:space-between;
 padding:15px 20px;
 background:#02110d;
 }
-
-.menu-btn{
-display:none;
-}
-
-/* LAYOUT */
 
 .app{
 display:flex;
@@ -83,46 +75,26 @@ text-decoration:none;
 display:block;
 }
 
-.card:hover{
-transform:scale(1.02);
-}
-
-/* MOBILE */
-
-@media(max-width:800px){
-
-.menu-btn{
-display:block;
-}
-
-.sidebar{
-display:block;
-width:100%;
-}
-
-.app{
-flex-direction:column;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="topbar">
+
 <div>Tarvex Dashboard</div>
+
+<div>
 <a href="index.html">Home</a>
+<button onclick="logout()">Logout</button>
+</div>
+
 </div>
 
 <div class="app">
 
 <div class="sidebar">
+
 <div class="logo">Tarvex</div>
 
 <div class="menu">
@@ -144,22 +116,18 @@ grid-template-columns:1fr;
 
 <a class="card" href="builder.html">
 <h3>AI Website Builder</h3>
-<p>Create website with AI</p>
 </a>
 
 <a class="card" href="domains.html">
 <h3>Domains</h3>
-<p>Search domains</p>
 </a>
 
 <a class="card" href="deploy.html">
 <h3>Deploy</h3>
-<p>Publish website</p>
 </a>
 
 <a class="card" href="ai.html">
 <h3>AI Assistant</h3>
-<p>Ask AI</p>
 </a>
 
 </div>
@@ -168,5 +136,20 @@ grid-template-columns:1fr;
 
 </div>
 
+<script>
+
+let logged = localStorage.getItem("loggedIn")
+
+if(!logged){
+window.location.href="login.html"
+}
+
+function logout(){
+localStorage.removeItem("loggedIn")
+window.location.href="login.html"
+}
+
+</script>
+
 </body>
-  </html>
+</html>
