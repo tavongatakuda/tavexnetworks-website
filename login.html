@@ -2,56 +2,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Login</title>
+<title>Login - Tarvex</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
 font-family:Arial;
 background:linear-gradient(180deg,#062b22,#031914);
 color:white;
-overflow-x:hidden;
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-padding:15px;
-}
-
-.menu-btn{
-font-size:24px;
-cursor:pointer;
-}
-
-.menu{
-display:none;
-position:absolute;
-right:10px;
-top:60px;
-background:white;
-color:black;
-padding:15px;
-border-radius:10px;
-}
-
-.menu a{
-display:block;
-padding:8px;
-text-decoration:none;
-color:black;
 }
 
 .container{
 max-width:400px;
 margin:auto;
 padding:20px;
+margin-top:60px;
 }
 
 .card{
@@ -59,7 +23,6 @@ background:white;
 color:black;
 padding:20px;
 border-radius:20px;
-margin-top:20px;
 }
 
 input{
@@ -75,20 +38,9 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:10px;
-margin-bottom:10px;
-cursor:pointer;
-}
-
-.black{
 background:black;
 color:white;
-}
-
-.social{
-background:#eee;
-display:flex;
-align-items:center;
-gap:10px;
+cursor:pointer;
 }
 
 </style>
@@ -96,44 +48,18 @@ gap:10px;
 
 <body>
 
-<div class="nav">
-<div>Tarvex</div>
-
-<div class="menu-btn" onclick="toggle()">☰</div>
-
-<div class="menu" id="menu">
-<a href="index.html">Home</a>
-<a href="dashboard.html">Dashboard</a>
-</div>
-
-</div>
-
 <div class="container">
 
-<h2>Start building your website</h2>
+<h2>Login</h2>
 
 <div class="card">
 
-<input id="email" placeholder="Email address">
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
 
-<button class="black" onclick="login()">
-Continue with email
-</button>
+<button onclick="login()">Login</button>
 
-<button class="social" onclick="social()">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" width="20">
-Continue with Google
-</button>
-
-<button class="social" onclick="social()">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" width="20">
-Continue with Apple
-</button>
-
-<button class="social" onclick="social()">
-<img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" width="20">
-Continue with Facebook
-</button>
+<p>No account? <a href="signup.html">Sign up</a></p>
 
 </div>
 
@@ -141,30 +67,31 @@ Continue with Facebook
 
 <script>
 
-function toggle(){
-let m=document.getElementById("menu")
-m.style.display = m.style.display=="block"?"none":"block"
-}
-
 function login(){
-let email=document.getElementById("email").value
 
-if(email==""){
-alert("Enter email")
+let email=document.getElementById("email").value
+let password=document.getElementById("password").value
+
+let user=JSON.parse(localStorage.getItem("user"))
+
+if(!user){
+alert("Create account first")
 return
 }
 
-localStorage.setItem("user",email)
+if(user.email==email && user.password==password){
+
+localStorage.setItem("loggedIn","true")
 
 window.location.href="dashboard.html"
+
+}else{
+alert("Wrong login")
 }
 
-function social(){
-localStorage.setItem("user","social_user")
-window.location.href="dashboard.html"
 }
 
 </script>
 
 </body>
-  </html>
+</html>
