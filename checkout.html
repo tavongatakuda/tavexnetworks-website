@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Checkout</h1>
+
+<div class="card">
+
+<h3 id="domain"></h3>
+<p id="price"></p>
+
+<button onclick="pay()">Pay Now</button>
+
+</div>
+
+</div>
+
+<script>
+
+let domain = localStorage.getItem("domain")
+let price = localStorage.getItem("price")
+
+document.getElementById("domain").innerText = domain
+document.getElementById("price").innerText = "$"+price
+
+function pay(){
+
+alert("Payment successful")
+
+window.location.href="dashboard.html"
+
+}
+
+</script>
+
+</body>
+</html>
