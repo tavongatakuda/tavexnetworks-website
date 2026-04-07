@@ -173,26 +173,40 @@ return
 document.getElementById("result").style.display="block"
 
 document.getElementById("result").innerHTML = `
-<h3>Generating website...</h3>
-<p>Tarvex AI is building your site...</p>
+<h3>Generating preview...</h3>
 `
 
 setTimeout(()=>{
 
 document.getElementById("result").innerHTML = `
 
-<h3>Website Generated</h3>
+<h3>Live Preview</h3>
 
-<div style="background:#f3f3f3;padding:20px;border-radius:10px">
+<div style="
+background:white;
+border-radius:10px;
+overflow:hidden;
+margin-top:15px;
+">
 
+<div style="
+background:#0b2a5b;
+color:white;
+padding:15px;
+">
 <h2>${text}</h2>
+</div>
 
-<p>This is your AI generated homepage</p>
+<div style="padding:20px">
+
+<h3>Welcome</h3>
+
+<p>This is your AI generated website preview.</p>
 
 <button style="
-padding:10px;
-background:black;
+background:#0b2a5b;
 color:white;
+padding:10px 15px;
 border:none;
 border-radius:6px;
 margin-top:10px;
@@ -202,13 +216,15 @@ Get Started
 
 </div>
 
+</div>
+
 <button onclick="deploy()" style="margin-top:15px">
 Deploy Website
 </button>
 
 `
 
-},1500)
+},1200)
 
 }
 
