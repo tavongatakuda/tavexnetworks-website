@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Builder - Tarvex</title>
+<title>Tarvex AI Builder</title>
 
 <style>
 
@@ -10,179 +10,139 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:#031914;
-color:white;
-overflow-x:hidden;
+background:#f5f6f8;
 }
 
-/* TOP BAR */
+/* HEADER */
 
-.topbar{
+.header{
 display:flex;
-justify-content:space-between;
-padding:15px 20px;
-background:#02110d;
 align-items:center;
-}
-
-.topbar a{
-color:white;
-text-decoration:none;
-background:#062b22;
-padding:8px 14px;
-border-radius:8px;
-}
-
-/* LAYOUT */
-
-.app{
-display:flex;
-min-height:100vh;
-}
-
-/* SIDEBAR */
-
-.sidebar{
-width:220px;
-background:#02110d;
-padding:20px;
+justify-content:space-between;
+padding:15px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-font-size:22px;
-margin-bottom:30px;
 font-weight:bold;
+font-size:20px;
 }
 
-.menu a{
-display:block;
-color:white;
-text-decoration:none;
-padding:12px;
-margin-bottom:6px;
-border-radius:8px;
+/* HERO */
+
+.hero{
+padding:25px;
 }
 
-.menu a:hover{
-background:#062b22;
-}
-
-/* MAIN */
-
-.main{
-flex:1;
-padding:30px;
-}
-
-.main h2{
+.hero h1{
+font-size:26px;
 margin-bottom:10px;
 }
 
-/* CARD */
+.hero p{
+color:#666;
+}
 
-.card{
+/* PROMPT BOX */
+
+.prompt-box{
 background:white;
-color:black;
+border-radius:20px;
 padding:20px;
-border-radius:12px;
 margin-top:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 textarea{
 width:100%;
-height:140px;
-padding:15px;
-border-radius:10px;
-border:1px solid #ddd;
-font-size:15px;
+height:120px;
+border:none;
+outline:none;
+font-size:16px;
+resize:none;
 }
 
-button{
-width:100%;
-padding:14px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-background:#02110d;
-color:white;
-cursor:pointer;
-font-size:15px;
+/* ACTION ROW */
+
+.actions{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:15px;
 }
+
+.generate{
+background:black;
+color:white;
+border:none;
+padding:12px 16px;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* TAGS */
+
+.tags{
+margin-top:15px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.tag{
+background:#eee;
+padding:8px 14px;
+border-radius:20px;
+font-size:14px;
+cursor:pointer;
+}
+
+/* RESULT */
 
 .result{
-display:none;
-margin-top:20px;
-}
-
-iframe{
-width:100%;
-height:500px;
-border-radius:10px;
-border:none;
-}
-
-@media(max-width:800px){
-
-.app{
-flex-direction:column;
-}
-
-.sidebar{
-width:100%;
-}
-
+padding:20px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="topbar">
-<div>Tarvex AI Builder</div>
-<a href="dashboard.html">Dashboard</a>
-</div>
-
-<div class="app">
-
-<div class="sidebar">
-
+<div class="header">
 <div class="logo">Tarvex</div>
+<div>☰</div>
+</div>
 
-<div class="menu">
-<a href="dashboard.html">Dashboard</a>
-<a href="builder.html">AI Builder</a>
-<a href="domains.html">Domains</a>
-<a href="deploy.html">Deploy</a>
-<a href="ai.html">AI Assistant</a>
+<div class="hero">
+
+<h1>Hi, What will you build next?</h1>
+<p>Describe your app idea and Tarvex will generate it</p>
+
+<div class="prompt-box">
+
+<textarea id="prompt" placeholder="Describe the app you want to create..."></textarea>
+
+<div class="actions">
+<div>Plan</div>
+<button class="generate" onclick="generate()">→</button>
+</div>
+
+<div class="tags">
+<div class="tag">CRM</div>
+<div class="tag">Productivity</div>
+<div class="tag">Entertainment</div>
+<div class="tag">Educational</div>
+<div class="tag">Finance</div>
 </div>
 
 </div>
 
-<div class="main">
-
-<h2>Build Website With AI</h2>
-<p>Describe your website and Tarvex will generate it</p>
-
-<div class="card">
-
-<textarea 
-id="prompt" 
-placeholder="example: restaurant website with booking and menu">
-</textarea>
-
-<button onclick="generate()">Generate Website</button>
-
-</div>
-
-<div class="card result" id="result"></div>
-
-</div>
+<div class="result" id="result"></div>
 
 </div>
 
