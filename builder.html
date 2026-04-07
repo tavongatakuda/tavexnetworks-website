@@ -165,7 +165,7 @@ const TARVEX_EMAIL = "tarvexnetworks@gmail.com";
 
 function generate(){
 
-let text = document.getElementById("prompt").value
+let text = document.getElementById("prompt").value.toLowerCase()
 
 if(text==""){
 alert("Describe website first")
@@ -173,7 +173,67 @@ return
 }
 
 document.getElementById("result").style.display="block"
-document.getElementById("result").innerHTML = "Generating..."
+document.getElementById("result").innerHTML="Generating..."
+
+let layout=""
+
+if(text.includes("restaurant")){
+
+layout = `
+<h2>Restaurant</h2>
+<p>Welcome to our restaurant</p>
+
+<h3>Menu</h3>
+<ul>
+<li>Burger</li>
+<li>Pizza</li>
+<li>Drinks</li>
+</ul>
+`
+
+}
+
+else if(text.includes("portfolio")){
+
+layout = `
+<h2>Portfolio</h2>
+<p>My Projects</p>
+
+<div style='display:flex;gap:10px'>
+<div style='background:#eee;padding:20px'>Project 1</div>
+<div style='background:#eee;padding:20px'>Project 2</div>
+</div>
+`
+
+}
+
+else if(text.includes("shop")){
+
+layout = `
+<h2>Shop</h2>
+
+<div style='display:flex;gap:10px'>
+<div style='border:1px solid #ddd;padding:10px'>
+Product 1<br><button>Buy</button>
+</div>
+
+<div style='border:1px solid #ddd;padding:10px'>
+Product 2<br><button>Buy</button>
+</div>
+</div>
+`
+
+}
+
+else{
+
+layout = `
+<h2>Business Website</h2>
+<p>Welcome to our company</p>
+<button>Contact</button>
+`
+
+}
 
 setTimeout(()=>{
 
@@ -202,32 +262,12 @@ Home | Services | About | Contact
 
 <div style='padding:20px'>
 
-<h2>Home</h2>
-<p>Welcome to your AI generated website.</p>
+${layout}
 
-<h3>Services</h3>
-<ul>
-<li>Website Development</li>
-<li>Domain & Hosting</li>
-<li>AI Solutions</li>
-</ul>
-
-<h3>About</h3>
-<p>This section describes your business.</p>
+<hr>
 
 <h3>Contact</h3>
 <p>Email: ${TARVEX_EMAIL}</p>
-
-<button style='
-padding:10px;
-background:#0b2a5b;
-color:white;
-border:none;
-border-radius:6px;
-margin-top:10px;
-'>
-Contact Us
-</button>
 
 </div>
 
@@ -242,7 +282,7 @@ Deploy Website
 
 `
 
-},1000)
+},800)
 
 }
 
