@@ -207,7 +207,12 @@ function start(){
 
 let idea = document.getElementById("idea").value
 
-localStorage.setItem("idea",idea)
+if(idea==""){
+alert("Describe your website first")
+return
+}
+
+localStorage.setItem("tarvex_prompt", idea)
 
 window.location.href="builder.html"
 
@@ -217,7 +222,7 @@ function fill(text){
 document.getElementById("idea").value = text
 }
 
-</script>
+  </script>
 
 </body>
 </html>
