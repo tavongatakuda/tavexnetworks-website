@@ -92,4 +92,4 @@ Email: ${TARVEX_EMAIL}
 
 function deploy(){
 window.location.href="deploy.html"
-  }
+}
