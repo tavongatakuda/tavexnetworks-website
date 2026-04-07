@@ -14,9 +14,8 @@ box-sizing:border-box;
 
 body{
 font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#062b22,#031914);
+background:linear-gradient(180deg,#062b22,#02110d);
 color:white;
-overflow-x:hidden;
 }
 
 /* NAV */
@@ -28,36 +27,26 @@ padding:20px;
 align-items:center;
 }
 
-.right{
-display:flex;
-gap:10px;
+.logo{
+font-size:22px;
+font-weight:bold;
 }
 
-.login{
-background:white;
-color:black;
-padding:8px 16px;
-border-radius:20px;
-text-decoration:none;
-}
-
-.signup{
-border:1px solid white;
+.nav a{
 color:white;
-padding:8px 16px;
-border-radius:20px;
 text-decoration:none;
+margin-left:15px;
 }
 
 /* HERO */
 
 .hero{
-padding:60px 20px;
 text-align:center;
+padding:60px 20px;
 }
 
 .hero h1{
-font-size:34px;
+font-size:32px;
 margin-bottom:10px;
 }
 
@@ -65,71 +54,169 @@ margin-bottom:10px;
 opacity:.8;
 }
 
-/* INPUT */
+/* PROMPT */
 
 .box{
-max-width:500px;
+max-width:600px;
 margin:auto;
-margin-top:20px;
+margin-top:25px;
 }
 
 textarea{
 width:100%;
 height:120px;
 padding:15px;
-border-radius:16px;
+border-radius:14px;
 border:none;
 font-size:16px;
 }
 
 button{
 width:100%;
-padding:16px;
+padding:15px;
 margin-top:10px;
 border:none;
-border-radius:16px;
-background:black;
-color:white;
+border-radius:14px;
+background:white;
+color:black;
 font-size:16px;
 cursor:pointer;
 }
 
-</style>
+/* SUGGESTIONS */
 
+.suggest{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-top:15px;
+}
+
+.suggest div{
+background:#062b22;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* FEATURES */
+
+.features{
+padding:60px 20px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:#02110d;
+padding:20px;
+border-radius:12px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:40px;
+text-align:center;
+opacity:.7;
+}
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="nav">
-<div>Tarvex</div>
+<div class="logo">Tarvex</div>
 
-<div class="right">
-<a class="signup" href="dashboard.html">Dashboard</a>
-<a class="login" href="builder.html">Login</a>
+<div>
+<a href="builder.html">Builder</a>
+<a href="dashboard.html">Dashboard</a>
 </div>
-
 </div>
 
 <div class="hero">
 
 <h1>Build your website with AI</h1>
-
 <p>Describe your idea and Tarvex builds it instantly</p>
 
 <div class="box">
 
-<textarea placeholder="example: restaurant website with menu"></textarea>
+<textarea id="idea" placeholder="example: restaurant website with booking"></textarea>
 
 <button onclick="start()">Start Building</button>
 
 </div>
 
+<div class="suggest">
+<div onclick="fill('Ecommerce store website')">Ecommerce</div>
+<div onclick="fill('Portfolio website')">Portfolio</div>
+<div onclick="fill('Business website')">Business</div>
+<div onclick="fill('Startup landing page')">Startup</div>
+</div>
+
+</div>
+
+<div class="features">
+
+<h2>Why Tarvex</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>AI Website Builder</h3>
+<p>Create full websites instantly</p>
+</div>
+
+<div class="card">
+<h3>Deploy Instantly</h3>
+<p>Publish your website in seconds</p>
+</div>
+
+<div class="card">
+<h3>Domains & Hosting</h3>
+<p>Everything in one platform</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Tarvex Networks — Build smarter
 </div>
 
 <script>
+
 function start(){
+
+let idea = document.getElementById("idea").value
+
+localStorage.setItem("idea",idea)
+
 window.location.href="builder.html"
+
 }
+
+function fill(text){
+document.getElementById("idea").value = text
+}
+
 </script>
 
 </body>
