@@ -6,6 +6,7 @@
 
 <style>
 
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -13,8 +14,8 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial;
-background:#031914;
+font-family:Arial, Helvetica, sans-serif;
+background: radial-gradient(circle at center,#0a3d2f 0%, #031914 60%);
 color:white;
 }
 
@@ -22,29 +23,32 @@ color:white;
 
 .app{
 display:flex;
-height:100vh;
+min-height:100vh;
 }
 
 /* SIDEBAR */
 
 .sidebar{
-width:220px;
+width:230px;
 background:#02110d;
 padding:20px;
+border-right:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:20px;
-margin-bottom:30px;
+font-size:22px;
+font-weight:bold;
+margin-bottom:25px;
 }
 
 .menu a{
 display:block;
 color:white;
 text-decoration:none;
-padding:10px;
-margin-bottom:5px;
-border-radius:8px;
+padding:12px;
+border-radius:10px;
+margin-bottom:6px;
+transition:.2s;
 }
 
 .menu a:hover{
@@ -55,23 +59,38 @@ background:#062b22;
 
 .main{
 flex:1;
-padding:20px;
+padding:30px;
 }
 
+/* GLASS CARD */
+
 .card{
-background:white;
-color:black;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,255,174,0.15);
+color:white;
 padding:20px;
 border-radius:12px;
 margin-top:20px;
+backdrop-filter:blur(10px);
 }
+
+/* INPUT */
 
 input{
 width:100%;
 padding:14px;
 border-radius:10px;
-border:1px solid #ddd;
+border:1px solid rgba(0,255,174,0.2);
+background:rgba(255,255,255,0.05);
+color:white;
+outline:none;
 }
+
+input::placeholder{
+color:rgba(255,255,255,0.4);
+}
+
+/* BUTTON */
 
 button{
 width:100%;
@@ -79,44 +98,68 @@ padding:14px;
 margin-top:10px;
 border:none;
 border-radius:10px;
-background:black;
-color:white;
+background:linear-gradient(90deg,#00ffae,#00c896);
+color:black;
+font-weight:600;
 cursor:pointer;
+transition:0.2s;
 }
 
-.result{
-display:none;
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(0,255,174,0.4);
 }
+
+/* DOMAIN ROW */
 
 .domain{
 display:flex;
 justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #eee;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+align-items:center;
 }
+
+/* BUY BUTTON */
 
 .buy{
-background:#2563eb;
-color:white;
-padding:5px 10px;
+background:#00ffae;
+color:black;
+padding:6px 12px;
 border-radius:6px;
+font-size:14px;
+cursor:pointer;
 }
 
-@media(max-width:800px){
-.sidebar{
-display:none;
+.buy:hover{
+background:#00c896;
 }
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.app{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="app">
 
+<!-- SIDEBAR -->
+
 <div class="sidebar">
+
 <div class="logo">Tarvex</div>
 
 <div class="menu">
@@ -129,37 +172,22 @@ display:none;
 
 </div>
 
+<!-- MAIN -->
+
 <div class="main">
 
-<h2>Domain Search</h2>
-<p>Find your perfect domain</p>
+<h1>Domain Search</h1>
+<p>Find the perfect domain name</p>
 
 <div class="card">
 
-<input id="domain" placeholder="example: tarvex">
+<input id="domain" placeholder="example: mybusiness">
 
-<button onclick="search()">Search</button>
-
-</div>
-
-<div class="card result" id="result">
-
-<div class="domain">
-<span id="d1"></span>
-<span class="buy">Buy</span>
-</div>
-
-<div class="domain">
-<span id="d2"></span>
-<span class="buy">Buy</span>
-</div>
-
-<div class="domain">
-<span id="d3"></span>
-<span class="buy">Buy</span>
-</div>
+<button onclick="search()">Search Domain</button>
 
 </div>
+
+<div class="card" id="results" style="display:none"></div>
 
 </div>
 
@@ -169,22 +197,49 @@ display:none;
 
 function search(){
 
-let name=document.getElementById("domain").value
+let name = document.getElementById("domain").value
 
 if(name==""){
 alert("Enter domain name")
 return
 }
 
-document.getElementById("result").style.display="block"
+document.getElementById("results").style.display="block"
 
-document.getElementById("d1").innerText=name+".com"
-document.getElementById("d2").innerText=name+".net"
-document.getElementById("d3").innerText=name+".live"
+document.getElementById("results").innerHTML = `
+
+<h3>Available Domains</h3>
+
+<div class="domain">
+<span>${name}.com</span>
+<div class="buy">$10 Buy</div>
+</div>
+
+<div class="domain">
+<span>${name}.net</span>
+<div class="buy">$8 Buy</div>
+</div>
+
+<div class="domain">
+<span>${name}.org</span>
+<div class="buy">$7 Buy</div>
+</div>
+
+<div class="domain">
+<span>${name}.online</span>
+<div class="buy">$3 Buy</div>
+</div>
+
+<div class="domain">
+<span>${name}.store</span>
+<div class="buy">$5 Buy</div>
+</div>
+
+`
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
