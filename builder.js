@@ -1,46 +1,93 @@
-function search(){
+function generate(){
 
-let name = document.getElementById("domain").value
+let text = document.getElementById("prompt").value
 
-if(name==""){
-alert("Enter domain")
+if(text==""){
+alert("Describe your app idea")
 return
 }
 
-document.getElementById("results").style.display="block"
+let brand = text.split(" ")[0]
+brand = brand.charAt(0).toUpperCase() + brand.slice(1)
 
-document.getElementById("results").innerHTML = `
+let site = `
 
-<h3>Available Domains</h3>
+<div style="font-family:Arial">
 
-${domainRow(name,".com",10)}
-${domainRow(name,".net",8)}
-${domainRow(name,".org",7)}
-${domainRow(name,".online",3)}
-${domainRow(name,".store",5)}
+<!-- NAV -->
+<div style="
+background:#02110d;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between">
 
-`
+<div>${brand}</div>
 
-}
-
-function domainRow(name,ext,price){
-
-return `
-<div class="domain">
-<span>${name}${ext}</span>
-<button onclick="buy('${name}${ext}',${price})">
-$${price} Buy
-</button>
+<div>
+Home | About | Services | Contact
 </div>
+
+</div>
+
+<!-- HERO -->
+<div style="padding:40px;text-align:center">
+
+<h1>${brand}</h1>
+<p>${text}</p>
+
+<button style="
+padding:12px 20px;
+background:#00ffae;
+color:black;
+border:none;
+border-radius:8px">
+Get Started
+</button>
+
+</div>
+
+<!-- ABOUT -->
+<div style="padding:30px">
+<h2>About</h2>
+<p>${brand} powered by Tarvex AI builder.</p>
+</div>
+
+<!-- SERVICES -->
+<div style="padding:30px">
+<h2>Services</h2>
+<ul>
+<li>Website builder</li>
+<li>Hosting</li>
+<li>Domains</li>
+<li>AI tools</li>
+</ul>
+</div>
+
+<!-- CONTACT -->
+<div style="padding:30px">
+<h2>Contact</h2>
+<p>Email: tarvexnetworks@gmail.com</p>
+</div>
+
+</div>
+
 `
 
-}
+document.getElementById("result").innerHTML = `
 
-function buy(domain,price){
+<h3>Website Preview</h3>
 
-localStorage.setItem("domain",domain)
-localStorage.setItem("price",price)
+<div style="
+background:white;
+color:black;
+border-radius:12px;
+overflow:hidden">
 
-window.location.href="checkout.html"
+${site}
 
-}
+</div>
+
+`
+
+  }
