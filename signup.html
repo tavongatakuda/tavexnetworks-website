@@ -1,68 +1,97 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign Up - Tarvex</title><style>
+<title>Sign Up - Tarvex</title>
 
+<style>
 body{
-font-family:Segoe UI;
-background:#f5f7ff;
-margin:0;
+font-family:Arial;
+background:linear-gradient(180deg,#062b22,#031914);
+color:white;
 }
 
 .container{
+max-width:400px;
+margin:auto;
 padding:20px;
+margin-top:60px;
 }
 
 .card{
 background:white;
+color:black;
 padding:20px;
-border-radius:12px;
-margin-top:40px;
+border-radius:20px;
 }
 
 input{
 width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:8px;
+padding:14px;
+border-radius:10px;
 border:1px solid #ddd;
+margin-bottom:10px;
 }
 
 button{
-margin-top:15px;
-padding:12px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
 width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:black;
+color:white;
+cursor:pointer;
 }
 
-</style></head><body><div class="container"><h2>Create Account</h2><div class="card"><input id="name" placeholder="Full name"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button onclick="signup()">Create Account</button>
+</style>
+</head>
 
-<p>Already have account? <a href="login.html">Login</a></p></div></div><script>
+<body>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<div class="card">
+
+<input id="name" placeholder="Full name">
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="signup()">Create Account</button>
+
+<p>Already have account? <a href="login.html">Login</a></p>
+
+</div>
+
+</div>
+
+<script>
 
 function signup(){
 
-let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
+let name=document.getElementById("name").value
+let email=document.getElementById("email").value
+let password=document.getElementById("password").value
 
 if(name=="" || email=="" || password==""){
-alert("Fill all fields");
-return;
+alert("Fill all fields")
+return
 }
 
-localStorage.setItem("user", JSON.stringify({
+localStorage.setItem("user",JSON.stringify({
 name:name,
 email:email,
-password:password,
-credits:5
-}));
+password:password
+}))
 
-window.location.href="dashboard.html";
+localStorage.setItem("loggedIn","true")
+
+window.location.href="dashboard.html"
 
 }
 
-</script></body>
-                         </html>
+</script>
+
+</body>
+</html>
