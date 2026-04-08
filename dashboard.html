@@ -14,31 +14,40 @@ box-sizing:border-box;
 
 body{
 font-family:Arial;
-background:#031914;
+background:radial-gradient(circle at center,#0a3d2f 0%,#031914 60%);
 color:white;
 }
+
+/* TOPBAR */
 
 .topbar{
 display:flex;
 justify-content:space-between;
 padding:15px 20px;
 background:#02110d;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
+
+/* LAYOUT */
 
 .app{
 display:flex;
 min-height:100vh;
 }
 
+/* SIDEBAR */
+
 .sidebar{
 width:220px;
 background:#02110d;
 padding:20px;
+border-right:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
 font-size:20px;
-margin-bottom:30px;
+margin-bottom:25px;
+font-weight:bold;
 }
 
 .menu a{
@@ -46,33 +55,77 @@ display:block;
 color:white;
 text-decoration:none;
 padding:12px;
-margin-bottom:5px;
-border-radius:8px;
+margin-bottom:6px;
+border-radius:10px;
+transition:.2s;
 }
 
 .menu a:hover{
 background:#062b22;
 }
 
+/* MAIN */
+
 .main{
 flex:1;
 padding:30px;
 }
 
+/* GRID */
+
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
+gap:15px;
 margin-top:20px;
 }
 
+/* CARDS */
+
 .card{
-background:white;
-color:black;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,255,174,0.15);
+backdrop-filter:blur(10px);
+color:white;
 padding:20px;
-border-radius:12px;
+border-radius:16px;
 text-decoration:none;
 display:block;
+transition:0.2s;
+}
+
+.card:hover{
+background:rgba(0,255,174,0.08);
+border-color:rgba(0,255,174,0.4);
+transform:translateY(-2px);
+}
+
+.card h3{
+color:#00ffae;
+margin-bottom:6px;
+}
+
+.card p{
+opacity:0.6;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.app{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -81,54 +134,54 @@ display:block;
 <body>
 
 <div class="topbar">
-
 <div>Tarvex Dashboard</div>
-
-<div>
-<a href="index.html">Home</a>
-<button onclick="logout()">Logout</button>
-</div>
-
+<a href="index.html" style="color:white;text-decoration:none">Home</a>
 </div>
 
 <div class="app">
 
+<!-- SIDEBAR -->
 <div class="sidebar">
 
 <div class="logo">Tarvex</div>
 
 <div class="menu">
-<a href="dashboard.html">Dashboard</a>
-<a href="builder.html">AI Builder</a>
-<a href="domains.html">Domains</a>
-<a href="deploy.html">Deploy</a>
-<a href="ai.html">AI Assistant</a>
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="builder.html">🤖 AI Builder</a>
+<a href="domains.html">🌐 Domains</a>
+<a href="deploy.html">🚀 Deploy</a>
+<a href="ai.html">💬 AI Assistant</a>
 <a href="settings.html">⚙️ Settings</a>
 </div>
 
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
-<h1>Dashboard</h1>
-<p>Welcome to Tarvex platform</p>
+<h1 id="welcome">Dashboard</h1>
+<p>Welcome back 👋</p>
 
 <div class="grid">
 
 <a class="card" href="builder.html">
-<h3>AI Website Builder</h3>
+<h3>🤖 AI Website Builder</h3>
+<p>Create website with AI</p>
 </a>
 
 <a class="card" href="domains.html">
-<h3>Domains</h3>
+<h3>🌐 Domains</h3>
+<p>Search & buy domains</p>
 </a>
 
 <a class="card" href="deploy.html">
-<h3>Deploy</h3>
+<h3>🚀 Deploy</h3>
+<p>Publish your website</p>
 </a>
 
 <a class="card" href="ai.html">
-<h3>AI Assistant</h3>
+<h3>💬 AI Assistant</h3>
+<p>Ask AI anything</p>
 </a>
 
 </div>
@@ -139,15 +192,11 @@ display:block;
 
 <script>
 
-let logged = localStorage.getItem("loggedIn")
+let user = JSON.parse(localStorage.getItem("user"))
 
-if(!logged){
-window.location.href="login.html"
-}
-
-function logout(){
-localStorage.removeItem("loggedIn")
-window.location.href="login.html"
+if(user && user.name){
+document.getElementById("welcome").innerText =
+"Hi, " + user.name + " 👋"
 }
 
 </script>
