@@ -166,6 +166,16 @@ document.getElementById("prompt").focus()
 
 function generate(){
 
+let user = localStorage.getItem("user")
+
+if(!user){
+localStorage.setItem("pending_prompt",
+document.getElementById("prompt").value)
+
+window.location.href="login.html"
+return
+}
+  
 let text=document.getElementById("prompt").value
 
 if(text==""){
