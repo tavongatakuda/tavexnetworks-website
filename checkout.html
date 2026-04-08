@@ -2,24 +2,51 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
-<link rel="stylesheet" href="style.css">
+<title>Checkout - Tarvex</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#031914;
+color:white;
+padding:40px;
+}
+
+.card{
+background:white;
+color:black;
+padding:20px;
+border-radius:12px;
+max-width:500px;
+margin:auto;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#00ffae;
+border:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="container">
-
-<h1>Checkout</h1>
+<h1>Domain Checkout</h1>
 
 <div class="card">
 
 <h3 id="domain"></h3>
 <p id="price"></p>
 
-<button onclick="pay()">Pay Now</button>
+<button onclick="pay()">Purchase Domain</button>
 
-</div>
+<div id="status"></div>
 
 </div>
 
@@ -29,17 +56,24 @@ let domain = localStorage.getItem("domain")
 let price = localStorage.getItem("price")
 
 document.getElementById("domain").innerText = domain
-document.getElementById("price").innerText = "$"+price
+document.getElementById("price").innerText = "$" + price
 
 function pay(){
 
-alert("Payment successful")
+document.getElementById("status").innerHTML="Processing..."
 
-window.location.href="dashboard.html"
+setTimeout(()=>{
+
+document.getElementById("status").innerHTML=`
+<h3>Success</h3>
+<p>Domain purchased</p>
+`
+
+},1500)
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
