@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex Dashboard</title>
-
-<style>
+<title>Tarvex Dashboard</title><style>
 
 *{
 margin:0;
@@ -128,69 +125,31 @@ grid-template-columns:1fr;
 
 }
 
-</style>
-</head>
-
-<body>
-
-<div class="topbar">
+</style></head><body><div class="topbar">
 <div>Tarvex Dashboard</div>
 <a href="index.html" style="color:white;text-decoration:none">Home</a>
-</div>
-
-<div class="app">
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-
-<div class="logo">Tarvex</div>
-
-<div class="menu">
+</div><div class="app"><!-- SIDEBAR --><div class="sidebar"><div class="logo">Tarvex</div><div class="menu">
 <a href="dashboard.html">🏠 Dashboard</a>
 <a href="builder.html">🤖 AI Builder</a>
 <a href="domains.html">🌐 Domains</a>
 <a href="deploy.html">🚀 Deploy</a>
 <a href="ai.html">💬 AI Assistant</a>
 <a href="settings.html">⚙️ Settings</a>
-</div>
-
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-<h1 id="welcome">Dashboard</h1>
-<p>Welcome back 👋</p>
-
-<div class="grid">
-
-<a class="card" href="builder.html">
+<a href="profile.html">👤 Profile</a>
+</div></div><!-- MAIN --><div class="main"><h1 id="welcome">Dashboard</h1>
+<p>Welcome back 👋</p><div class="grid"><a class="card" href="builder.html">
 <h3>🤖 AI Website Builder</h3>
 <p>Create website with AI</p>
-</a>
-
-<a class="card" href="domains.html">
+</a><a class="card" href="domains.html">
 <h3>🌐 Domains</h3>
 <p>Search & buy domains</p>
-</a>
-
-<a class="card" href="deploy.html">
+</a><a class="card" href="deploy.html">
 <h3>🚀 Deploy</h3>
 <p>Publish your website</p>
-</a>
-
-<a class="card" href="ai.html">
+</a><a class="card" href="ai.html">
 <h3>💬 AI Assistant</h3>
 <p>Ask AI anything</p>
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
+</a></div></div></div><script>
 
 let user = JSON.parse(localStorage.getItem("user"))
 
@@ -199,7 +158,5 @@ document.getElementById("welcome").innerText =
 "Hi, " + user.name + " 👋"
 }
 
-</script>
-
-</body>
-</html>
+</script></body>
+  </html>
