@@ -1,0 +1,103 @@
+<!DOCTYPE html><html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Tarvex</title><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial;
+background:
+radial-gradient(circle at center,#0a3d2f 0%,#031914 60%);
+color:white;
+min-height:100vh;
+padding:20px;
+}
+
+.card{
+max-width:500px;
+margin:auto;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,255,174,0.2);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+.info{
+margin-top:15px;
+padding:15px;
+background:rgba(0,255,174,0.08);
+border-radius:12px;
+}
+
+.label{
+opacity:.6;
+font-size:13px;
+}
+
+.value{
+font-size:18px;
+margin-top:3px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#00ffae,#00c896);
+color:black;
+font-weight:600;
+cursor:pointer;
+}
+
+.logout{
+background:#ff4d4d;
+color:white;
+}
+
+</style></head><body><div class="card"><h2>Your Profile</h2><div class="info">
+<div class="label">Name</div>
+<div class="value" id="name">-</div>
+</div><div class="info">
+<div class="label">Email</div>
+<div class="value" id="email">-</div>
+</div><div class="info">
+<div class="label">Purchased Domain</div>
+<div class="value" id="domain">None</div>
+</div><button onclick="goDashboard()">Dashboard</button>
+<button class="logout" onclick="logout()">Logout</button>
+
+</div><script>
+
+let user = JSON.parse(localStorage.getItem("user")) || {}
+let domain = localStorage.getItem("purchased_domain")
+
+document.getElementById("name").innerText = user.name || "User"
+document.getElementById("email").innerText = user.email || "Not set"
+
+if(domain){
+document.getElementById("domain").innerText = domain
+}
+
+function goDashboard(){
+window.location.href="dashboard.html"
+}
+
+function logout(){
+localStorage.removeItem("user")
+window.location.href="login.html"
+}
+
+</script></body>
+  </html>
