@@ -48,6 +48,13 @@ font-weight:600;
 cursor:pointer;
 }
 
+.back{
+margin-bottom:15px;
+background:transparent;
+border:1px solid rgba(255,255,255,0.2);
+color:white;
+}
+
 .logout{
 margin-top:10px;
 background:#111;
@@ -59,6 +66,10 @@ color:white;
 <body>
 
 <div class="card">
+
+<button class="back" onclick="window.location.href='dashboard.html'">
+← Back to Dashboard
+</button>
 
 <h2>Account Settings</h2>
 
@@ -80,11 +91,8 @@ document.getElementById("email").value = user
 }
 
 function save(){
-let name=document.getElementById("name").value
 let email=document.getElementById("email").value
-
 localStorage.setItem("user", email)
-
 alert("Saved")
 }
 
