@@ -1,79 +1,152 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout - Tarvex</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#031914;
-color:white;
-padding:40px;
-}
-
-.card{
-background:white;
-color:black;
-padding:20px;
-border-radius:12px;
-max-width:500px;
-margin:auto;
-}
-
-button{
-width:100%;
-padding:15px;
-margin-top:15px;
-background:#00ffae;
-border:none;
-border-radius:10px;
-font-weight:bold;
-}
-
-</style>
-</head>
-
-<body>
-
-<h1>Domain Checkout</h1>
-
-<div class="card">
-
-<h3 id="domain"></h3>
-<p id="price"></p>
-
-<button onclick="pay()">Purchase Domain</button>
-
-<div id="status"></div>
-
-</div>
-
-<script>
-
-let domain = localStorage.getItem("domain")
-let price = localStorage.getItem("price")
-
-document.getElementById("domain").innerText = domain
-document.getElementById("price").innerText = "$" + price
-
-function pay(){
-
-document.getElementById("status").innerHTML="Processing..."
-
-setTimeout(()=>{
-
-document.getElementById("status").innerHTML=`
-<h3>Success</h3>
-<p>Domain purchased</p>
-`
-
-},1500)
-
-}
-
-</script>
-
-</body>
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Checkout - Tarvex</title>  
+  
+<style>  
+*{margin:0;padding:0;box-sizing:border-box;}  
+  
+body{  
+font-family:Arial;  
+background:radial-gradient(circle at center,#0a3d2f 0%,#031914 60%);  
+color:white;  
+min-height:100vh;  
+display:flex;  
+justify-content:center;  
+align-items:center;  
+padding:20px;  
+}  
+  
+.card{  
+background:rgba(255,255,255,0.05);  
+border:1px solid rgba(0,255,174,0.2);  
+backdrop-filter:blur(10px);  
+padding:30px;  
+border-radius:20px;  
+width:100%;  
+max-width:420px;  
+}  
+  
+h2{  
+margin-bottom:5px;  
+}  
+  
+p{opacity:0.7;margin-bottom:20px;}  
+  
+.order{  
+background:rgba(0,255,174,0.08);  
+border:1px solid rgba(0,255,174,0.15);  
+padding:15px;  
+border-radius:12px;  
+margin-bottom:20px;  
+}  
+  
+.order span{  
+font-size:22px;  
+font-weight:bold;  
+color:#00ffae;  
+}  
+  
+input{  
+width:100%;  
+padding:14px;  
+border-radius:10px;  
+border:1px solid rgba(0,255,174,0.2);  
+background:rgba(255,255,255,0.05);  
+color:white;  
+outline:none;  
+margin-bottom:10px;  
+font-size:15px;  
+}  
+  
+input::placeholder{color:rgba(255,255,255,0.4);}  
+  
+button{  
+width:100%;  
+padding:14px;  
+border:none;  
+border-radius:12px;  
+background:linear-gradient(90deg,#00ffae,#00c896);  
+color:black;  
+font-weight:600;  
+font-size:16px;  
+cursor:pointer;  
+transition:0.2s;  
+}  
+  
+button:hover{  
+transform:translateY(-2px);  
+box-shadow:0 0 20px rgba(0,255,174,0.4);  
+}  
+  
+.back{  
+text-align:center;  
+margin-top:15px;  
+font-size:14px;  
+opacity:0.6;  
+cursor:pointer;  
+}  
+  
+.back:hover{opacity:1;}  
+</style>  
+</head>  
+  
+<body>  
+  
+<div class="card">  
+  
+<h2>Complete Purchase</h2>  
+<p>You're one step away from owning your domain</p>  
+  
+<div class="order">  
+<p>Domain</p>  
+<span id="domainName">loading...</span>  
+<p style="margin-top:8px">Price: $<span id="domainPrice">0</span></p>  
+</div>  
+  
+<input id="name" placeholder="Full Name">  
+<input id="email" placeholder="Email Address">  
+<input id="card" placeholder="Card Number (demo)">  
+  
+<button onclick="pay()">Pay Now</button>  
+  
+<div class="back" onclick="window.location.href='domains.html'">  
+← Back to Domains  
+</div>  
+  
+</div>  
+  
+<script>  
+  
+let domain = localStorage.getItem("domain") || "yourdomain.com"  
+let price = localStorage.getItem("price") || "0"  
+  
+document.getElementById("domainName").innerText = domain  
+document.getElementById("domainPrice").innerText = price  
+  
+function pay(){  
+let name = document.getElementById("name").value  
+let email = document.getElementById("email").value  
+let card = document.getElementById("card").value  
+  
+if(name=="" || email=="" || card==""){  
+alert("Fill all fields")  
+return  
+}  
+  
+localStorage.setItem("purchased_domain", domain)  
+  
+document.querySelector(".card").innerHTML = `  
+<h2 style="color:#00ffae">✅ Payment Successful!</h2>  
+<p style="margin-top:10px">You now own <strong>${domain}</strong></p>  
+<p style="margin-top:5px">A confirmation will be sent to ${email}</p>  
+<br>  
+<button onclick="window.location.href='dashboard.html'">Go to Dashboard</button>  
+`  
+}  
+  
+</script>  
+  
+</body>  
   </html>
