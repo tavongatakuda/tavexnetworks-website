@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - Tarvex</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Arial;
+background:radial-gradient(circle at center,#0a3d2f 0%,#031914 60%);
+color:white;
+min-height:100vh;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,255,174,0.2);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+}
+
+h2{margin-bottom:15px;}
+
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid rgba(0,255,174,0.2);
+background:rgba(255,255,255,0.05);
+color:white;
+margin-bottom:10px;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#00ffae,#00c896);
+color:black;
+font-weight:600;
+cursor:pointer;
+}
+
+.logout{
+margin-top:10px;
+background:#111;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Account Settings</h2>
+
+<input id="name" placeholder="Your name">
+<input id="email" placeholder="Email">
+
+<button onclick="save()">Save Changes</button>
+
+<button class="logout" onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+let user = localStorage.getItem("user")
+
+if(user){
+document.getElementById("email").value = user
+}
+
+function save(){
+let name=document.getElementById("name").value
+let email=document.getElementById("email").value
+
+localStorage.setItem("user", email)
+
+alert("Saved")
+}
+
+function logout(){
+localStorage.removeItem("user")
+window.location.href="login.html"
+}
+
+</script>
+
+</body>
+</html>
