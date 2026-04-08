@@ -260,6 +260,12 @@ ${site}
 `
 
 }
+  let saved = localStorage.getItem("pending_prompt")
+
+if(saved){
+document.getElementById("prompt").value = saved
+localStorage.removeItem("pending_prompt")
+  }
 
 </script></body>
-  </html>
+</html>
