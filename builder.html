@@ -45,7 +45,6 @@ padding:30px 20px;
 .hero h1{
 font-size:30px;
 margin-bottom:10px;
-
 background: linear-gradient(90deg,#00ffae,#ffffff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -221,14 +220,10 @@ Don't have account? <a href="signup.html">Sign up</a>
 
 let pendingText = ""
 
-/* TAG FILL */
-
 function fill(text){
 document.getElementById("prompt").value = text
 document.getElementById("prompt").focus()
 }
-
-/* GENERATE */
 
 function generate(){
 
@@ -254,8 +249,6 @@ build(text)
 
 }
 
-/* LOGIN */
-
 function continueLogin(){
 
 let email=document.getElementById("email").value
@@ -275,12 +268,24 @@ build(pendingText)
 
 }
 
-/* BUILD */
-
 function build(text){
 
 let brand=text.split(" ")[0]
 brand=brand.charAt(0).toUpperCase()+brand.slice(1)
+
+/* SAVE PROJECT */
+
+let projects = JSON.parse(localStorage.getItem("projects")) || []
+
+projects.push({
+name: brand,
+prompt: text,
+date: new Date().toLocaleString()
+})
+
+localStorage.setItem("projects", JSON.stringify(projects))
+
+/* BUILD SITE */
 
 let site = `
 
@@ -300,7 +305,7 @@ justify-content:space-between">
 
 <div style="padding:40px;text-align:center">
 
-<h1>${text}</h1>
+<h2>${text}</h2>
 <p>Powered by Tarvex AI builder</p>
 
 <button style="
@@ -314,12 +319,12 @@ Get Started
 </div>
 
 <div style="padding:30px">
-<h2>About</h2>
+<h3>About</h3>
 <p>${brand} is a modern platform created with Tarvex AI.</p>
 </div>
 
 <div style="padding:30px">
-<h2>Services</h2>
+<h3>Services</h3>
 <ul>
 <li>Website design</li>
 <li>AI tools</li>
@@ -352,4 +357,4 @@ ${site}
 
 </script>
 </body>
-</html>
+  </html>
