@@ -16,15 +16,14 @@ font-family:Arial;
 body{
 background:#031914;
 color:white;
-height:100vh;
-overflow:hidden;
+min-height:100vh;
 }
 
 /* LAYOUT */
 
 .app{
 display:flex;
-height:100vh;
+min-height:100vh;
 }
 
 /* SIDEBAR */
@@ -124,6 +123,30 @@ background:white;
 color:black;
 padding:20px;
 border-radius:12px;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:900px){
+
+.app{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.main{
+width:100%;
+}
+
+.hero{
+padding:20px;
+}
+
 }
 
 </style>
@@ -264,4 +287,4 @@ document.getElementById("result").innerHTML = `
 </script>
 
 </body>
-  </html>
+</html>
