@@ -22,8 +22,6 @@ color:white;
 min-height:100vh;
 }
 
-/* NAV */
-
 .nav{
 display:flex;
 justify-content:space-between;
@@ -35,8 +33,6 @@ padding:20px;
 font-weight:bold;
 font-size:20px;
 }
-
-/* HERO */
 
 .hero{
 padding:30px 20px;
@@ -53,8 +49,6 @@ background: linear-gradient(90deg,#00ffae,#ffffff);
 .hero p{
 opacity:.7;
 }
-
-/* BOX */
 
 .box{
 background:rgba(255,255,255,0.05);
@@ -124,6 +118,7 @@ margin-top:10px;
 
 <div class="nav">
 <div class="logo">Tarvex</div>
+<a href="projects.html" style="color:white;text-decoration:none">Projects</a>
 </div>
 
 <div class="hero">
@@ -220,16 +215,27 @@ Don't have account? <a href="signup.html">Sign up</a>
 
 let pendingText = ""
 
+/* OPEN PROJECT */
+
+let open = localStorage.getItem("open_project")
+
+if(open){
+document.getElementById("prompt").value = open
+localStorage.removeItem("open_project")
+}
+
+/* TAG FILL */
+
 function fill(text){
 document.getElementById("prompt").value = text
 document.getElementById("prompt").focus()
 }
 
+/* GENERATE */
+
 function generate(){
 
 let input = document.getElementById("prompt")
-if(!input) return
-
 let text = input.value
 
 if(text.trim()==""){
@@ -248,6 +254,8 @@ return
 build(text)
 
 }
+
+/* LOGIN */
 
 function continueLogin(){
 
@@ -268,6 +276,8 @@ build(pendingText)
 
 }
 
+/* BUILD */
+
 function build(text){
 
 let brand=text.split(" ")[0]
@@ -285,7 +295,7 @@ date: new Date().toLocaleString()
 
 localStorage.setItem("projects", JSON.stringify(projects))
 
-/* BUILD SITE */
+/* SITE */
 
 let site = `
 
@@ -356,5 +366,6 @@ ${site}
 }
 
 </script>
+
 </body>
-  </html>
+</html>
