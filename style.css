@@ -131,6 +131,22 @@ background:rgba(0,255,174,0.15);
 box-shadow:0 0 10px rgba(0,255,174,0.2);
 }
 
+/* PREVIEW FIX */
+
+.preview{
+background:white;
+color:black;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
+
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
 /* FADE */
 
 @keyframes fadeIn{
@@ -142,4 +158,4 @@ to{
 opacity:1;
 transform:translateY(0);
 }
-}
+                            }
