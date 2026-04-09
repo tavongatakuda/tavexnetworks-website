@@ -220,58 +220,6 @@ Don't have account? <a href="signup.html">Sign up</a>
 
 <script>
 
-let pendingText = ""
-
-function fill(text){
-document.getElementById("prompt").value = text
-}
-
-/* GENERATE */
-
-function generate(){
-
-let text=document.getElementById("prompt").value
-
-if(text==""){
-alert("Describe your idea")
-return
-}
-
-let user=localStorage.getItem("user")
-
-if(!user){
-pendingText=text
-document.getElementById("loginModal").style.display="flex"
-return
-}
-
-build(text)
-
-}
-
-/* LOGIN */
-
-function continueLogin(){
-
-let email=document.getElementById("email").value
-
-if(email==""){
-alert("Enter email")
-return
-}
-
-localStorage.setItem("user",JSON.stringify({
-email:email
-}))
-
-document.getElementById("loginModal").style.display="none"
-
-build(pendingText)
-
-}
-
-/* BUILD */
-
 function build(text){
 
 let brand=text.split(" ")[0]
@@ -281,13 +229,59 @@ let site=`
 
 <div style="font-family:Arial">
 
-<h1>${brand}</h1>
-<p>${text}</p>
+<div style="
+background:#031914;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between">
 
-<button>Get Started</button>
+<div>${brand}</div>
+<div>Home | About | Services | Contact</div>
 
 </div>
 
+<div style="padding:40px;text-align:center">
+
+<h1>${text}</h1>
+<p>Powered by Tarvex AI builder</p>
+
+<button style="
+padding:12px 20px;
+background:#00ffae;
+border:none;
+border-radius:8px">
+Get Started
+</button>
+
+</div>
+
+<div style="padding:30px">
+<h2>About</h2>
+<p>${brand} is a modern platform created with Tarvex AI.</p>
+</div>
+
+<div style="padding:30px">
+<h2>Services</h2>
+<ul>
+<li>Website design</li>
+<li>AI tools</li>
+<li>Hosting</li>
+<li>Domains</li>
+</ul>
+</div>
+
+<div style="
+background:#031914;
+color:white;
+padding:20px;
+text-align:center">
+
+${brand} © Tarvex
+
+</div>
+
+</div>
 `
 
 document.getElementById("result").innerHTML=`
@@ -303,6 +297,5 @@ ${site}
 }
 
 </script>
-
 </body>
   </html>
