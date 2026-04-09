@@ -1,22 +1,23 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex AI Builder</title><style>
+<title>Tarvex AI Builder</title>
+
+<style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-
 background:
 radial-gradient(circle at 20% 20%, #00ffae22 0%, transparent 40%),
 radial-gradient(circle at 80% 70%, #00ffae22 0%, transparent 40%),
 linear-gradient(180deg,#031914,#02110d);
-
 color:white;
 min-height:100vh;
 }
@@ -28,28 +29,21 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px;
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(20px);
 }
 
 .logo{
-font-weight:700;
+font-weight:bold;
 font-size:20px;
-}
-
-.menu-btn{
-font-size:22px;
-cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-padding:40px 20px;
+padding:30px 20px;
 }
 
 .hero h1{
-font-size:32px;
+font-size:30px;
 margin-bottom:10px;
 
 background: linear-gradient(90deg,#00ffae,#ffffff);
@@ -58,21 +52,19 @@ background: linear-gradient(90deg,#00ffae,#ffffff);
 }
 
 .hero p{
-opacity:0.7;
+opacity:.7;
 }
 
 /* BOX */
 
 .box{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
 border:1px solid rgba(0,255,174,0.2);
+backdrop-filter:blur(20px);
 padding:20px;
 border-radius:20px;
 margin-top:20px;
 }
-
-/* TEXTAREA */
 
 textarea{
 width:100%;
@@ -84,12 +76,6 @@ font-size:16px;
 outline:none;
 }
 
-textarea::placeholder{
-color:rgba(255,255,255,0.4);
-}
-
-/* ROW */
-
 .row{
 display:flex;
 justify-content:space-between;
@@ -97,21 +83,14 @@ align-items:center;
 margin-top:15px;
 }
 
-/* BUTTON */
-
 .send{
 background:linear-gradient(90deg,#00ffae,#00c896);
-color:black;
 border:none;
-width:50px;
-height:50px;
+width:55px;
+height:55px;
 border-radius:15px;
-font-size:18px;
 cursor:pointer;
-box-shadow:0 0 20px rgba(0,255,174,0.4);
 }
-
-/* TAGS */
 
 .tags{
 margin-top:15px;
@@ -124,11 +103,8 @@ padding:8px 14px;
 border-radius:20px;
 display:inline-block;
 margin:4px;
-font-size:13px;
 cursor:pointer;
 }
-
-/* RESULT */
 
 .result{
 padding:20px;
@@ -142,93 +118,112 @@ border-radius:12px;
 margin-top:10px;
 }
 
-/* LOGIN MODAL */
+</style>
+</head>
 
-.login-modal{
+<body>
+
+<div class="nav">
+<div class="logo">Tarvex</div>
+</div>
+
+<div class="hero">
+
+<h1>Hi, What will you build next?</h1>
+<p>Describe your app idea and Tarvex will generate it</p>
+
+<div class="box">
+
+<textarea id="prompt" placeholder="Describe the app you want to create..."></textarea>
+
+<div class="row">
+<div>Plan</div>
+<button class="send" onclick="generate()">→</button>
+</div>
+
+<div class="tags">
+<span class="tag" onclick="fill('CRM system for managing customers')">CRM</span>
+<span class="tag" onclick="fill('Productivity app for tasks')">Productivity</span>
+<span class="tag" onclick="fill('Entertainment streaming platform')">Entertainment</span>
+<span class="tag" onclick="fill('Educational learning platform')">Educational</span>
+<span class="tag" onclick="fill('Finance tracker app')">Finance</span>
+</div>
+
+</div>
+
+</div>
+
+<div id="result" class="result"></div>
+
+
+<!-- LOGIN MODAL -->
+
+<div id="loginModal" style="
 position:fixed;
 top:0;
 left:0;
-width:100%;
-height:100%;
+right:0;
+bottom:0;
 background:rgba(0,0,0,0.6);
 display:none;
-align-items:center;
 justify-content:center;
+align-items:center;
 z-index:999;
-}
+">
 
-.login-box{
+<div style="
 background:white;
-padding:25px;
-border-radius:20px;
-width:90%;
-max-width:380px;
 color:black;
-}
+padding:25px;
+border-radius:16px;
+width:90%;
+max-width:350px;
+">
 
-.login-box input{
+<h2>Welcome to Tarvex</h2>
+
+<button style="
 width:100%;
 padding:12px;
-border-radius:10px;
-border:1px solid #ddd;
-margin-top:10px;
-}
-
-.login-box button{
-width:100%;
-padding:12px;
-margin-top:10px;
+background:#00ffae;
 border:none;
 border-radius:10px;
+margin-top:10px;
+">
+Login with Google
+</button>
+
+<div style="text-align:center;margin:10px 0;">OR</div>
+
+<input id="email" placeholder="Enter your email"
+style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd">
+
+<button onclick="continueLogin()"
+style="
+width:100%;
+padding:12px;
+margin-top:10px;
 background:#00ffae;
-}
-
-.or{
-text-align:center;
-margin:15px 0;
-opacity:.6;
-}
-
-/* LOADER */
-
-.loader{
-width:40px;
-height:40px;
-border:4px solid #00ffae;
-border-top:4px solid transparent;
-border-radius:50%;
-margin:20px auto;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg)}
-}
-
-</style></head><body><div class="nav">
-<div class="logo">Tarvex</div>
-<div class="menu-btn">☰</div>
-</div><div class="hero"><h1>Hi, What will you build next?</h1>
-<p>Describe your app idea and Tarvex will generate it</p><div class="box"><textarea id="prompt" placeholder="Describe the app you want to create..."></textarea><div class="row">
-<div>Plan</div>
-<button class="send" onclick="generate()">→</button>
-</div><div class="tags">
-<span class="tag" onclick="fill('CRM system')">CRM</span>
-<span class="tag" onclick="fill('Productivity app')">Productivity</span>
-<span class="tag" onclick="fill('Entertainment platform')">Entertainment</span>
-<span class="tag" onclick="fill('Educational platform')">Educational</span>
-<span class="tag" onclick="fill('Finance tracker')">Finance</span>
-</div></div></div><div id="result" class="result"></div><!-- LOGIN MODAL --><div id="loginModal" class="login-modal"><div class="login-box"><h2>Welcome to Tarvex</h2><button>Login with Google</button>
-
-<div class="or">OR</div><input id="email" placeholder="Enter your email"><button onclick="continueLogin()">Continue</button>
+border:none;
+border-radius:10px;
+">
+Continue
+</button>
 
 <p style="text-align:center;margin-top:10px">
 Don't have account? <a href="signup.html">Sign up</a>
-</p></div>
-</div><script>
+</p>
+
+</div>
+</div>
+
+
+<script>
+
+let pendingText = ""
 
 function fill(text){
-document.getElementById("prompt").value=text
+document.getElementById("prompt").value = text
 }
 
 /* GENERATE */
@@ -242,13 +237,19 @@ alert("Describe your idea")
 return
 }
 
-localStorage.setItem("pending_prompt",text)
+let user=localStorage.getItem("user")
 
+if(!user){
+pendingText=text
 document.getElementById("loginModal").style.display="flex"
+return
+}
+
+build(text)
 
 }
 
-/* LOGIN CONTINUE */
+/* LOGIN */
 
 function continueLogin(){
 
@@ -259,45 +260,34 @@ alert("Enter email")
 return
 }
 
-localStorage.setItem("user",JSON.stringify({email:email}))
+localStorage.setItem("user",JSON.stringify({
+email:email
+}))
 
 document.getElementById("loginModal").style.display="none"
 
-startBuilding()
+build(pendingText)
 
 }
 
-/* BUILDING */
+/* BUILD */
 
-function startBuilding(){
-
-document.getElementById("result").innerHTML=`
-
-<div style="text-align:center;padding:40px">
-<h2>Building your idea...</h2>
-<div class="loader"></div>
-<p>Tarvex AI is thinking...</p>
-</div>
-
-`
-
-setTimeout(buildSite,2000)
-
-}
-
-/* BUILD SITE */
-
-function buildSite(){
-
-let text=localStorage.getItem("pending_prompt")
+function build(text){
 
 let brand=text.split(" ")[0]
 brand=brand.charAt(0).toUpperCase()+brand.slice(1)
 
 let site=`
+
+<div style="font-family:Arial">
+
 <h1>${brand}</h1>
 <p>${text}</p>
+
 <button>Get Started</button>
+
+</div>
+
 `
 
 document.getElementById("result").innerHTML=`
@@ -312,5 +302,7 @@ ${site}
 
 }
 
-</script></body>
-                          </html>
+</script>
+
+</body>
+  </html>
