@@ -222,6 +222,10 @@ let open = localStorage.getItem("open_project")
 if(open){
 document.getElementById("prompt").value = open
 localStorage.removeItem("open_project")
+
+setTimeout(()=>{
+build(open)
+},300)
 }
 
 /* TAG FILL */
