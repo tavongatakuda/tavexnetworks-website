@@ -245,6 +245,13 @@ menu.style.display="block"
 /* PASTE HERE */
 function generate(){
 
+let user = localStorage.getItem("user")
+
+if(!user){
+window.location.href = "login.html"
+return
+}
+
 let text=document.getElementById("prompt").value
 
 if(text==""){
