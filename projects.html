@@ -19,10 +19,12 @@ padding:20px;
 border-radius:14px;
 margin-bottom:10px;
 cursor:pointer;
+transition:0.2s;
 }
 
 .card:hover{
 background:rgba(0,255,174,0.08);
+transform:translateY(-2px);
 }
 
 .title{
@@ -53,7 +55,7 @@ let html = ""
 list.reverse().forEach(p=>{
 
 html += `
-<div class="card">
+<div class="card" onclick="openProject('${p.prompt.replace(/'/g,"")}')">
 <div class="title">${p.name}</div>
 <div>${p.prompt}</div>
 <div class="date">${p.date}</div>
@@ -64,7 +66,13 @@ html += `
 
 document.getElementById("projects").innerHTML = html
 
+
+function openProject(prompt){
+localStorage.setItem("open_project", prompt)
+window.location.href = "builder.html"
+}
+
 </script>
 
 </body>
-  </html>
+</html>
