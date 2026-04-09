@@ -217,15 +217,72 @@ Don't have account? <a href="signup.html">Sign up</a>
 </div>
 </div>
 
-
 <script>
+
+let pendingText = ""
+
+/* TAG FILL */
+
+function fill(text){
+document.getElementById("prompt").value = text
+document.getElementById("prompt").focus()
+}
+
+/* GENERATE */
+
+function generate(){
+
+let input = document.getElementById("prompt")
+if(!input) return
+
+let text = input.value
+
+if(text.trim()==""){
+alert("Describe your idea")
+return
+}
+
+let user = localStorage.getItem("user")
+
+if(!user){
+pendingText = text
+document.getElementById("loginModal").style.display="flex"
+return
+}
+
+build(text)
+
+}
+
+/* LOGIN */
+
+function continueLogin(){
+
+let email=document.getElementById("email").value
+
+if(email==""){
+alert("Enter email")
+return
+}
+
+localStorage.setItem("user", JSON.stringify({
+email:email
+}))
+
+document.getElementById("loginModal").style.display="none"
+
+build(pendingText)
+
+}
+
+/* BUILD */
 
 function build(text){
 
 let brand=text.split(" ")[0]
 brand=brand.charAt(0).toUpperCase()+brand.slice(1)
 
-let site=`
+let site = `
 
 <div style="font-family:Arial">
 
@@ -284,18 +341,15 @@ ${brand} © Tarvex
 </div>
 `
 
-document.getElementById("result").innerHTML=`
-
+document.getElementById("result").innerHTML = `
 <h3>Website Preview</h3>
-
 <div class="preview">
 ${site}
 </div>
-
 `
 
 }
 
 </script>
 </body>
-  </html>
+</html>
