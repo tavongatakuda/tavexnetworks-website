@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarvex Projects</title>
+
+<style>
+body{
+font-family:Arial;
+background:linear-gradient(180deg,#031914,#02110d);
+color:white;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(0,255,174,0.2);
+padding:20px;
+border-radius:14px;
+margin-bottom:10px;
+cursor:pointer;
+}
+
+.card:hover{
+background:rgba(0,255,174,0.08);
+}
+
+.title{
+font-size:18px;
+color:#00ffae;
+}
+
+.date{
+opacity:.6;
+font-size:12px;
+margin-top:5px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Your Projects</h2>
+
+<div id="projects"></div>
+
+<script>
+
+let list = JSON.parse(localStorage.getItem("projects")) || []
+
+let html = ""
+
+list.reverse().forEach(p=>{
+
+html += `
+<div class="card">
+<div class="title">${p.name}</div>
+<div>${p.prompt}</div>
+<div class="date">${p.date}</div>
+</div>
+`
+
+})
+
+document.getElementById("projects").innerHTML = html
+
+</script>
+
+</body>
+  </html>
