@@ -12,6 +12,13 @@ color:white;
 padding:20px;
 }
 
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
 .card{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(0,255,174,0.2);
@@ -19,12 +26,12 @@ padding:20px;
 border-radius:14px;
 margin-bottom:10px;
 cursor:pointer;
-transition:0.2s;
+transition:.2s;
+position:relative;
 }
 
 .card:hover{
 background:rgba(0,255,174,0.08);
-transform:translateY(-2px);
 }
 
 .title{
@@ -37,12 +44,43 @@ opacity:.6;
 font-size:12px;
 margin-top:5px;
 }
+
+.actions{
+position:absolute;
+right:15px;
+top:15px;
+display:flex;
+gap:8px;
+}
+
+.btn{
+background:rgba(0,255,174,0.15);
+border:none;
+color:white;
+padding:5px 8px;
+border-radius:6px;
+cursor:pointer;
+font-size:12px;
+}
+
+.btn:hover{
+background:#00ffae;
+color:black;
+}
+
+.empty{
+opacity:.5;
+text-align:center;
+margin-top:40px;
+}
 </style>
 </head>
 
 <body>
 
+<div class="header">
 <h2>Your Projects</h2>
+</div>
 
 <div id="projects"></div>
 
@@ -50,26 +88,75 @@ margin-top:5px;
 
 let list = JSON.parse(localStorage.getItem("projects")) || []
 
-let html = ""
+render()
 
-list.reverse().forEach(p=>{
+function render(){
+
+if(list.length==0){
+document.getElementById("projects").innerHTML =
+"<div class='empty'>No projects yet</div>"
+return
+}
+
+let html=""
+
+list.slice().reverse().forEach((p,index)=>{
 
 html += `
 <div class="card" onclick="openProject('${p.prompt.replace(/'/g,"")}')">
+
+<div class="actions">
+<button class="btn" onclick="event.stopPropagation();rename(${index})">Rename</button>
+<button class="btn" onclick="event.stopPropagation();remove(${index})">Delete</button>
+</div>
+
 <div class="title">${p.name}</div>
 <div>${p.prompt}</div>
 <div class="date">${p.date}</div>
+
 </div>
 `
-
 })
 
 document.getElementById("projects").innerHTML = html
 
+}
+
+/* OPEN */
 
 function openProject(prompt){
 localStorage.setItem("open_project", prompt)
-window.location.href = "builder.html"
+window.location.href="builder.html"
+}
+
+/* DELETE */
+
+function remove(i){
+
+if(!confirm("Delete project?")) return
+
+list.splice(list.length-1-i,1)
+
+localStorage.setItem("projects", JSON.stringify(list))
+
+render()
+
+}
+
+/* RENAME */
+
+function rename(i){
+
+let name = prompt("New project name")
+
+if(!name) return
+
+list[list.length-1-i].name = name
+
+localStorage.setItem("projects", JSON.stringify(list))
+
+render()
+
 }
 
 </script>
