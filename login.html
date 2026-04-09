@@ -66,32 +66,34 @@ cursor:pointer;
 </div>
 
 <script>
-
 function login(){
 
 let email=document.getElementById("email").value
-let password=document.getElementById("password").value
 
-let user=JSON.parse(localStorage.getItem("user"))
-
-if(!user){
-alert("Create account first")
+if(email==""){
+alert("Enter email")
 return
 }
 
-if(user.email==email && user.password==password){
-
-localStorage.setItem("loggedIn","true")
+/* SAVE LOGIN */
+localStorage.setItem("user", JSON.stringify({
+email: email,
+logged: true
+}))
 
 window.location.href="builder.html"
-
-}else{
-alert("Wrong login")
 }
 
-}
+function social(){
 
+/* GOOGLE LOGIN SIMULATION */
+localStorage.setItem("user", JSON.stringify({
+email:"google_user",
+logged:true
+}))
+
+window.location.href="builder.html"
+}
 </script>
-
 </body>
 </html>
