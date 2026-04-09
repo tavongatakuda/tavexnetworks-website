@@ -255,9 +255,18 @@ projects.slice().reverse().forEach((p,i)=>{
 let index = projects.length-1-i
 
 html += `
-<div class="project" onclick="openProject(${index})">
+<div class="project">
+
+<div onclick="openProject(${index})">
 <div class="pname">${p.name}</div>
 <div class="pprompt">${p.prompt}</div>
+</div>
+
+<div onclick="deleteProject(${index})"
+style="margin-top:6px;font-size:11px;opacity:.5;">
+Delete
+</div>
+
 </div>
 `
 
@@ -281,6 +290,22 @@ document.getElementById("prompt").value = p.prompt
 document.getElementById("projectTitle").innerText = p.name
 
 build(p.prompt)
+
+}
+
+function deleteProject(index){
+
+projects.splice(index,1)
+
+localStorage.setItem(
+"projects",
+JSON.stringify(projects)
+)
+
+renderProjects()
+
+document.getElementById("result").innerHTML=""
+document.getElementById("projectTitle").innerText="New Project"
 
 }
 
@@ -308,8 +333,6 @@ let brand = text.split(" ")[0]
 
 document.getElementById("projectTitle").innerText = brand
 
-let projects = JSON.parse(localStorage.getItem("projects")) || []
-
 projects.push({
 name:brand,
 prompt:text,
@@ -334,4 +357,4 @@ document.getElementById("result").innerHTML = `
 </script>
 
 </body>
-  </html>
+</html>
