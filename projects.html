@@ -5,12 +5,15 @@
 <title>Tarvex Projects</title>
 
 <style>
+
 body{
 font-family:Arial;
 background:linear-gradient(180deg,#031914,#02110d);
 color:white;
 padding:20px;
 }
+
+/* HEADER */
 
 .header{
 display:flex;
@@ -19,12 +22,14 @@ align-items:center;
 margin-bottom:20px;
 }
 
+/* CARD */
+
 .card{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(0,255,174,0.2);
 padding:20px;
 border-radius:14px;
-margin-bottom:10px;
+margin-bottom:12px;
 cursor:pointer;
 transition:.2s;
 position:relative;
@@ -32,6 +37,7 @@ position:relative;
 
 .card:hover{
 background:rgba(0,255,174,0.08);
+transform:translateY(-2px);
 }
 
 .title{
@@ -39,11 +45,18 @@ font-size:18px;
 color:#00ffae;
 }
 
-.date{
-opacity:.6;
-font-size:12px;
-margin-top:5px;
+.prompt{
+opacity:.8;
+margin-top:4px;
 }
+
+.date{
+opacity:.5;
+font-size:12px;
+margin-top:6px;
+}
+
+/* ACTIONS */
 
 .actions{
 position:absolute;
@@ -57,7 +70,7 @@ gap:8px;
 background:rgba(0,255,174,0.15);
 border:none;
 color:white;
-padding:5px 8px;
+padding:5px 10px;
 border-radius:6px;
 cursor:pointer;
 font-size:12px;
@@ -68,11 +81,15 @@ background:#00ffae;
 color:black;
 }
 
+/* EMPTY */
+
 .empty{
-opacity:.5;
 text-align:center;
-margin-top:40px;
+opacity:.4;
+margin-top:60px;
+font-size:14px;
 }
+
 </style>
 </head>
 
@@ -86,13 +103,13 @@ margin-top:40px;
 
 <script>
 
-let list = JSON.parse(localStorage.getItem("projects")) || []
+let projects = JSON.parse(localStorage.getItem("projects")) || []
 
 render()
 
 function render(){
 
-if(list.length==0){
+if(projects.length === 0){
 document.getElementById("projects").innerHTML =
 "<div class='empty'>No projects yet</div>"
 return
@@ -100,18 +117,20 @@ return
 
 let html=""
 
-list.slice().reverse().forEach((p,index)=>{
+projects.slice().reverse().forEach((p,i)=>{
+
+let index = projects.length - 1 - i
 
 html += `
-<div class="card" onclick="openProject('${p.prompt.replace(/'/g,"")}')">
+<div class="card" onclick="openProject(${index})">
 
 <div class="actions">
-<button class="btn" onclick="event.stopPropagation();rename(${index})">Rename</button>
-<button class="btn" onclick="event.stopPropagation();remove(${index})">Delete</button>
+<button class="btn" onclick="event.stopPropagation();renameProject(${index})">Rename</button>
+<button class="btn" onclick="event.stopPropagation();deleteProject(${index})">Delete</button>
 </div>
 
 <div class="title">${p.name}</div>
-<div>${p.prompt}</div>
+<div class="prompt">${p.prompt}</div>
 <div class="date">${p.date}</div>
 
 </div>
@@ -122,22 +141,27 @@ document.getElementById("projects").innerHTML = html
 
 }
 
-/* OPEN */
+/* OPEN PROJECT */
 
-function openProject(prompt){
-localStorage.setItem("open_project", prompt)
-window.location.href="builder.html"
+function openProject(index){
+
+let project = projects[index]
+
+localStorage.setItem("open_project", project.prompt)
+
+window.location.href = "builder.html"
+
 }
 
 /* DELETE */
 
-function remove(i){
+function deleteProject(index){
 
 if(!confirm("Delete project?")) return
 
-list.splice(list.length-1-i,1)
+projects.splice(index,1)
 
-localStorage.setItem("projects", JSON.stringify(list))
+localStorage.setItem("projects", JSON.stringify(projects))
 
 render()
 
@@ -145,15 +169,15 @@ render()
 
 /* RENAME */
 
-function rename(i){
+function renameProject(index){
 
-let name = prompt("New project name")
+let newName = prompt("New project name")
 
-if(!name) return
+if(!newName) return
 
-list[list.length-1-i].name = name
+projects[index].name = newName
 
-localStorage.setItem("projects", JSON.stringify(list))
+localStorage.setItem("projects", JSON.stringify(projects))
 
 render()
 
