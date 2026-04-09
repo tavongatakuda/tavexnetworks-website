@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarvex AI Builder</title>
+<title>Tarvex Workspace</title>
 
 <style>
 
@@ -14,49 +14,87 @@ font-family:Arial;
 }
 
 body{
-background:
-radial-gradient(circle at 20% 20%, #00ffae22 0%, transparent 40%),
-radial-gradient(circle at 80% 70%, #00ffae22 0%, transparent 40%),
-linear-gradient(180deg,#031914,#02110d);
+background:#031914;
 color:white;
-min-height:100vh;
+height:100vh;
+overflow:hidden;
 }
 
-.nav{
+/* LAYOUT */
+
+.app{
 display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+background:#02110d;
+border-right:1px solid rgba(255,255,255,0.05);
+padding:15px;
+overflow:auto;
 }
 
 .logo{
 font-weight:bold;
-font-size:20px;
+font-size:18px;
+margin-bottom:15px;
 }
+
+.new{
+background:#00ffae;
+color:black;
+padding:10px;
+border:none;
+width:100%;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.project{
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:5px;
+background:rgba(255,255,255,0.03);
+}
+
+.project:hover{
+background:rgba(0,255,174,0.1);
+}
+
+.pname{
+color:#00ffae;
+font-size:14px;
+}
+
+.pprompt{
+opacity:.5;
+font-size:12px;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
+overflow:auto;
+}
+
+/* BUILDER */
 
 .hero{
-padding:30px 20px;
-}
-
-.hero h1{
-font-size:30px;
-margin-bottom:10px;
-background: linear-gradient(90deg,#00ffae,#ffffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-opacity:.7;
+padding:30px;
 }
 
 .box{
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(0,255,174,0.2);
-backdrop-filter:blur(20px);
 padding:20px;
-border-radius:20px;
-margin-top:20px;
+border-radius:16px;
+margin-top:15px;
 }
 
 textarea{
@@ -65,37 +103,15 @@ height:120px;
 background:transparent;
 border:none;
 color:white;
-font-size:16px;
 outline:none;
 }
 
-.row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:15px;
-}
-
 .send{
-background:linear-gradient(90deg,#00ffae,#00c896);
+background:#00ffae;
 border:none;
-width:55px;
-height:55px;
-border-radius:15px;
-cursor:pointer;
-}
-
-.tags{
-margin-top:15px;
-}
-
-.tag{
-background:rgba(0,255,174,0.08);
-border:1px solid rgba(0,255,174,0.2);
-padding:8px 14px;
-border-radius:20px;
-display:inline-block;
-margin:4px;
+width:50px;
+height:50px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -108,7 +124,6 @@ background:white;
 color:black;
 padding:20px;
 border-radius:12px;
-margin-top:10px;
 }
 
 </style>
@@ -116,32 +131,39 @@ margin-top:10px;
 
 <body>
 
-<div class="nav">
+<div class="app">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
 <div class="logo">Tarvex</div>
-<a href="projects.html" style="color:white;text-decoration:none">Projects</a>
+
+<button class="new" onclick="newProject()">
++ New Project
+</button>
+
+<div id="projectList"></div>
+
 </div>
+
+<!-- MAIN -->
+
+<div class="main">
 
 <div class="hero">
 
-<h1>Hi, What will you build next?</h1>
-<p>Describe your app idea and Tarvex will generate it</p>
+<h2>What will you build?</h2>
 
 <div class="box">
 
-<textarea id="prompt" placeholder="Describe the app you want to create..."></textarea>
+<textarea id="prompt"></textarea>
 
-<div class="row">
-<div>Plan</div>
-<button class="send" onclick="generate()">→</button>
-</div>
+<br><br>
 
-<div class="tags">
-<span class="tag" onclick="fill('CRM system for managing customers')">CRM</span>
-<span class="tag" onclick="fill('Productivity app for tasks')">Productivity</span>
-<span class="tag" onclick="fill('Entertainment streaming platform')">Entertainment</span>
-<span class="tag" onclick="fill('Educational learning platform')">Educational</span>
-<span class="tag" onclick="fill('Finance tracker app')">Finance</span>
-</div>
+<button class="send" onclick="generate()">
+→
+</button>
 
 </div>
 
@@ -149,109 +171,62 @@ margin-top:10px;
 
 <div id="result" class="result"></div>
 
-
-<!-- LOGIN MODAL -->
-
-<div id="loginModal" style="
-position:fixed;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.6);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-">
-
-<div style="
-background:white;
-color:black;
-padding:25px;
-border-radius:16px;
-width:90%;
-max-width:350px;
-">
-
-<h2>Welcome to Tarvex</h2>
-
-<button style="
-width:100%;
-padding:12px;
-background:#00ffae;
-border:none;
-border-radius:10px;
-margin-top:10px;
-">
-Login with Google
-</button>
-
-<div style="text-align:center;margin:10px 0;">OR</div>
-
-<input id="email" placeholder="Enter your email"
-style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd">
-
-<button onclick="continueLogin()"
-style="
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#00ffae;
-border:none;
-border-radius:10px;
-">
-Continue
-</button>
-
-<p style="text-align:center;margin-top:10px">
-Don't have account? <a href="signup.html">Sign up</a>
-</p>
-
 </div>
+
 </div>
 
 <script>
 
-let pendingText = ""
+let projects = JSON.parse(localStorage.getItem("projects")) || []
 
-/* OPEN PROJECT */
+renderProjects()
 
-let open = localStorage.getItem("open_project")
+function renderProjects(){
 
-if(open){
-document.getElementById("prompt").value = open
-localStorage.removeItem("open_project")
+let html=""
 
-setTimeout(()=>{
-build(open)
-},300)
+projects.slice().reverse().forEach((p,i)=>{
+
+let index = projects.length-1-i
+
+html += `
+<div class="project" onclick="openProject(${index})">
+<div class="pname">${p.name}</div>
+<div class="pprompt">${p.prompt}</div>
+</div>
+`
+
+})
+
+document.getElementById("projectList").innerHTML = html
+
 }
 
-/* TAG FILL */
-
-function fill(text){
-document.getElementById("prompt").value = text
-document.getElementById("prompt").focus()
+function newProject(){
+document.getElementById("prompt").value=""
 }
 
-/* GENERATE */
+function openProject(index){
+
+let p = projects[index]
+
+document.getElementById("prompt").value = p.prompt
+
+build(p.prompt)
+
+}
 
 function generate(){
 
-let input = document.getElementById("prompt")
-let text = input.value
+let text = document.getElementById("prompt").value
 
-if(text.trim()==""){
-alert("Describe your idea")
-return
-}
+if(!text) return
 
 let user = localStorage.getItem("user")
 
 if(!user){
-pendingText = text
-document.getElementById("loginModal").style.display="flex"
+alert("Login first")
+window.location.href="login.html"
 return
 }
 
@@ -259,112 +234,29 @@ build(text)
 
 }
 
-/* LOGIN */
-
-function continueLogin(){
-
-let email=document.getElementById("email").value
-
-if(email==""){
-alert("Enter email")
-return
-}
-
-localStorage.setItem("user", JSON.stringify({
-email:email
-}))
-
-document.getElementById("loginModal").style.display="none"
-
-build(pendingText)
-
-}
-
-/* BUILD */
-
 function build(text){
 
 let brand=text.split(" ")[0]
-brand=brand.charAt(0).toUpperCase()+brand.slice(1)
-
-/* SAVE PROJECT */
 
 let projects = JSON.parse(localStorage.getItem("projects")) || []
 
 projects.push({
-name: brand,
-prompt: text,
-date: new Date().toLocaleString()
+name:brand,
+prompt:text,
+date:new Date().toLocaleString()
 })
 
-localStorage.setItem("projects", JSON.stringify(projects))
+localStorage.setItem("projects",JSON.stringify(projects))
 
-/* SITE */
+renderProjects()
 
 let site = `
-
-<div style="font-family:Arial">
-
-<div style="
-background:#031914;
-color:white;
-padding:15px;
-display:flex;
-justify-content:space-between">
-
-<div>${brand}</div>
-<div>Home | About | Services | Contact</div>
-
-</div>
-
-<div style="padding:40px;text-align:center">
-
 <h2>${text}</h2>
-<p>Powered by Tarvex AI builder</p>
-
-<button style="
-padding:12px 20px;
-background:#00ffae;
-border:none;
-border-radius:8px">
-Get Started
-</button>
-
-</div>
-
-<div style="padding:30px">
-<h3>About</h3>
-<p>${brand} is a modern platform created with Tarvex AI.</p>
-</div>
-
-<div style="padding:30px">
-<h3>Services</h3>
-<ul>
-<li>Website design</li>
-<li>AI tools</li>
-<li>Hosting</li>
-<li>Domains</li>
-</ul>
-</div>
-
-<div style="
-background:#031914;
-color:white;
-padding:20px;
-text-align:center">
-
-${brand} © Tarvex
-
-</div>
-
-</div>
+<p>Website generated by Tarvex</p>
 `
 
 document.getElementById("result").innerHTML = `
-<h3>Website Preview</h3>
-<div class="preview">
-${site}
-</div>
+<div class="preview">${site}</div>
 `
 
 }
@@ -372,4 +264,4 @@ ${site}
 </script>
 
 </body>
-</html>
+  </html>
